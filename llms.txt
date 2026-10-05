@@ -1,0 +1,15 @@
+# Maximum Studio
+
+> Web studio: websites and B2B services, interface and mobile app design, CRM development and website support. Led by Maximilian Antipenko, Senior Product Designer (10 years of experience, 100+ digital products).
+
+## Pages
+- [Home (Russian)](https://maximillliano.github.io/maximum-site/): services, how we work, portfolio, reviews, contacts
+- [Home (English)](https://maximillliano.github.io/maximum-site/en/): the same content in English
+- [Privacy policy (EN)](https://maximillliano.github.io/maximum-site/en/privacy-policy/)
+
+## Key facts
+- 150+ projects, 20+ specialists, 10+ years of experience
+- Services: website and B2B service development, mobile app design, website support, CRM development
+- Industries: SaaS, EdTech, E-commerce, Travel & Booking, Gaming, Retail, Web3, mobile
+- Process: Product Discovery, UX/UI, Interaction Design, prototyping, usability testing, product analytics, Design Systems
+- Contact: Maximilian.Antipenko@gmail.com, +375 25 792-24-11, Telegram @maximilian_courses

@@ -1,0 +1,19 @@
+/* ============================================================
+   ШРИФТЫ — единственное место, где меняется гарнитура сайта.
+   Меняйте только значения переменных ниже (и подключение шрифта).
+   ============================================================ */
+:root{
+  --font-main:'Raleway',Arial,sans-serif;                 /* заголовки, меню, кнопки (гайд: Raleway) */
+  --font-text:'Roboto',Arial,sans-serif;                  /* текст статей блога */
+  --font-ui:'Helvetica Neue',Helvetica,Arial,sans-serif;  /* телефон, кнопка ЗАКАЗАТЬ, рейтинг */
+  --font-num:'Sansation','Raleway',Arial,sans-serif;      /* большие цифры 150+ / 20+ / 10+ */
+  --font-logo:'Montserrat','Raleway',Arial,sans-serif;    /* логотип */
+  --fw-light:300;--fw-regular:400;--fw-medium:500;--fw-semibold:600;
+}
+/* Самостоятельный хостинг шрифтов (рекомендуется: быстрее, без передачи данных в Google):
+   1) положите .woff2 в /fonts  2) раскомментируйте  3) удалите <link> Google Fonts в HTML
+@font-face{font-family:'Raleway';font-weight:300;font-display:swap;src:url(../fonts/Raleway-Light.woff2) format('woff2')}
+@font-face{font-family:'Raleway';font-weight:400;font-display:swap;src:url(../fonts/Raleway-Regular.woff2) format('woff2')}
+@font-face{font-family:'Raleway';font-weight:500;font-display:swap;src:url(../fonts/Raleway-Medium.woff2) format('woff2')}
+@font-face{font-family:'Raleway';font-weight:600;font-display:swap;src:url(../fonts/Raleway-SemiBold.woff2) format('woff2')}
+*/
