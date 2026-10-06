@@ -3,9 +3,9 @@
 > Web studio: websites and B2B services, interface and mobile app design, CRM development and website support. Led by Maximilian Antipenko, Senior Product Designer (10 years of experience, 100+ digital products).
 
 ## Pages
-- [Home (Russian)](https://maximillliano.github.io/maximum-site/): services, how we work, portfolio, reviews, contacts
-- [Home (English)](https://maximillliano.github.io/maximum-site/en/): the same content in English
-- [Privacy policy (EN)](https://maximillliano.github.io/maximum-site/en/privacy-policy/)
+- [Home (Russian)](https://maximillliano.github.io/maximum/): services, how we work, portfolio, reviews, contacts
+- [Home (English)](https://maximillliano.github.io/maximum/en/): the same content in English
+- [Privacy policy (EN)](https://maximillliano.github.io/maximum/en/privacy-policy/)
 
 ## Key facts
 - 150+ projects, 20+ specialists, 10+ years of experience

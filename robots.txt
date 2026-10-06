@@ -38,4 +38,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://maximillliano.github.io/maximum-site/sitemap.xml
+Sitemap: https://maximillliano.github.io/maximum/sitemap.xml
