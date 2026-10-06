@@ -63,7 +63,7 @@ form.addEventListener('submit',function(e){e.preventDefault();ferr.classList.rem
   b1=bad(form.name,name.length<2),b2=bad(sel,!d.get('service')),b3=bad(form.phone,!/^\+?[\d\s()\-]{7,}$/.test(phone)||phone.replace(/\D/g,'').length<7),b4=bad(form.agree,!form.agree.checked);
  if(b1||b2||b3||b4){var f=$('.err input,.err .sel-btn',form);if(f)f.focus();return}
  if(d.get('website'))return;                      /* honeypot: боты заполняют скрытое поле */
- var payload={name:name,phone:phone,service:d.get('service'),lang:lang,page:location.href,time:new Date().toISOString()};
+ var payload={_subject:'Новая заявка с сайта Maximum Studio',name:name,phone:phone,service:d.get('service'),lang:lang,page:location.href,time:new Date().toISOString()};
  var btn=$('.btn-send',form),ep=form.dataset.endpoint;btn.disabled=true;
  function done(){btn.disabled=false;form.reset();sv2.textContent=ru0;sv2.classList.add('ph');modalOpen();window.confetti&&window.confetti()}
  if(!ep){console.warn('[form] data-endpoint не задан — демо-режим, заявка НЕ отправлена:',payload);setTimeout(done,400);return}
