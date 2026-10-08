@@ -78,7 +78,7 @@ function ckSet(v){store.set('cookies',v);ck.classList.remove('show');document.di
 $('#ck-yes').addEventListener('click',function(){ckSet('accepted')});$('#ck-no').addEventListener('click',function(){ckSet('refused')});
 /* Подключайте счётчики (Метрика/GA) только после: document.addEventListener('cookies:accepted',...) */
 
-$$('img').forEach(function(i){function hide(){i.style.opacity=0;var f=i.closest('.fo-photo');if(f)f.parentNode.classList.add('no-photo')}if(i.complete&&!i.naturalWidth)hide();i.addEventListener('error',hide)});
+$$('img').forEach(function(i){function hide(){i.style.opacity=0;var f=i.closest('.fo-photo');if(f)f.closest('.founder').classList.add('no-photo');var hh=i.closest('.heroimg');if(hh)hh.classList.add('nph')}if(i.complete&&!i.naturalWidth)hide();i.addEventListener('error',hide)});
 $('#year').textContent=new Date().getFullYear();
 /* прогресс прокрутки */
 var prog=$('#prog');function onScroll(){var m=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(m>0?scrollY/m:0)+')'}
@@ -88,10 +88,6 @@ if(fine&&!calm){
  var sp=document.createElement('div');sp.className='spot';document.body.appendChild(sp);var tx=0,ty=0,cx=0,cy=0;
  addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;sp.classList.add('on')});document.addEventListener('mouseleave',function(){sp.classList.remove('on')});
  (function loop(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;sp.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(loop)})();
- /* параллакс фонового фото в hero */
- var hi=$('.heroimg'),hx=0,hy=0,hcx=0,hcy=0;
- if(hi){addEventListener('mousemove',function(e){hx=(e.clientX/innerWidth-.5)*-44;hy=(e.clientY/innerHeight-.5)*-32});
-  (function hl(){if(scrollY<innerHeight*1.3){hcx+=(hx-hcx)*.07;hcy+=(hy-hcy)*.07;hi.style.setProperty('--px',hcx.toFixed(2)+'px');hi.style.setProperty('--py',hcy.toFixed(2)+'px')}requestAnimationFrame(hl)})()}
  /* магнитные кнопки */
  $$('.btn-lg,.btn-send,.nav .btn').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)'});b.addEventListener('mouseleave',function(){b.style.transform=''})});
  /* 3D-наклон карточек портфолио */
