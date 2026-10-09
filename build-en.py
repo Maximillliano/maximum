@@ -19,7 +19,7 @@ def tr(m):
     return m.group(1)+esc(EN[key])+m.group(5)
 ATTR={'Основное меню':'Main menu','Меню':'Menu','Закрыть':'Close','Максимилиан Антипенко':'Maximilian Antipenko','Разработка сайтов и b2b-сервисов':'Website and B2B service development','Лендинги и интернет-магазины':'Landing pages and online stores','Дизайн мобильных приложений':'Mobile app design','Техподдержка сайтов':'Website support','Разработка CRM':'CRM development','CRM-система':'CRM system','Проект GreenLife':'GreenLife project','Проект':'Project','Мифы о веб-разработке':'Myths about web development','Тренды веб-дизайна':'Web design trends','Языки программирования':'Programming languages'}
 def attrs(s):
-    return re.sub(r'\b(alt|aria-label)="([^"]*)"',lambda m:f'{m.group(1)}="{ATTR.get(m.group(2),m.group(2))}"',s)
+    return re.sub(r'\b(alt|aria-label)="([^"]*)"',lambda m:f'{m.group(1)}="{html.escape(ATTR.get(m.group(2),RU2EN.get(html.unescape(m.group(2)),m.group(2))))}"',s)
 def page_meta(s,url,title,desc,ogt,ogd):
     s=s.replace('<html lang="ru">','<html lang="en">')
     s=re.sub(r'<title>.*?</title>',lambda m:f'<title>{esc(title)}</title>',s,flags=re.S)

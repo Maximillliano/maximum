@@ -79,6 +79,8 @@ $('#ck-yes').addEventListener('click',function(){ckSet('accepted')});$('#ck-no')
 /* Подключайте счётчики (Метрика/GA) только после: document.addEventListener('cookies:accepted',...) */
 
 $$('img').forEach(function(i){function hide(){i.style.opacity=0;var f=i.closest('.fo-photo');if(f)f.closest('.founder').classList.add('no-photo');var hh=i.closest('.heroimg');if(hh)hh.classList.add('nph')}if(i.complete&&!i.naturalWidth)hide();i.addEventListener('error',hide)});
+/* обложки Behance: сначала лёгкая версия, затем подмена на крупную, если она доступна */
+$$('img[data-hi]').forEach(function(i){var t=new Image();t.referrerPolicy='no-referrer';t.onload=function(){i.src=i.dataset.hi};t.src=i.dataset.hi});
 $('#year').textContent=new Date().getFullYear();
 /* прогресс прокрутки */
 var prog=$('#prog');function onScroll(){var m=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(m>0?scrollY/m:0)+')'}
