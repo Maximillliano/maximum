@@ -78,7 +78,7 @@ function ckSet(v){store.set('cookies',v);ck.classList.remove('show');document.di
 $('#ck-yes').addEventListener('click',function(){ckSet('accepted')});$('#ck-no').addEventListener('click',function(){ckSet('refused')});
 /* Подключайте счётчики (Метрика/GA) только после: document.addEventListener('cookies:accepted',...) */
 
-$$('img').forEach(function(i){function hide(){i.style.opacity=0;var f=i.closest('.fo-photo');if(f)f.closest('.founder').classList.add('no-photo');var hh=i.closest('.heroimg');if(hh)hh.classList.add('nph')}if(i.complete&&!i.naturalWidth)hide();i.addEventListener('error',hide)});
+$$('img').forEach(function(i){function hide(){i.style.opacity=0;var f=i.closest('.fo-photo');if(f)f.closest('.founder').classList.add('no-photo');}if(i.complete&&!i.naturalWidth)hide();i.addEventListener('error',hide)});
 /* обложки Behance: сначала лёгкая версия, затем подмена на крупную, если она доступна */
 $$('img[data-hi]').forEach(function(i){var t=new Image();t.referrerPolicy='no-referrer';t.onload=function(){i.src=i.dataset.hi};t.src=i.dataset.hi});
 $('#year').textContent=new Date().getFullYear();
@@ -90,6 +90,10 @@ if(fine&&!calm){
  var sp=document.createElement('div');sp.className='spot';document.body.appendChild(sp);var tx=0,ty=0,cx=0,cy=0;
  addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;sp.classList.add('on')});document.addEventListener('mouseleave',function(){sp.classList.remove('on')});
  (function loop(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;sp.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(loop)})();
+ /* параллакс картинки в hero */
+ var hi=$('.heroimg'),hx=0,hy=0,hcx=0,hcy=0;
+ if(hi){addEventListener('mousemove',function(e){hx=(e.clientX/innerWidth-.5)*-44;hy=(e.clientY/innerHeight-.5)*-32});
+  (function hl(){if(scrollY<innerHeight*1.3){hcx+=(hx-hcx)*.07;hcy+=(hy-hcy)*.07;hi.style.setProperty('--px',hcx.toFixed(2)+'px');hi.style.setProperty('--py',hcy.toFixed(2)+'px')}requestAnimationFrame(hl)})()}
  /* магнитные кнопки */
  $$('.btn-lg,.btn-send,.nav .btn').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)'});b.addEventListener('mouseleave',function(){b.style.transform=''})});
  /* 3D-наклон карточек портфолио */
@@ -106,5 +110,21 @@ function fitBig(){if(!big)return;big.style.fontSize='';var w=0,reserve=matchMedi
  var av=big.clientWidth;if(w>av){big.style.fontSize=(parseFloat(getComputedStyle(big).fontSize)*av/w*.97).toFixed(1)+'px'}}
 fitBig();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitBig);
 var ft;addEventListener('resize',function(){clearTimeout(ft);ft=setTimeout(fitBig,120)});addEventListener('load',fitBig);
+/* Instagram-лента: JSON из data-feed (Behold.so / свой файл / Instagram Graph API). Нет данных — остаются заглушки */
+(function(){var g=$('#ig-grid');if(!g||!window.fetch)return;var url=g.dataset.feed,max=+g.dataset.max||3;if(!url)return;
+ var root=lang==='en'?'../':'';var ok=function(u){return typeof u==='string'&&/^https:\/\//.test(u)};
+ function src(u){if(typeof u!=='string')return'';if(/^https:\/\//.test(u))return u;return(/^[\w\-.\/%]+$/.test(u)&&u.indexOf('..')<0&&u.charAt(0)!=='/')?root+u:''}
+ function norm(p){var s=p.sizes||{},img=p.thumbnailUrl||p.thumbnail_url||(s.medium&&s.medium.mediaUrl)||p.mediaUrl||p.media_url||p.image||'';
+  var t=(p.mediaType||p.media_type||'').toUpperCase();return{link:p.permalink||p.link||'',img:img,cap:(p.prunedCaption||p.caption||'').replace(/\s+/g,' ').trim(),ts:p.timestamp||p.date||'',type:t}}
+ fetch(url,{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+  var list=(Array.isArray(d)?d:(d.posts||d.data||[])).map(norm).map(function(p){p.img=src(p.img);return p}).filter(function(p){return p.img&&/^https:\/\/(www\.)?instagram\.com\//.test(p.link)}).slice(0,max);
+  if(!list.length)return;g.textContent='';
+  list.forEach(function(p){var a=document.createElement('a');a.className='ig-card';a.href=p.link;a.target='_blank';a.rel='noopener';
+   var im=document.createElement('img');im.src=p.img;im.alt=p.cap.slice(0,100)||'Instagram';im.loading='lazy';im.referrerPolicy='no-referrer';a.appendChild(im);
+   if(p.type==='VIDEO'||p.type==='CAROUSEL_ALBUM'){var t=document.createElement('span');t.className='ig-type';t.textContent=p.type==='VIDEO'?'▶':'❐';a.appendChild(t)}
+   var o=document.createElement('span');o.className='ig-o';
+   if(p.cap){var c=document.createElement('span');c.className='ig-cap';c.textContent=p.cap;o.appendChild(c)}
+   var dt=p.ts&&new Date(p.ts);if(dt&&!isNaN(dt)){var e=document.createElement('span');e.className='ig-d';e.textContent=dt.toLocaleDateString(lang==='en'?'en-US':'ru-RU',{day:'numeric',month:'long',year:'numeric'});o.appendChild(e)}
+   a.appendChild(o);g.appendChild(a)})}).catch(function(){})})();
 window.__mx=1;
 })();

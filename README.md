@@ -37,3 +37,24 @@ b1–b3.jpg, stats-hover.png (250×310), **founder.jpg** (портрет 4:5, �
 
 # Публикация на GitHub Pages
 См. ниже раздел в чате / GITHUB.md.
+
+---
+# Instagram-лента (вместо блога)
+Блок `#instagram` показывает до 3 последних постов из `@maximilian_designer`. Источник данных — адрес в атрибуте `data-feed` у `<div id="ig-grid">` в index.html (по умолчанию файл `data/instagram.json`).
+Пока данных нет — на месте постов карточки-заглушки со ссылкой на профиль. Подходят три источника, код понимает все форматы:
+1. **Behold.so (проще всего, бесплатный тариф):** войти через Instagram (аккаунт Business/Creator), создать ленту JSON, скопировать адрес вида https://feeds.behold.so/XXXX и вставить в `data-feed="…"` (в index.html), затем `python3 build-en.py` и загрузить `index.html` + `en/index.html`.
+2. **Вручную:** отредактировать `data/instagram.json` (поля permalink, mediaUrl или thumbnailUrl, caption, timestamp; картинки — https-ссылки, ссылки на посты — instagram.com).
+3. **Свой сервер/GitHub Action с Instagram API:** формат ответа Graph API (data[].media_url, permalink, caption, timestamp) читается без изменений.
+Показываются только https-картинки и ссылки на instagram.com.
+
+# Размеры картинок для дизайна (px, готовый файл)
+hero.jpg/png 1100×1200 (наклонная картинка, поля по краям) · web-1 840×1200 · web-2 700×700 · mobile 840×1000 · support 840×658 · crm-1/crm-2 1000×490 ·
+t1–t3 логотипы PNG прозрачный фон 430×130 · stats-hover 500×620 · founder 800×800 (лицо в верхней половине) · og-cover 1200×630 · посты Instagram 1080×1350 (4:5).
+Обложки портфолио берутся с Behance. Каждый файл — 150–300 КБ (hero до 400 КБ).
+
+## Instagram вручную: что делать после каждого нового поста
+1. Сохраните картинку поста как `post-ГГГГ-ММ-ДД.jpg` (1080×1350, 150–300 КБ) и загрузите в репозиторий в папку `img/ig/` (Add file → Upload files).
+2. В Instagram у поста: ⋯ → «Копировать ссылку».
+3. Откройте на компьютере `tools/ig-helper.html` (двойной клик), заполните до 3 последних постов, нажмите «Сформировать» и «Копировать».
+4. В репозитории откройте `data/instagram.json` → ✏️ → удалите всё, вставьте скопированное → Commit changes. Пример формата — `data/instagram.example.json`.
+Через 1–2 минуты (Ctrl+F5) на сайте покажутся новые посты на обеих языковых версиях.

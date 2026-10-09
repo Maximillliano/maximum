@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Помощник: лента Instagram</title>
+<style>body{font:16px/1.5 Arial,sans-serif;background:#000;color:#fff;max-width:880px;margin:0 auto;padding:24px}h1{font-weight:500}fieldset{border:1px solid #252525;border-radius:10px;margin:0 0 16px;padding:16px}legend{color:#ffda66}
+label{display:block;margin:8px 0 2px;font-size:14px;color:#cfcfcf}input{width:100%;box-sizing:border-box;background:#252525;border:0;border-radius:8px;color:#fff;padding:10px;font-size:15px}
+button{background:#ffda66;border:0;border-radius:30px;padding:12px 28px;font-size:18px;cursor:pointer;margin-right:8px}button:hover{background:#fff}textarea{width:100%;box-sizing:border-box;height:260px;background:#111;color:#9f9;border:1px solid #252525;border-radius:10px;padding:12px;font:14px/1.4 monospace}
+.hint{color:#9a9a9a;font-size:14px}</style></head><body>
+<h1>Лента Instagram: сформировать data/instagram.json</h1>
+<p class="hint">Заполните до 3 последних постов (новые сверху), нажмите «Сформировать», скопируйте результат и вставьте в файл <b>data/instagram.json</b> на GitHub. Файл картинки загрузите в <b>img/ig/</b>.</p>
+<div id="f"></div><button id="go">Сформировать</button><button id="cp">Копировать</button>
+<p></p><textarea id="out" readonly placeholder="Здесь появится готовый JSON"></textarea>
+<script>
+var f=document.getElementById('f');
+for(var i=1;i<=3;i++)f.insertAdjacentHTML('beforeend','<fieldset><legend>Пост '+i+'</legend><label>Ссылка на пост (Instagram → ⋯ → Копировать ссылку)</label><input class="l" placeholder="https://www.instagram.com/p/…/"><label>Имя файла картинки в img/ig/</label><input class="m" placeholder="post-2026-10-01.jpg"><label>Подпись (до ~150 знаков)</label><input class="c" maxlength="200"><label>Дата</label><input class="d" type="date"></fieldset>');
+document.getElementById('go').onclick=function(){var P=[];document.querySelectorAll('fieldset').forEach(function(s){var l=s.querySelector('.l').value.trim(),m=s.querySelector('.m').value.trim();if(!l||!m)return;P.push({permalink:l,image:'img/ig/'+m.replace(/^.*[\\/]/,''),caption:s.querySelector('.c').value.trim(),timestamp:s.querySelector('.d').value||new Date().toISOString().slice(0,10)})});document.getElementById('out').value=JSON.stringify({posts:P},null,2)};
+document.getElementById('cp').onclick=function(){var o=document.getElementById('out');o.select();document.execCommand('copy')};
+</script></body></html>
