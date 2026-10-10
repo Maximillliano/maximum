@@ -36,10 +36,11 @@ s=DT.sub(tr,ru)
 s=page_meta(s,base+'/en/',EN['meta_title'],EN['meta_desc'],EN['og_title'],EN['og_desc'])
 s=attrs(s)
 for a,b in [('href="css/','href="../css/'),('src="js/','src="../js/'),('src="img/','src="../img/'),('href="img/','href="../img/'),('data-img="img/','data-img="../img/'),('href="site.webmanifest"','href="../site.webmanifest"')]: s=s.replace(a,b)
+s=s.replace('data-feed="data/','data-feed="../data/')
 s=s.replace('<span class="lang-v">RU</span>','<span class="lang-v">EN</span>')
 s=s.replace('<li role="none" class="on"><a role="option" href="./" hreflang="ru" lang="ru" aria-current="true">RU</a></li><li role="none"><a role="option" href="en/" hreflang="en" lang="en">EN</a></li>',
             '<li role="none"><a role="option" href="../" hreflang="ru" lang="ru">RU</a></li><li role="none" class="on"><a role="option" href="./" hreflang="en" lang="en" aria-current="true">EN</a></li>')
-s=s.replace('<span>ИП Антипенко Максимилиан Юрьевич</span>',f'<span>{esc(EN["foot_owner"])}</span>')
+
 def ld(m):
     t=m.group(0)
     t=t.replace('Веб-студия Maximum: разработка сайтов и b2b-сервисов, дизайн интерфейсов и мобильных приложений, CRM, техподдержка. 150+ проектов, 10+ лет опыта.',EN['meta_desc'])

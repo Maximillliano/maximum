@@ -5,8 +5,8 @@
 :root{
   --font-main:'Raleway',Arial,sans-serif;                 /* заголовки, меню, кнопки (гайд: Raleway) */
   --font-text:'Roboto',Arial,sans-serif;                  /* текст статей блога */
-  --font-ui:'Helvetica Neue',Helvetica,Arial,sans-serif;  /* телефон, кнопка ЗАКАЗАТЬ, рейтинг */
-  --font-num:'Sansation','Raleway',Arial,sans-serif;      /* большие цифры 150+ / 20+ / 10+ */
+  --font-ui:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;  /* телефон, кнопка ЗАКАЗАТЬ, рейтинг (Helvetica Neue Light из макета есть не везде, поэтому Inter) */
+  --font-num:'Raleway',Arial,sans-serif;                   /* большие цифры 150+ / 20+ / 10+ */
   --font-logo:'Montserrat','Raleway',Arial,sans-serif;    /* логотип */
   --fw-light:300;--fw-regular:400;--fw-medium:500;--fw-semibold:600;
 }

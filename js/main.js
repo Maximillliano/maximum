@@ -99,7 +99,7 @@ if(fine&&!calm){
  /* 3D-наклон карточек портфолио */
  $$('.pc').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(900px) rotateY('+(x*8)+'deg) rotateX('+(-y*8)+'deg) scale(1.02)'});c.addEventListener('mouseleave',function(){c.style.transform=''})})}
 /* конфетти после успешной заявки */
-window.confetti=function(){if(calm)return;var cv=document.createElement('canvas');cv.className='confetti';cv.width=innerWidth;cv.height=innerHeight;document.body.appendChild(cv);var g=cv.getContext('2d'),col=['#ffda66','#fff','#ffda66','#ff5e8a','#5b3df5'],P=[];
+window.confetti=function(){if(calm)return;var cv=document.createElement('canvas');cv.className='confetti';cv.width=innerWidth;cv.height=innerHeight;document.body.appendChild(cv);var g=cv.getContext('2d'),col=['#ffda66','#fff','#ffda66','#ffe9a3','#ffc93a'],P=[];
  for(var i=0;i<120;i++)P.push({x:innerWidth/2,y:innerHeight*.45,vx:(Math.random()-.5)*16,vy:-Math.random()*14-4,s:4+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:col[i%5]});
  var t=0;(function f(){g.clearRect(0,0,cv.width,cv.height);P.forEach(function(p){p.vy+=.35;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;g.save();g.translate(p.x,p.y);g.rotate(p.r);g.fillStyle=p.c;g.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);g.restore()});
   if(++t<130)requestAnimationFrame(f);else cv.remove()})()};
@@ -126,5 +126,6 @@ var ft;addEventListener('resize',function(){clearTimeout(ft);ft=setTimeout(fitBi
    if(p.cap){var c=document.createElement('span');c.className='ig-cap';c.textContent=p.cap;o.appendChild(c)}
    var dt=p.ts&&new Date(p.ts);if(dt&&!isNaN(dt)){var e=document.createElement('span');e.className='ig-d';e.textContent=dt.toLocaleDateString(lang==='en'?'en-US':'ru-RU',{day:'numeric',month:'long',year:'numeric'});o.appendChild(e)}
    a.appendChild(o);g.appendChild(a)})}).catch(function(){})})();
+addEventListener('load',function(){$$('img[loading=lazy]').forEach(function(i){i.loading='eager'})});
 window.__mx=1;
 })();

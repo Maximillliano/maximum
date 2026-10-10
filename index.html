@@ -34,8 +34,9 @@
 </script>
 <!-- Шрифты: для своего хостинга см. css/fonts.css -->
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&family=Roboto:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@600&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&family=Roboto:wght@400&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.__mx)document.documentElement.classList.remove("js")},2500)</script>
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -45,13 +46,13 @@
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.6 8.2-1.9 8.9c-.1.6-.5.8-1 .5l-2.800-2.100-1.400 1.300c-.2.200-.3.300-.6.300l.2-2.900 5.300-4.800c.2-.2 0-.3-.4-.1l-6.500 4.100-2.800-.9c-.6-.2-.6-.6.100-.9l11-4.200c.5-.2 1 .1.800.9z"/></symbol>
- <symbol id="i-ig" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8 2h8a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V8a6 6 0 0 1 6-6zm4 5.200a4.800 4.800 0 1 0 0 9.600 4.800 4.800 0 0 0 0-9.600zm5.500-2.300a1.200 1.200 0 1 0 0 2.400 1.200 1.200 0 0 0 0-2.400zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></symbol>
+ <symbol id="i-ig" viewBox="-2.4 -2.4 28.8 28.8"><path fill-rule="evenodd" d="M8 2h8a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V8a6 6 0 0 1 6-6zm4 5.200a4.800 4.800 0 1 0 0 9.600 4.800 4.800 0 0 0 0-9.600zm5.500-2.300a1.200 1.200 0 1 0 0 2.400 1.200 1.200 0 0 0 0-2.400zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></symbol>
  <symbol id="i-vb" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 1.500C6 1.500 2.500 3.800 2.500 10c0 3.300 1 5.500 3 6.800V22l3.700-2.800c.9.200 1.800.3 2.800.3 6 0 9.500-2.300 9.500-8.500S18 1.500 12 1.500zm4.200 15c-.7.600-1.700.4-2.400.1-2.800-1.100-4.900-3.200-6-6-.3-.7-.5-1.700.1-2.400l.8-.8c.3-.3.800-.2 1.100.1l1 1.500c.2.300.1.800-.2 1l-.6.500c.8 1.500 1.900 2.700 3.400 3.400l.5-.5c.2-.3.700-.4 1-.2l1.500 1c.3.200.4.800.1 1.100z"/></symbol>
  <symbol id="i-arr" viewBox="0 0 34 33"><path d="M4 3l26 26M30 8v21H9" /></symbol>
 </svg>
 
 <header class="nav">
-  <a class="logo" href="#top" aria-label="Maximum Studio"><span class="m">M</span>AXIMUM<small data-i="logo">studio</small></a>
+  <a class="logo" href="#top" aria-label="Maximum Studio"><span class="m">M</span>AXIMUM</a>
   <nav class="links" aria-label="Основное меню">
     <a href="#services" data-i="n1">Услуги</a><a href="#portfolio" data-i="n2">Портфолио</a><a href="#reviews" data-i="n3">Отзывы</a><a href="#contacts" data-i="n4">Контакты</a>
   </nav>
@@ -65,7 +66,7 @@
 </header>
 
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Меню">
-  <div class="menu-top"><a class="logo" href="#top"><span class="m">M</span>AXIMUM<small>studio</small></a><button class="menu-x" id="menu-x" type="button" aria-label="Закрыть">×</button></div>
+  <div class="menu-top"><a class="logo" href="#top"><span class="m">M</span>AXIMUM</a><button class="menu-x" id="menu-x" type="button" aria-label="Закрыть">×</button></div>
   <nav><a href="#services" data-i="n1">Услуги</a><a href="#portfolio" data-i="n2">Портфолио</a><a href="#reviews" data-i="n3">Отзывы</a><a href="#contacts" data-i="n4">Контакты</a></nav>
   <div class="soc"><a href="https://t.me/maximilian_courses" aria-label="Telegram"><svg class="ic"><use href="#i-tg"/></svg></a><a href="https://www.instagram.com/maximilian_designer" aria-label="Instagram"><svg class="ic"><use href="#i-ig"/></svg></a><a href="viber://chat?number=%2B375257922411" aria-label="Viber"><svg class="ic"><use href="#i-vb"/></svg></a></div>
   <a class="tel" href="tel:+375257922411">+375 (25) 792-24-11</a>
@@ -76,7 +77,7 @@
 <main>
 <section class="hero" aria-label="Maximum Studio">
   <div class="glow g1"></div><div class="glow g2"></div>
-  <div class="heroimg"><img src="img/hero.png" alt="" aria-hidden="true"></div>
+  <div class="heroimg"><img src="img/hero.webp" fetchpriority="high" alt="" aria-hidden="true"></div>
   <div class="hl rv l">
     <h1><span data-i="h1a">Дизайн и</span> <br><span data-i="h1b">интерфейсы</span></h1>
     <p data-i="hp">Веб-студия Maximum предлагает профессиональные услуги по созданию сайтов, интернет-магазинов и мобильных приложений.</p>
@@ -114,6 +115,7 @@
   </div>
 </section>
 
+<div class="mx mx-top" aria-hidden="true"><div class="trk"><span>MAXIMUM STUDIO</span><span>MAXIMUM STUDIO</span><span>MAXIMUM STUDIO</span><span>MAXIMUM STUDIO</span></div></div>
 <section class="approach" id="approach" aria-labelledby="approach-h">
   <div class="ap-head">
     <h2 id="approach-h" class="rv" data-i="apH">Как мы работаем</h2>
@@ -139,14 +141,14 @@
   <h2 class="rv" style="font-size:clamp(36px,10.4vw,200px);line-height:1;text-align:right" data-i="pres">Представляет</h2>
   <!-- Тексты карточек: замените title/desc/ссылку на реальные проекты -->
   <div class="gal">
-    <a class="pc rv z" href="https://www.behance.net/gallery/245962553/Mobile-lawyer-app-Lawber" target="_blank" rel="noopener"><img src="img/p1.jpg" width="560" height="800" alt="Lawber — мобильное приложение для юристов" loading="lazy"><div class="ov"><div class="ov-top"><span>01</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p1t">Lawber — мобильное приложение для юристов</h3><p data-i="p1d">Дизайн мобильного приложения в юридической сфере.</p></div><div class="tags"><i data-i="p1g1">Mobile</i><i data-i="p1g2">UX/UI</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
-    <div class="lab rv"><span>NEW 2025</span></div>
-    <a class="pc rv z" style="--d:.15s" href="https://www.behance.net/gallery/247973737/Investartup-Startup-Investor-Platform-UXUI" target="_blank" rel="noopener"><img src="img/p2.jpg" width="560" height="800" alt="Investartup — платформа для стартапов и инвесторов" loading="lazy"><div class="ov"><div class="ov-top"><span>02</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p2t">Investartup — платформа для стартапов и инвесторов</h3><p data-i="p2d">UX/UI дизайн платформы, которая соединяет стартапы и инвесторов.</p></div><div class="tags"><i data-i="p2g1">Платформа</i><i data-i="p2g2">UX/UI</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
+    <a class="pc rv z" href="https://www.behance.net/gallery/245962553/Mobile-lawyer-app-Lawber" target="_blank" rel="noopener"><img src="img/p1.jpg" width="560" height="800" alt="Lawber — мобильное приложение для юристов" loading="lazy"><div class="ov"><div class="ov-top"><span>01</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p1t">Lawber — мобильное приложение для юристов</h3><p data-i="p1d">Дизайн мобильного приложения в юридической сфере.</p></div><div class="tags"><i class="t-mobile" data-i="p1g1">Mobile</i><i class="t-ux" data-i="p1g2">UX/UI</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
+    <div class="lab rv"><span>NEW 2026</span></div>
+    <a class="pc rv z" style="--d:.15s" href="https://www.behance.net/gallery/247973737/Investartup-Startup-Investor-Platform-UXUI" target="_blank" rel="noopener"><img src="img/p2.jpg" width="560" height="800" alt="Investartup — платформа для стартапов и инвесторов" loading="lazy"><div class="ov"><div class="ov-top"><span>02</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p2t">Investartup — платформа для стартапов и инвесторов</h3><p data-i="p2d">UX/UI дизайн платформы, которая соединяет стартапы и инвесторов.</p></div><div class="tags"><i class="t-web" data-i="p2g1">Платформа</i><i class="t-ux" data-i="p2g2">UX/UI</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
     <div class="lab l rv"><span data-i="best">Лучший дизайн</span></div>
-    <a class="pc rv z" href="https://www.behance.net/gallery/245962671/DateTechapp-Dating-Platform-UXUI-Design" target="_blank" rel="noopener"><img src="img/p3.jpg" width="560" height="800" alt="DateTechapp — платформа знакомств" loading="lazy"><div class="ov"><div class="ov-top"><span>03</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p3t">DateTechapp — платформа знакомств</h3><p data-i="p3d">UX/UI дизайн платформы для знакомств.</p></div><div class="tags"><i data-i="p3g1">Платформа</i><i data-i="p3g2">UX/UI</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
-    <a class="pc rv z" style="--d:.15s" href="https://www.behance.net/gallery/163321897/Flymath-Mobile-App-Kids-App" target="_blank" rel="noopener"><img src="img/p4.jpg" width="560" height="800" alt="Flymath — мобильное приложение для детей" loading="lazy"><div class="ov"><div class="ov-top"><span>04</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p4t">Flymath — мобильное приложение для детей</h3><p data-i="p4d">Дизайн интерфейса детского мобильного приложения.</p></div><div class="tags"><i data-i="p4g1">Mobile</i><i data-i="p4g2">Kids</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
-    <a class="pc rv z" href="https://www.behance.net/gallery/159916769/GoFanz-Metaverse-Mobile-App" target="_blank" rel="noopener"><img src="img/p5.jpg" width="560" height="800" alt="GoFanz — мобильное приложение для метавселенной" loading="lazy"><div class="ov"><div class="ov-top"><span>05</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p5t">GoFanz — мобильное приложение для метавселенной</h3><p data-i="p5d">Дизайн мобильного приложения в формате метавселенной.</p></div><div class="tags"><i data-i="p5g1">Mobile</i><i data-i="p5g2">UX/UI</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
-    <a class="pc rv z" style="--d:.15s" href="https://www.behance.net/gallery/217824429/Website-Media-Marketing" target="_blank" rel="noopener"><img src="img/p6.jpg" width="560" height="800" alt="Media Marketing — сайт" loading="lazy"><div class="ov"><div class="ov-top"><span>06</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p6t">Media Marketing — сайт</h3><p data-i="p6d">Дизайн сайта в сфере медиамаркетинга.</p></div><div class="tags"><i data-i="p6g1">Сайт</i><i data-i="p6g2">Маркетинг</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
+    <a class="pc rv z" href="https://www.behance.net/gallery/245962671/DateTechapp-Dating-Platform-UXUI-Design" target="_blank" rel="noopener"><img src="img/p3.jpg" width="560" height="800" alt="DateTechapp — платформа знакомств" loading="lazy"><div class="ov"><div class="ov-top"><span>03</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p3t">DateTechapp — платформа знакомств</h3><p data-i="p3d">UX/UI дизайн платформы для знакомств.</p></div><div class="tags"><i class="t-web" data-i="p3g1">Платформа</i><i class="t-ux" data-i="p3g2">UX/UI</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
+    <a class="pc rv z" style="--d:.15s" href="https://www.behance.net/gallery/163321897/Flymath-Mobile-App-Kids-App" target="_blank" rel="noopener"><img src="img/p4.jpg" width="560" height="800" alt="Flymath — мобильное приложение для детей" loading="lazy"><div class="ov"><div class="ov-top"><span>04</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p4t">Flymath — мобильное приложение для детей</h3><p data-i="p4d">Дизайн интерфейса детского мобильного приложения.</p></div><div class="tags"><i class="t-mobile" data-i="p4g1">Mobile</i><i class="t-kids" data-i="p4g2">Kids</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
+    <a class="pc rv z" href="https://www.behance.net/gallery/159916769/GoFanz-Metaverse-Mobile-App" target="_blank" rel="noopener"><img src="img/p5.jpg" width="560" height="800" alt="GoFanz — мобильное приложение для метавселенной" loading="lazy"><div class="ov"><div class="ov-top"><span>05</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p5t">GoFanz — мобильное приложение для метавселенной</h3><p data-i="p5d">Дизайн мобильного приложения в формате метавселенной.</p></div><div class="tags"><i class="t-mobile" data-i="p5g1">Mobile</i><i class="t-ux" data-i="p5g2">UX/UI</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
+    <a class="pc rv z" style="--d:.15s" href="https://www.behance.net/gallery/217824429/Website-Media-Marketing" target="_blank" rel="noopener"><img src="img/p6.jpg" width="560" height="800" alt="Media Marketing — сайт" loading="lazy"><div class="ov"><div class="ov-top"><span>06</span><span>Behance</span></div><div class="ov-b"><div><h3 data-i="p6t">Media Marketing — сайт</h3><p data-i="p6d">Дизайн сайта в сфере медиамаркетинга.</p></div><div class="tags"><i class="t-web" data-i="p6g1">Сайт</i><i class="t-mkt" data-i="p6g2">Маркетинг</i></div><span class="go" data-i="go">Смотреть кейс</span></div></div></a>
     <div class="more rv"><a class="lab" href="https://www.behance.net/maximilllian" target="_blank" rel="noopener"><span>BEHANCE</span></a><a class="btn btn-lg" href="#feedback"><span data-i="order2">ЗАКАЗАТЬ</span><svg><use href="#i-arr"/></svg></a></div>
   </div>
 </section>
@@ -167,7 +169,7 @@
     <h2 id="ig-h" class="rv" data-i="igH">Instagram</h2>
     <div class="ig-side rv" style="--d:.1s">
       <p data-i="igL">Свежие проекты и заметки о дизайне — прямо из профиля</p>
-      <a class="btn" href="https://www.instagram.com/maximilian_designer/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" style="font-size:24px"><use href="#i-ig"/></svg><span>@maximilian_designer</span></a>
+      <a class="btn" href="https://www.instagram.com/maximilian_designer/" target="_blank" rel="noopener"><span>@maximilian_designer</span></a>
     </div>
   </div>
   <!-- Лента: data-feed = адрес JSON (Behold.so или свой data/instagram.json). Пока пусто — показываются карточки-заглушки -->
@@ -226,8 +228,10 @@
 
 <footer>
   <div class="rule"></div>
-  <div class="fl"><span>ИП Антипенко Максимилиан Юрьевич</span><div style="display:flex;gap:24px;flex-wrap:wrap"><a href="privacy-policy/" data-i="pp">Политика обработки персональных данных</a><a href="privacy-policy/#cookies" data-i="cp">Политика в отношении обработки cookie</a></div></div>
-  <p>© <span id="year">2025</span> Maximum Studio. All rights reserved.</p>
+  <div class="fl">
+    <div class="fl-l"><span data-i="foot_owner">ИП Антипенко Максимилиан Юрьевич</span><span>© <span id="year">2026</span> Maximum Studio</span></div>
+    <div class="fl-r"><a href="privacy-policy/" data-i="pp">Политика обработки персональных данных</a><a href="privacy-policy/#cookies" data-i="cp">Политика в отношении обработки cookie</a></div>
+  </div>
 </footer>
 <div class="mx" aria-hidden="true"><div class="trk"><span>MAXIMUM STUDIO</span><span>MAXIMUM STUDIO</span><span>MAXIMUM STUDIO</span><span>MAXIMUM STUDIO</span></div></div>
 
