@@ -1,5 +1,5 @@
 /* Maximum Studio — основные стили. Шрифты: css/fonts.css */
-:root{--line:#252525;--y:#ffda66;--bg:#000;--w:#fff;--field:#252525;--muted:#686868;--pad:clamp(16px,5.2vw,100px);--h1:clamp(40px,8.3vw,160px);--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--deco:#686868;--line:#252525;--y:#ffda66;--bg:#000;--w:#fff;--field:#252525;--muted:#686868;--pad:clamp(16px,5.2vw,100px);--h1:clamp(40px,8.3vw,160px);--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{background:var(--bg);color:var(--w);font:var(--fw-light) 18px/1.5 var(--font-main);overflow-x:hidden}
@@ -87,24 +87,20 @@ section{position:relative;padding:var(--pad)}
 .follow.show{opacity:1;transform:scale(1)}
 
 /* ---------- услуги ---------- */
-.svc{display:grid;grid-template-columns:min(560px,29.17vw) min(350px,18.23vw) min(560px,29.17vw);justify-content:space-between;column-gap:20px;margin-top:60px;align-items:start}
-.card h3{font-weight:var(--fw-medium);text-transform:uppercase;font-size:clamp(20px,1.7vw,32px);line-height:1.3;margin:24px 0 12px}
 .im{overflow:hidden}.im img{transition:transform .8s}.card:hover .im img,.pc:hover img{transform:scale(1.06)}
-.s1{grid-row:1/span 2}.s1 .im{aspect-ratio:564/951}.s2{margin-top:30vw}.s2 .im{aspect-ratio:348/619}.s5{margin-top:-2vw}.s5 .im{aspect-ratio:560/608}
-.s3{grid-column:3;margin-top:2vw}.s3 .im{aspect-ratio:560/373}.s4{grid-column:1/-1;margin-top:3vw}.s4 .two{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1720px;margin:0 auto}.s4 .im{aspect-ratio:846/450}
 
 /* ---------- галерея + карточки (гайд: Hover = затемнение 50% + описание) ---------- */
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px}
 .pc{position:relative;display:block;aspect-ratio:560/800;overflow:hidden;color:#fff;text-decoration:none}
-.ov{position:absolute;inset:0;padding:10px;display:flex;flex-direction:column;justify-content:space-between;background:rgba(0,0,0,.5);opacity:0;transition:opacity .35s}
+.ov{position:absolute;inset:0;padding:10px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(0deg,rgba(0,0,0,.78),rgba(0,0,0,.55) 55%,rgba(0,0,0,.5));opacity:0;transition:opacity .35s}
 .pc:hover .ov,.pc:focus-visible .ov,.pc.open .ov{opacity:1}
 .ov-top{display:flex;justify-content:space-between;font:var(--fw-regular) 32px/1.4 var(--font-main)}
 .ov-b{display:grid;gap:16px;transform:translateY(16px);transition:transform .35s}.pc:hover .ov-b,.pc.open .ov-b{transform:none}
 .ov h3{font-weight:var(--fw-medium);font-size:24px;line-height:1.2}.ov p{font-weight:var(--fw-regular);font-size:18px;line-height:1.2;margin-top:8px}
-.tags{display:flex;flex-wrap:wrap;gap:8px}.tags i{font:var(--fw-medium) 14px/1.4 var(--font-main);font-style:normal;background:var(--y);color:#191919;padding:5px 14px;border-radius:999px}.tags .t-mobile{background:#ffda66}.tags .t-ux{background:#fff}.tags .t-web{background:#8fe3c0}.tags .t-kids{background:#ffa6c9}.tags .t-mkt{background:#a9b8ff}.tags .t-shop{background:#ffb26b}.tags .t-edu{background:#d3a6ff}
+.tags{display:flex;flex-wrap:wrap;gap:8px}.tags i{font:var(--fw-regular) 14px/1.4 var(--font-main);font-style:normal;background:transparent;color:#fff;border:1px solid #fff;padding:4px 14px;border-radius:999px}
 .go{display:inline-flex;gap:10px;align-items:center;line-height:1;font-weight:var(--fw-medium);font-size:18px;color:#fff}.go:after{content:"";flex:none;width:20px;height:20px;background:var(--y);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 15 15 5M7 5h8v8'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 15 15 5M7 5h8v8'/%3E%3C/svg%3E") center/contain no-repeat;transition:transform .25s}.pc:hover .go:after{transform:translate(3px,-3px)}
 .lab{display:flex;align-items:center;justify-content:center;gap:10px;font:italic 200 clamp(22px,2.6vw,50px)/1 var(--font-main);letter-spacing:-.07em;text-transform:uppercase;white-space:nowrap}
-.lab:before,.lab:after{content:"";height:1px;width:clamp(30px,5vw,100px);background:var(--y)}.lab.l:before,.lab.r:after{display:none}
+.lab:before,.lab:after{content:"";height:1px;width:clamp(30px,5vw,100px);background:var(--deco)}.lab.l:before,.lab.r:after{display:none}
 .more{display:flex;flex-direction:column;justify-content:center;gap:12vw}.more a.lab{text-decoration:none;transition:color .25s}.more a.lab:hover{color:var(--y)}
 
 /* ---------- отзывы ---------- */
@@ -284,17 +280,46 @@ form{min-width:0}form>*{min-width:0}.ck>span{min-width:0;overflow-wrap:anywhere}
 
 /* ---------- декоративные иллюстрации ---------- */
 .deco{position:absolute;pointer-events:none;z-index:0;max-width:none;height:auto;background:none}
-.about>*:not(.deco),#reviews>*:not(.deco),.fb>*:not(.deco){position:relative;z-index:1}
-.deco-ring{right:calc(var(--pad) * -.4);top:clamp(-20px,1vw,20px);width:clamp(200px,25vw,496px);animation:spin 120s linear infinite}
-.deco-arcs{right:var(--pad);top:clamp(24px,5vw,90px);width:clamp(110px,18vw,360px)}
-.deco-wire{left:var(--pad);bottom:clamp(24px,4vw,70px);width:clamp(200px,24vw,469px);animation:spin 150s linear infinite reverse}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:1280px){.deco-wire{display:none}}
-@media(prefers-reduced-motion:reduce){.deco{animation:none}}
-.about{overflow:hidden}.deco-ring{right:0}
+#reviews>*:not(.deco){position:relative;z-index:1}
 
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:1280px){}
+@media(prefers-reduced-motion:reduce){.deco{animation:none}}
+.about{overflow:hidden}
 /* ссылки без подчёркивания (кроме ссылок внутри текста политики и «Ссылка на проект» из макета) */
 a{text-decoration:none}.tc a.pl,.doc a{text-decoration:underline;text-underline-offset:3px}
 .ck a,.ct a.l,.cookie a{text-decoration:none}
 body{font-variant-numeric:lining-nums}
 .stat b,.kpis b{font-weight:var(--fw-light)}
+
+/* ---------- УСЛУГИ: композиция как в макете (1723 px = 100%) ---------- */
+#services:before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--line)}
+.svc{position:relative;container-type:inline-size;aspect-ratio:1723/2574;margin-top:clamp(40px,4.2vw,80px)}
+.sv{position:absolute;left:calc(var(--x)/1723*100%);top:calc(var(--y)/2574*100%);width:calc(var(--w)/1723*100%)}
+.vl{position:absolute;left:calc(var(--x)/1723*100%);top:calc(62/2574*100%);height:calc(1539/2574*100%);width:1px;background:var(--deco)}
+.svc>.deco{left:calc(var(--x)/1723*100%);top:calc(var(--y)/2574*100%);width:calc(var(--w)/1723*100%);animation:spin 150s linear infinite;z-index:0}
+.svc .card{z-index:1}.svc .card h3,.svc .card p{position:relative}
+.sv .im{aspect-ratio:var(--ar,560/800)}.sv .im img{object-position:center top}
+.s1 .im{--ar:560/800}.s2 .im{--ar:1}.s5 .im{--ar:560/664}.s3 .im{--ar:560/439}
+.s4 .two{display:grid;grid-template-columns:1fr 1fr;gap:calc(32/1723*100cqw)}.s4 .im{--ar:846/414}
+.card h3{font-weight:var(--fw-medium);text-transform:uppercase;line-height:1.3;margin:calc(32/1723*100cqw) 0 calc(16/1723*100cqw);font-size:clamp(15px,calc(32/1723*100cqw),32px)}
+.s1 h3{font-size:clamp(14px,calc(24/1723*100cqw),24px)}
+.card p{font-size:clamp(13px,calc(18/1723*100cqw),18px);line-height:1.5}
+.card:hover .im img{transform:scale(1.04)}
+@media(max-width:1100px){
+ #services:before{display:none}
+ .svc{aspect-ratio:auto;container-type:normal;display:grid;gap:48px;max-width:640px;margin-inline:0}
+ .sv,.svc>.deco,.vl{position:static;width:auto}.vl,.svc>.deco,.s2{display:none}
+ .card h3{font-size:clamp(20px,3.4vw,28px);margin:24px 0 12px}.s1 h3{font-size:clamp(20px,3.4vw,28px)}.card p{font-size:16px}
+ .s1 .im{--ar:560/800}.s5 .im{--ar:560/664}.s3 .im{--ar:560/439}.s4 .two{grid-template-columns:1fr;gap:20px}.s4 .im{--ar:846/414}
+}
+/* иконки в шапке: Telegram на 2 px меньше остальных */
+.nav .soc a:first-child{font-size:31px;width:31px;height:31px;align-self:center}
+.deco-arcs{right:var(--pad);top:calc(294/1920*100vw);width:max(90px,calc(200/1920*100vw))}
+
+/* карточки портфолио: «Смотреть кейс» — кнопка с акцентным фоном */
+.pc .go{background:var(--y);color:#000;border-radius:999px;padding:10px 20px;font-weight:var(--fw-medium);font-size:16px;justify-self:start;align-self:start;transition:background .25s,transform .25s}
+.pc .go:after{background:#000;width:18px;height:18px}
+.pc .go:hover{background:#fff}
+/* логотип клиента: пока файла нет — название текстом */
+.logo-c.nologo{display:flex;align-items:center;width:auto}.logo-c.nologo img{display:none}.logo-c.nologo:after{content:attr(data-name);font:var(--fw-medium) clamp(22px,2vw,30px)/1 var(--font-main);letter-spacing:.04em;color:#fff;white-space:nowrap}

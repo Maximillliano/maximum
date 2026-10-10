@@ -78,7 +78,7 @@ function ckSet(v){store.set('cookies',v);ck.classList.remove('show');document.di
 $('#ck-yes').addEventListener('click',function(){ckSet('accepted')});$('#ck-no').addEventListener('click',function(){ckSet('refused')});
 /* Подключайте счётчики (Метрика/GA) только после: document.addEventListener('cookies:accepted',...) */
 
-$$('img').forEach(function(i){function hide(){i.style.opacity=0;var f=i.closest('.fo-photo');if(f)f.closest('.founder').classList.add('no-photo');}if(i.complete&&!i.naturalWidth)hide();i.addEventListener('error',hide)});
+$$('img').forEach(function(i){function hide(){i.style.opacity=0;var lc=i.closest('.logo-c');if(lc)lc.classList.add('nologo');var f=i.closest('.fo-photo');if(f)f.closest('.founder').classList.add('no-photo');}if(i.complete&&!i.naturalWidth)hide();i.addEventListener('error',hide)});
 /* обложки Behance: сначала лёгкая версия, затем подмена на крупную, если она доступна */
 $$('img[data-hi]').forEach(function(i){var t=new Image();t.referrerPolicy='no-referrer';t.onload=function(){i.src=i.dataset.hi};t.src=i.dataset.hi});
 $('#year').textContent=new Date().getFullYear();
