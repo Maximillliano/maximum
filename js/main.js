@@ -72,11 +72,24 @@ form.addEventListener('submit',function(e){e.preventDefault();ferr.classList.rem
   .catch(function(err){console.error('[form]',err);btn.disabled=false;ferr.classList.add('show')})});
 $$('input',form).forEach(function(i){i.addEventListener('input',function(){bad(i,false)})});
 
-/* ---------- cookies ---------- */
-var ck=$('#cookie');if(!store.get('cookies'))setTimeout(function(){ck.classList.add('show')},1200);
-function ckSet(v){store.set('cookies',v);ck.classList.remove('show');document.dispatchEvent(new CustomEvent('cookies:'+v))}
+/* ---------- cookies: выбор хранится 12 месяцев; аналитика грузится только после «Принять» ---------- */
+var ck=$('#cookie'),CK_TTL=365*864e5,anLoaded=false;
+/* ID счётчиков. Пока пусто — ничего не подключается и никуда не передаётся. Подключите — и обновите Политику (раздел 6). */
+var ANALYTICS={ym:'',ga:''};
+function ckGet(){try{var o=JSON.parse(store.get('cookies')||'null');if(o&&o.v&&Date.now()-o.t<CK_TTL)return o.v}catch(e){}return null}
+function ckShow(o){ck.classList.toggle('show',o)}
+function loadAnalytics(){
+ if(ANALYTICS.ym){anLoaded=true;(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t);a=e.getElementsByTagName(t)[0];k.async=1;k.src=r;a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');window.ym(ANALYTICS.ym,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true})}
+ if(ANALYTICS.ga){anLoaded=true;var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(ANALYTICS.ga);document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments)};window.gtag('js',new Date());window.gtag('config',ANALYTICS.ga)}}
+function ckSet(v){store.set('cookies',JSON.stringify({v:v,t:Date.now()}));ckShow(false);
+ if(v==='accepted')loadAnalytics();else if(anLoaded)location.reload();   /* отзыв согласия: перезагрузка, чтобы остановить уже загруженные счётчики */
+ document.dispatchEvent(new CustomEvent('cookies:'+v))}
+var ck0=ckGet();
+if(ck0==='accepted')loadAnalytics();
+if(!ck0)setTimeout(function(){ckShow(true)},1200);
+if(location.hash==='#cookie-settings')ckShow(true);
 $('#ck-yes').addEventListener('click',function(){ckSet('accepted')});$('#ck-no').addEventListener('click',function(){ckSet('refused')});
-/* Подключайте счётчики (Метрика/GA) только после: document.addEventListener('cookies:accepted',...) */
+var cko=$('#ck-open');if(cko)cko.addEventListener('click',function(){ckShow(true);$('#ck-yes').focus()});
 
 $$('img').forEach(function(i){function hide(){i.style.opacity=0;var lc=i.closest('.logo-c');if(lc)lc.classList.add('nologo');var f=i.closest('.fo-photo');if(f)f.closest('.founder').classList.add('no-photo');}if(i.complete&&!i.naturalWidth)hide();i.addEventListener('error',hide)});
 /* обложки Behance: сначала лёгкая версия, затем подмена на крупную, если она доступна */

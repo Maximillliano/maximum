@@ -73,7 +73,7 @@
  "e5": "Could not send your request. Please try again or call us.",
  "mt": "your request has been sent successfully!",
  "mp": "We will contact you shortly to discuss your project",
- "ck": "We use cookies to improve your experience. By continuing, you accept our",
+ "ck": "We use only necessary cookies. Analytics is switched on only with your consent.",
  "ckl": "Cookie Policy",
  "ckn": "Refuse",
  "cky": "Accept",
@@ -136,5 +136,8 @@
  "p6g2": "Marketing",
  "igH": "Instagram",
  "igL": "Fresh projects and design notes straight from the profile",
- "igO": "Open in Instagram"
+ "igO": "Open in Instagram",
+ "foot_reg": "UNP 193311599 · registered 15.09.2019 · registering authority: Minsk City Executive Committee",
+ "fa2": " and consent to the processing of my name and phone number to contact me about my request, including their transfer outside Belarus (request-handling service)",
+ "cs": "Cookie settings"
 }

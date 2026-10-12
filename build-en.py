@@ -57,7 +57,7 @@ body=(R/'i18n/policy-en.html').read_text(encoding='utf-8').replace('https://maxi
 a=p.index('<h1>');b=p.index('</main>')
 p=p[:a]+body+p[b:]
 p=page_meta(p,base+'/en/privacy-policy/',EN['pol_title'],EN['pol_desc'],EN['pol_title'],EN['pol_desc'])
-for x,y in [('href="../css/','href="../../css/'),('href="../img/','href="../../img/'),('<a class="lang-link" href="../en/privacy-policy/" hreflang="en" lang="en">EN</a>','<a class="lang-link" href="../../privacy-policy/" hreflang="ru" lang="ru">RU</a>'),('>Заказать<','>Order<'),('← На главную',EN['foot_back']),('ИП Антипенко Максимилиан Юрьевич',EN['foot_owner']),('aria-label="Maximum Studio"','aria-label="Maximum Studio"')]: p=p.replace(x,y)
+for x,y in [('href="../css/','href="../../css/'),('href="../img/','href="../../img/'),('<a class="lang-link" href="../en/privacy-policy/" hreflang="en" lang="en">EN</a>','<a class="lang-link" href="../../privacy-policy/" hreflang="ru" lang="ru">RU</a>'),('>Заказать<','>Order<'),('← На главную',EN['foot_back']),('>Настройки cookie<','>Cookie settings<'),('УНП 193311599','UNP 193311599'),('ИП Антипенко Максимилиан Юрьевич',EN['foot_owner']),('aria-label="Maximum Studio"','aria-label="Maximum Studio"')]: p=p.replace(x,y)
 (R/'en/privacy-policy/index.html').write_text(p,encoding='utf-8')
 left=[f for f in('en/index.html','en/privacy-policy/index.html') if re.search(r'[А-Яа-яЁё]',re.sub(r'<!--.*?-->','',(R/f).read_text(encoding='utf-8'),flags=re.S))]
 print('Готово: en/index.html, en/privacy-policy/index.html; база адреса:',base)

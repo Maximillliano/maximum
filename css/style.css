@@ -329,3 +329,6 @@ body{font-variant-numeric:lining-nums}
 /* логотип клиента — под названием компании */
 .logo-c{height:56px;margin-top:24px}.logo-c img{width:auto;height:100%;max-width:220px;object-fit:contain;object-position:left;background:none}.logo-c.nologo{display:none}
 .tc:not(.first)>div:first-child{margin-bottom:28px}.tc{min-height:560px}
+
+/* кнопка «Настройки cookie» в футере — как ссылка */
+.fl-btn{background:none;border:0;padding:0;font:inherit;color:#8a8a8a;cursor:pointer;transition:color .25s}.fl-btn:hover,.fl-btn:focus-visible{color:#fff}
