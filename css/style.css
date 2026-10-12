@@ -64,11 +64,11 @@ section{position:relative;padding:var(--pad)}
 
 /* ---------- hero ---------- */
 .hero{min-height:100vh;padding-top:120px;overflow-x:clip;display:flex;flex-direction:column;justify-content:space-between}
-.hero>*{position:relative;z-index:1}.hero>.glow,.hero>.heroimg{position:absolute;z-index:0}
+.hero>*{position:relative;z-index:1}.hero>.glow,.hero>.heroclip{position:absolute;z-index:0}
 .glow{border-radius:50%;filter:blur(120px);opacity:.5;pointer-events:none;animation:float 9s ease-in-out infinite}
 .g1{width:42vw;height:42vw;left:-14vw;top:-12vw;background:var(--y);opacity:.3}.g2{width:38vw;height:30vw;right:-8vw;bottom:-5vw;background:var(--y);opacity:.3;animation-delay:-4s}
 @keyframes float{50%{transform:translate(30px,40px) scale(1.1)}}
-.heroimg{left:24%;top:7%;width:54%;aspect-ratio:1016/938;height:auto;transform:translate3d(var(--px,0px),var(--py,0px),0) rotate(-8.5deg);will-change:transform}.heroimg img{background:none}
+.heroimg{position:absolute;left:26.67%;top:3.1%;width:46.35%;aspect-ratio:890/1078;height:auto;transform:translate3d(var(--px,0px),var(--py,0px),0) rotate(-8.5deg);will-change:transform}.heroimg img{background:none}
 .hl{max-width:520px}.hl h1{font-weight:var(--fw-regular);font-size:clamp(40px,4.2vw,80px);line-height:1.1;letter-spacing:-.07em;text-transform:uppercase}
 .hl p{font-size:18px;line-height:1.2;max-width:415px;margin:4px 0 24px}
 .big{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:5px;font-weight:var(--fw-medium);text-transform:uppercase;line-height:.9;font-size:clamp(52px,10.4vw,200px);margin:4vw 0 4vw auto;max-width:1333px;width:70vw}
@@ -109,7 +109,7 @@ section{position:relative;padding:var(--pad)}
 .tc.first{align-items:center;justify-content:center;text-align:center;gap:20px}
 .rate{font:var(--fw-regular) clamp(60px,5.2vw,100px)/1.2 var(--font-ui)}.rate i{color:var(--y);font-style:normal;font-size:.8em}
 .tc small{color:#938c8c;font:var(--fw-regular) 16px var(--font-ui)}
-.k{color:var(--muted);font-weight:var(--fw-medium)}.logo-c{height:64px;width:214px;margin:24px 0}.logo-c img{object-fit:contain;object-position:left;background:none}
+.k{color:var(--muted);font-weight:var(--fw-medium)}
 .tc q{display:block;font-weight:var(--fw-regular);font-size:24px;line-height:1.4}.tc q:before{content:"“"}.tc q:after{content:"”"}
 .tc a.pl{display:block;margin:18px 0;text-underline-offset:3px;transition:color .25s}.tc a.pl:hover{color:var(--y)}
 .tc b{text-transform:uppercase;font-weight:var(--fw-semibold)}
@@ -172,7 +172,7 @@ footer a{color:#8a8a8a;text-decoration:none;transition:color .25s}footer a:hover
 
 /* ---------- ПЛАНШЕТ (макет Tablet 769) ---------- */
 @media(max-width:1100px){
- .heroimg{left:8%;top:14%;width:84%}
+ .heroimg{left:8%;top:12%;width:84%}
  .nav{height:56px;gap:20px}.links,.nav-r .lang-d{display:none}.burger{display:block;order:-1;margin-right:-8px}.nav-r{gap:16px}.nav-r .tel{font-size:14px}.nav-r .btn{min-height:40px;padding:4px 12px}
  .soc a{width:30px;height:30px;font-size:30px}
  .hero{padding-top:100px;gap:40px;justify-content:flex-start}.big{order:1;width:100%;margin:0;font-size:min(15.8vw,150px);grid-template-columns:1fr;justify-items:start}.big .a{justify-self:start}.big>:nth-child(3){order:5}.big .btn-lg{margin-top:20px;min-height:78px;max-width:233px;width:auto}.hl{order:2;max-width:none}.hl h1{font-size:min(7.6vw,64px);white-space:nowrap}.hl h1 br{display:none}.hl p{max-width:none}.tag{order:3}
@@ -296,7 +296,7 @@ body{font-variant-numeric:lining-nums}
 #services:before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--line)}
 .svc{position:relative;container-type:inline-size;aspect-ratio:1723/2574;margin-top:clamp(40px,4.2vw,80px)}
 .sv{position:absolute;left:calc(var(--x)/1723*100%);top:calc(var(--y)/2574*100%);width:calc(var(--w)/1723*100%)}
-.vl{position:absolute;left:calc(var(--x)/1723*100%);top:calc(62/2574*100%);height:calc(1539/2574*100%);width:1px;background:var(--deco)}
+.vl{position:absolute;left:calc(var(--x)/1723*100%);top:0;height:calc(960/2574*100%);width:1px;background:rgba(104,104,104,.5)}
 .svc>.deco{left:calc(var(--x)/1723*100%);top:calc(var(--y)/2574*100%);width:calc(var(--w)/1723*100%);animation:spin 150s linear infinite;z-index:0}
 .svc .card{z-index:1}.svc .card h3,.svc .card p{position:relative}
 .sv .im{aspect-ratio:var(--ar,560/800)}.sv .im img{object-position:center top}
@@ -322,4 +322,10 @@ body{font-variant-numeric:lining-nums}
 .pc .go:after{background:#000;width:18px;height:18px}
 .pc .go:hover{background:#fff}
 /* логотип клиента: пока файла нет — название текстом */
-.logo-c.nologo{display:flex;align-items:center;width:auto}.logo-c.nologo img{display:none}.logo-c.nologo:after{content:attr(data-name);font:var(--fw-medium) clamp(22px,2vw,30px)/1 var(--font-main);letter-spacing:.04em;color:#fff;white-space:nowrap}
+
+
+.heroclip{inset:0;overflow:hidden;pointer-events:none}.heroclip .heroimg img{object-position:center}
+
+/* логотип клиента — под названием компании */
+.logo-c{height:56px;margin-top:24px}.logo-c img{width:auto;height:100%;max-width:220px;object-fit:contain;object-position:left;background:none}.logo-c.nologo{display:none}
+.tc:not(.first)>div:first-child{margin-bottom:28px}.tc{min-height:560px}
