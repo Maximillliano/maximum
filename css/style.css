@@ -365,3 +365,5 @@ body{font-variant-numeric:lining-nums}
 /* ссылка на политику в согласии — заметная, как ссылки в cookie-баннере */
 .ck a{color:var(--y);text-decoration:underline;text-underline-offset:3px}
 .ck a:hover{color:#fff}
+/* контакты: значок Email выровнен с остальными группами (inline-svg давал сдвиг ~7px) */
+.ct>div>svg{display:block}
