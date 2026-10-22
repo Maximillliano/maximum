@@ -30,6 +30,8 @@ def page_meta(s,url,title,desc,ogt,ogd):
     s=re.sub(r'(<meta property="og:title" content=")[^"]*(")',lambda m:m.group(1)+html.escape(ogt)+m.group(2),s)
     s=re.sub(r'(<meta property="og:description" content=")[^"]*(")',lambda m:m.group(1)+html.escape(ogd)+m.group(2),s)
     s=re.sub(r'(<meta name="twitter:title" content=")[^"]*(")',lambda m:m.group(1)+html.escape(ogt)+m.group(2),s)
+    s=re.sub(r'(<meta name="twitter:description" content=")[^"]*(")',lambda m:m.group(1)+html.escape(ogd)+m.group(2),s)
+    s=re.sub(r'(<meta (?:property="og:image:alt"|name="twitter:image:alt") content=")[^"]*(")',lambda m:m.group(1)+html.escape(EN['og_alt'])+m.group(2),s)
     return s
 # ---------------- главная ----------------
 s=DT.sub(tr,ru)

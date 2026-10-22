@@ -75,7 +75,7 @@ $$('input',form).forEach(function(i){i.addEventListener('input',function(){bad(i
 /* ---------- cookies: выбор хранится 12 месяцев; аналитика грузится только после «Принять» ---------- */
 var ck=$('#cookie'),CK_TTL=365*864e5,anLoaded=false;
 /* ID счётчиков. Пока пусто — ничего не подключается и никуда не передаётся. Подключите — и обновите Политику (раздел 6). */
-var ANALYTICS={ym:'',ga:'G-MGN5GMJS69'};
+var ANALYTICS={ym:'113723367',ga:'G-MGN5GMJS69'};
 function ckGet(){try{var o=JSON.parse(store.get('cookies')||'null');if(o&&o.v&&Date.now()-o.t<CK_TTL)return o.v}catch(e){}return null}
 function ckShow(o){ck.classList.toggle('show',o)}
 function loadAnalytics(){
