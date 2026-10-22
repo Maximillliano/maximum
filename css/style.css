@@ -332,3 +332,36 @@ body{font-variant-numeric:lining-nums}
 
 /* кнопка «Настройки cookie» в футере — как ссылка */
 .fl-btn{background:none;border:0;padding:0;font:inherit;color:#8a8a8a;cursor:pointer;transition:color .25s}.fl-btn:hover,.fl-btn:focus-visible{color:#fff}
+
+/* ===== Правки мобильной версии (22.10) ===== */
+.tcs{display:contents}                                  /* десктоп/планшет: карточки лежат в сетке как раньше */
+@media(max-width:1100px){.chips{justify-content:flex-start}}   /* отрасли: теги по левому краю */
+@media(max-width:640px){
+ /* рейтинг — компактная строка, а не экран высотой 300px */
+ .trust{display:flex;flex-direction:column;gap:12px;margin-top:28px;overflow:visible}
+ .trust .tc.first{flex:none;flex-direction:row;align-items:center;justify-content:space-between;text-align:left;gap:16px;min-height:0;margin:0;padding:12px 16px}
+ .trust .tc.first .rate{font-size:40px;line-height:1}
+ .trust .tc.first small{display:block;margin-top:4px;font-size:12px;line-height:1.2}
+ .trust .tc.first .btn{min-height:40px;padding:6px 20px;font-size:16px;white-space:nowrap}
+ /* отзывы — горизонтальная карусель (автопрокрутка в js/main.js) */
+ .trust .tcs{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;margin:0 calc(var(--pad)*-1);padding:0 var(--pad)}
+ .trust .tcs::-webkit-scrollbar{display:none}
+ .trust .tcs .tc{flex:0 0 82%;min-height:0;margin:0;padding:20px}
+ .js .trust .tcs .tc.rv{opacity:1;transform:none}
+ .trust .tc:not(.first)>div:first-child{margin-bottom:16px}
+ .trust .tc q{font-size:18px}
+ .trust .tc a.pl{margin:12px 0}
+ /* согласие в форме */
+ .ck{gap:14px;font-size:15px}
+ /* контакты: отступ сверху и группы по правилу близости */
+ #contacts{padding-top:72px}
+ .ct{row-gap:28px;margin-top:24px}
+ .ct>div>svg,.ct .soc{height:32px;margin-bottom:10px}
+ .ct svg.big-i{width:32px;height:32px}
+ .ct .soc{gap:12px}
+ .ct .soc a{width:32px;height:32px;font-size:32px}
+ .ct h4{font-size:20px;line-height:1.3;margin-bottom:4px}
+}
+/* ссылка на политику в согласии — заметная, как ссылки в cookie-баннере */
+.ck a{color:var(--y);text-decoration:underline;text-underline-offset:3px}
+.ck a:hover{color:#fff}

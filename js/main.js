@@ -91,6 +91,25 @@ if(location.hash==='#cookie-settings')ckShow(true);
 $('#ck-yes').addEventListener('click',function(){ckSet('accepted')});$('#ck-no').addEventListener('click',function(){ckSet('refused')});
 var cko=$('#ck-open');if(cko)cko.addEventListener('click',function(){ckShow(true);$('#ck-yes').focus()});
 
+/* ---------- отзывы: на мобильном — карусель с медленной автопрокруткой (пауза при касании, на prefers-reduced-motion не едет) ---------- */
+(function(){var box=$('.tcs');if(!box||!window.IntersectionObserver)return;
+ var mq=matchMedia('(max-width:640px)'),SPEED=24,clones=null,pos=0,last=0,raf=0,vis=false,hold=false,rt=0;   /* SPEED — пикселей в секунду */
+ function setup(){if(clones)return;clones=$$('.tc',box).map(function(c){var k=c.cloneNode(true);k.setAttribute('aria-hidden','true');k.setAttribute('data-nosnippet','');$$('a',k).forEach(function(a){a.tabIndex=-1});box.appendChild(k);return k})}
+ function teardown(){if(!clones)return;clones.forEach(function(k){k.remove()});clones=null;box.scrollLeft=0;pos=0}
+ function loopW(){var o=$('.tc',box);return clones&&o?clones[0].offsetLeft-o.offsetLeft:0}
+ function frame(t){raf=0;if(!mq.matches||!vis)return;
+  var dt=Math.min((t-last)/1000,.07);last=t;
+  if(!hold){var w=loopW();pos+=SPEED*dt;if(w&&pos>=w)pos-=w;box.scrollLeft=pos}
+  raf=requestAnimationFrame(frame)}
+ function start(){if(raf||calm||!mq.matches||!vis)return;last=performance.now();pos=box.scrollLeft;raf=requestAnimationFrame(frame)}
+ function press(){hold=true;clearTimeout(rt)}
+ function release(){clearTimeout(rt);rt=setTimeout(function(){pos=box.scrollLeft;hold=false;start()},2500)}
+ ['touchstart','pointerdown','focusin'].forEach(function(e){box.addEventListener(e,press,{passive:true})});
+ ['touchend','touchcancel','pointerup','focusout'].forEach(function(e){box.addEventListener(e,release,{passive:true})});
+ function apply(){if(mq.matches){if(!calm)setup();start()}else teardown()}
+ new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis)start()}).observe(box);
+ if(mq.addEventListener)mq.addEventListener('change',apply);else mq.addListener(apply);apply()})();
+
 $$('img').forEach(function(i){function hide(){i.style.opacity=0;var lc=i.closest('.logo-c');if(lc)lc.classList.add('nologo');var f=i.closest('.fo-photo');if(f)f.closest('.founder').classList.add('no-photo');}if(i.complete&&!i.naturalWidth)hide();i.addEventListener('error',hide)});
 /* обложки Behance: сначала лёгкая версия, затем подмена на крупную, если она доступна */
 $$('img[data-hi]').forEach(function(i){var t=new Image();t.referrerPolicy='no-referrer';t.onload=function(){i.src=i.dataset.hi};t.src=i.dataset.hi});

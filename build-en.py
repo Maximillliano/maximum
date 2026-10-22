@@ -48,7 +48,7 @@ def ld(m):
     t=t.replace('Веб-студия Maximum: разработка сайтов и b2b-сервисов, дизайн интерфейсов и мобильных приложений, CRM, техподдержка. 150+ проектов, 10+ лет опыта.',EN['meta_desc'])
     for k,v in sorted(RU2EN.items(),key=lambda kv:-len(kv[0])):
         if len(k)>6: t=t.replace(k,v.replace('"','\\"'))
-    t=t.replace('"Минск"','"Minsk"').replace('Веб-студия Maximum: разработка сайтов и b2b-сервисов, дизайн интерфейсов и мобильных приложений, CRM, техподдержка. 150+ проектов, 10+ лет опыта.',EN['meta_desc'])
+    t=t.replace('"Минск"','"Minsk"').replace('"пр-т Притыцкого, 39"','"Pritytskogo Ave, 39"').replace('Веб-студия Maximum: разработка сайтов и b2b-сервисов, дизайн интерфейсов и мобильных приложений, CRM, техподдержка. 150+ проектов, 10+ лет опыта.',EN['meta_desc'])
     return t
 s=re.sub(r'<script type="application/ld\+json">.*?</script>',ld,s,flags=re.S)
 (R/'en').mkdir(exist_ok=True);(R/'en/privacy-policy').mkdir(exist_ok=True)
