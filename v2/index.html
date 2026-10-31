@@ -25,6 +25,10 @@
  <symbol id="i-arr" viewBox="0 0 34 33"><path d="M4 3l26 26M30 8v21H9"/></symbol>
 </svg>
 
+<div class="cur" id="cur" aria-hidden="true"><i></i><span></span></div>
+<div class="wipe" id="wipe" aria-hidden="true"></div>
+<aside class="side mono" id="side" aria-hidden="true"><b id="side-n">01</b><span id="side-t"></span><i><u id="side-b"></u></i></aside>
+
 <header class="nav" id="nav">
   <a class="logo" href="#top" aria-label="Maximum Studio">MAXIMUM<sup>®</sup></a>
   <nav class="links" aria-label="Меню">
@@ -54,7 +58,7 @@
   </h1>
   <div class="hero-bot">
     <p class="hero-p">Веб-студия Maximum предлагает профессиональные услуги по созданию сайтов, интернет-магазинов и мобильных приложений.</p>
-    <div class="hero-cta"><a class="btn btn-lg" href="#feedback"><span>ЗАКАЗАТЬ</span><svg><use href="#i-arr"/></svg></a><a class="scroll mono" href="#work" aria-label="Листайте"><i></i>Листайте</a></div>
+    <div class="hero-cta"><a class="btn btn-lg" data-mag href="#feedback"><span>ЗАКАЗАТЬ</span><svg><use href="#i-arr"/></svg></a><a class="scroll mono" href="#work" aria-label="Листайте"><i></i>Листайте</a></div>
   </div>
 </section>
 
@@ -98,16 +102,16 @@
 <!-- ============ WORK ============ -->
 <section class="work" id="work">
   <div class="sec-h"><p class="eyebrow mono rv">(03) Избранные работы</p><h2 class="big-h rv"><span class="out">Maximum Studio</span><br>Представляет</h2></div>
-  <div class="cards">
-    <a class="pcard rv" href="https://www.behance.net/gallery/245962553/Mobile-lawyer-app-Lawber" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p1.jpg" width="560" height="800" alt="Lawber — мобильное приложение для юристов" loading="lazy"></div><span class="pcard-n mono">01</span><span class="pcard-new mono">NEW 2026</span><div class="pcard-b"><h3>Lawber — мобильное приложение для юристов</h3><p class="mono">Mobile · UX/UI</p></div><i class="sheen" aria-hidden="true"></i></a>
-    <a class="pcard rv" style="--d:.1s" href="https://www.behance.net/gallery/247973737/Investartup-Startup-Investor-Platform-UXUI" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p2.jpg" width="560" height="800" alt="Investartup — платформа для стартапов и инвесторов" loading="lazy"></div><span class="pcard-n mono">02</span><span class="pcard-new mono">Лучший дизайн</span><div class="pcard-b"><h3>Investartup — платформа для стартапов и инвесторов</h3><p class="mono">Платформа · UX/UI</p></div><i class="sheen" aria-hidden="true"></i></a>
-    <a class="pcard rv" style="--d:.2s" href="https://www.behance.net/gallery/245962671/DateTechapp-Dating-Platform-UXUI-Design" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p3.jpg" width="560" height="800" alt="DateTechapp — платформа знакомств" loading="lazy"></div><span class="pcard-n mono">03</span><div class="pcard-b"><h3>DateTechapp — платформа знакомств</h3><p class="mono">Платформа · UX/UI</p></div><i class="sheen" aria-hidden="true"></i></a>
-    <a class="pcard rv" href="https://www.behance.net/gallery/163321897/Flymath-Mobile-App-Kids-App" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p4.jpg" width="560" height="800" alt="Flymath — мобильное приложение для детей" loading="lazy"></div><span class="pcard-n mono">04</span><div class="pcard-b"><h3>Flymath — мобильное приложение для детей</h3><p class="mono">Mobile · Kids</p></div><i class="sheen" aria-hidden="true"></i></a>
-    <a class="pcard rv" style="--d:.1s" href="https://www.behance.net/gallery/159916769/GoFanz-Metaverse-Mobile-App" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p5.jpg" width="560" height="800" alt="GoFanz — мобильное приложение для метавселенной" loading="lazy"></div><span class="pcard-n mono">05</span><div class="pcard-b"><h3>GoFanz — мобильное приложение для метавселенной</h3><p class="mono">Mobile · UX/UI</p></div><i class="sheen" aria-hidden="true"></i></a>
-    <a class="pcard rv" style="--d:.2s" href="https://www.behance.net/gallery/217824429/Website-Media-Marketing" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p6.jpg" width="560" height="800" alt="Media Marketing — сайт" loading="lazy"></div><span class="pcard-n mono">06</span><div class="pcard-b"><h3>Media Marketing — сайт</h3><p class="mono">Сайт · Маркетинг</p></div><i class="sheen" aria-hidden="true"></i></a>
-  </div>
-  <div class="work-more rv"><a class="btn" href="https://www.behance.net/maximilllian" target="_blank" rel="noopener"><span>Все проекты на Behance</span><svg><use href="#i-arr"/></svg></a></div>
-</section>
+  <div class="hs" id="hs"><div class="hs-track" id="hs-track">
+    <a class="pcard" data-cursor="view" href="https://www.behance.net/gallery/245962553/Mobile-lawyer-app-Lawber" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p1.jpg" width="560" height="800" alt="Lawber — мобильное приложение для юристов" loading="lazy"></div><span class="pcard-n mono">01</span><span class="pcard-new mono">NEW 2026</span><div class="pcard-b"><h3>Lawber — мобильное приложение для юристов</h3><p class="mono">Mobile · UX/UI</p></div><i class="sheen" aria-hidden="true"></i></a>
+    <a class="pcard" data-cursor="view" style="--d:.1s" href="https://www.behance.net/gallery/247973737/Investartup-Startup-Investor-Platform-UXUI" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p2.jpg" width="560" height="800" alt="Investartup — платформа для стартапов и инвесторов" loading="lazy"></div><span class="pcard-n mono">02</span><span class="pcard-new mono">Лучший дизайн</span><div class="pcard-b"><h3>Investartup — платформа для стартапов и инвесторов</h3><p class="mono">Платформа · UX/UI</p></div><i class="sheen" aria-hidden="true"></i></a>
+    <a class="pcard" data-cursor="view" style="--d:.2s" href="https://www.behance.net/gallery/245962671/DateTechapp-Dating-Platform-UXUI-Design" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p3.jpg" width="560" height="800" alt="DateTechapp — платформа знакомств" loading="lazy"></div><span class="pcard-n mono">03</span><div class="pcard-b"><h3>DateTechapp — платформа знакомств</h3><p class="mono">Платформа · UX/UI</p></div><i class="sheen" aria-hidden="true"></i></a>
+    <a class="pcard" data-cursor="view" href="https://www.behance.net/gallery/163321897/Flymath-Mobile-App-Kids-App" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p4.jpg" width="560" height="800" alt="Flymath — мобильное приложение для детей" loading="lazy"></div><span class="pcard-n mono">04</span><div class="pcard-b"><h3>Flymath — мобильное приложение для детей</h3><p class="mono">Mobile · Kids</p></div><i class="sheen" aria-hidden="true"></i></a>
+    <a class="pcard" data-cursor="view" style="--d:.1s" href="https://www.behance.net/gallery/159916769/GoFanz-Metaverse-Mobile-App" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p5.jpg" width="560" height="800" alt="GoFanz — мобильное приложение для метавселенной" loading="lazy"></div><span class="pcard-n mono">05</span><div class="pcard-b"><h3>GoFanz — мобильное приложение для метавселенной</h3><p class="mono">Mobile · UX/UI</p></div><i class="sheen" aria-hidden="true"></i></a>
+    <a class="pcard" data-cursor="view" style="--d:.2s" href="https://www.behance.net/gallery/217824429/Website-Media-Marketing" target="_blank" rel="noopener"><div class="pcard-im"><img src="../img/p6.jpg" width="560" height="800" alt="Media Marketing — сайт" loading="lazy"></div><span class="pcard-n mono">06</span><div class="pcard-b"><h3>Media Marketing — сайт</h3><p class="mono">Сайт · Маркетинг</p></div><i class="sheen" aria-hidden="true"></i></a>
+  <div class="hs-end"><p class="big-h"><span class="out">Больше работ</span></p><a class="btn btn-lg" data-mag href="https://www.behance.net/maximilllian" target="_blank" rel="noopener"><span>Все проекты на Behance</span><svg><use href="#i-arr"/></svg></a><a class="btn" href="#feedback"><span>ЗАКАЗАТЬ</span></a></div></div>
+  <div class="hs-ui mono" aria-hidden="true"><span><b id="hs-n">01</b> / 06</span><i><u id="hs-b"></u></i><span class="hint">Листайте →</span></div></div>
+  </section>
 
 <!-- лента фото -->
 <div class="rib" aria-hidden="true"><div class="rib-t">
@@ -119,12 +123,11 @@
 <section class="services" id="services">
   <div class="sec-h"><p class="eyebrow mono rv">(04) Услуги</p><h2 class="big-h rv">Услуги</h2></div>
   <ul class="svl" id="svl">
-    <li class="sv rv" data-img="../img/web-1.jpg"><div class="sv-n mono">01</div><div class="sv-m"><h3>Разработка сайтов и b2b-сервисов</h3><p>Создаем прибыльные интернет-магазины, мощные сервисы, яркие лендинги. Работаем с бизнесами разных направлений и понимаем, какие решения принесут максимальный результат.</p></div><div class="sv-im"><img src="../img/web-1.jpg" alt="Разработка сайтов и b2b-сервисов" loading="lazy"></div><svg class="sv-a" aria-hidden="true"><use href="#i-arr"/></svg></li>
-    <li class="sv rv" data-img="../img/mobile.jpg"><div class="sv-n mono">02</div><div class="sv-m"><h3>Дизайн мобильных приложений</h3><p>Проектируем интерфейсы мобильных приложений: от исследования и прототипа до дизайн-системы и передачи в разработку.</p></div><div class="sv-im"><img src="../img/mobile.jpg" alt="Дизайн мобильных приложений" loading="lazy"></div><svg class="sv-a" aria-hidden="true"><use href="#i-arr"/></svg></li>
-    <li class="sv rv" data-img="../img/support.jpg"><div class="sv-n mono">03</div><div class="sv-m"><h3>Техподдержка сайтов</h3><p>Исправим ошибки, улучшим код, оптимизируем работу системы и усилим безопасность. Обеспечим стабильную и бесперебойную работу вашего сайта круглосуточно.</p></div><div class="sv-im"><img src="../img/support.jpg" alt="Техподдержка сайтов" loading="lazy"></div><svg class="sv-a" aria-hidden="true"><use href="#i-arr"/></svg></li>
-    <li class="sv rv" data-img="../img/crm-1.jpg"><div class="sv-n mono">04</div><div class="sv-m"><h3>Разработка CRM</h3><p>Разрабатываем CRM-системы, которые помогают бизнесу оптимизировать управление клиентами и улучшить взаимодействие с ними.</p></div><div class="sv-im"><img src="../img/crm-1.jpg" alt="Разработка CRM" loading="lazy"></div><svg class="sv-a" aria-hidden="true"><use href="#i-arr"/></svg></li>
+    <li class="sv" data-img="../img/web-1.jpg"><div class="sv-n mono">01</div><div class="sv-m"><h3>Разработка сайтов и b2b-сервисов</h3><p>Создаем прибыльные интернет-магазины, мощные сервисы, яркие лендинги. Работаем с бизнесами разных направлений и понимаем, какие решения принесут максимальный результат.</p></div><div class="sv-im"><img src="../img/web-1.jpg" alt="Разработка сайтов и b2b-сервисов" loading="lazy"></div><svg class="sv-a" aria-hidden="true"><use href="#i-arr"/></svg></li>
+    <li class="sv" data-img="../img/mobile.jpg"><div class="sv-n mono">02</div><div class="sv-m"><h3>Дизайн мобильных приложений</h3><p>Проектируем интерфейсы мобильных приложений: от исследования и прототипа до дизайн-системы и передачи в разработку.</p></div><div class="sv-im"><img src="../img/mobile.jpg" alt="Дизайн мобильных приложений" loading="lazy"></div><svg class="sv-a" aria-hidden="true"><use href="#i-arr"/></svg></li>
+    <li class="sv" data-img="../img/support.jpg"><div class="sv-n mono">03</div><div class="sv-m"><h3>Техподдержка сайтов</h3><p>Исправим ошибки, улучшим код, оптимизируем работу системы и усилим безопасность. Обеспечим стабильную и бесперебойную работу вашего сайта круглосуточно.</p></div><div class="sv-im"><img src="../img/support.jpg" alt="Техподдержка сайтов" loading="lazy"></div><svg class="sv-a" aria-hidden="true"><use href="#i-arr"/></svg></li>
+    <li class="sv" data-img="../img/crm-1.jpg"><div class="sv-n mono">04</div><div class="sv-m"><h3>Разработка CRM</h3><p>Разрабатываем CRM-системы, которые помогают бизнесу оптимизировать управление клиентами и улучшить взаимодействие с ними.</p></div><div class="sv-im"><img src="../img/crm-1.jpg" alt="Разработка CRM" loading="lazy"></div><svg class="sv-a" aria-hidden="true"><use href="#i-arr"/></svg></li>
   </ul>
-  <div class="sv-float" id="sv-float" aria-hidden="true"><img src="" alt=""></div>
 </section>
 
 <!-- ============ APPROACH ============ -->
@@ -132,7 +135,7 @@
   <div class="sec-h"><p class="eyebrow mono rv">(05) Подход</p><h2 id="approach-h" class="big-h rv">Как мы работаем</h2></div>
   <p class="ap-lead rv">Работаем end-to-end: от исследования и гипотез до запуска и аналитики. Решения проверяем на данных UX Research, Google Analytics и Яндекс Метрики.</p>
   <ol class="steps">
-    <li class="rv"><i class="mono">01</i><span>Product Discovery</span></li><li class="rv"><i class="mono">02</i><span>UX/UI-дизайн</span></li><li class="rv"><i class="mono">03</i><span>Interaction Design</span></li><li class="rv"><i class="mono">04</i><span>Прототипирование</span></li><li class="rv"><i class="mono">05</i><span>Usability testing</span></li><li class="rv"><i class="mono">06</i><span>Продуктовая аналитика</span></li><li class="rv"><i class="mono">07</i><span>Design Systems</span></li>
+    <li><i class="mono">01</i><span>Product Discovery</span></li><li><i class="mono">02</i><span>UX/UI-дизайн</span></li><li><i class="mono">03</i><span>Interaction Design</span></li><li><i class="mono">04</i><span>Прототипирование</span></li><li><i class="mono">05</i><span>Usability testing</span></li><li><i class="mono">06</i><span>Продуктовая аналитика</span></li><li><i class="mono">07</i><span>Design Systems</span></li>
   </ol>
   <h3 class="ind-h mono rv">Отрасли, в которых у нас есть опыт</h3>
   <div class="mq mq-chip" role="list" aria-label="Отрасли, в которых у нас есть опыт"><div class="mq-t"><span role="listitem">SaaS</span><i>✦</i><span role="listitem">EdTech</span><i>✦</i><span role="listitem">E-commerce</span><i>✦</i><span role="listitem">Travel &amp; Booking</span><i>✦</i><span role="listitem">Gaming</span><i>✦</i><span role="listitem">Retail</span><i>✦</i><span role="listitem">Web3</span><i>✦</i><span role="listitem">Мобильные приложения</span><i>✦</i></div></div>
@@ -140,14 +143,15 @@
 </section>
 
 <!-- ============ REVIEWS ============ -->
-<section class="reviews" id="reviews">
+<section class="reviews panel" id="reviews" data-panel>
   <div class="sec-h"><p class="eyebrow mono rv">(06) Отзывы</p><h2 class="big-h rv">Компании которые нам доверились</h2></div>
   <div class="rv-top rv"><div class="rate"><b>4.9</b><i>★</i></div><div><span class="mono">20 ОТЗЫВОВ</span><a class="btn" href="#"><span>все отзывы</span></a></div></div>
-  <blockquote class="bigq rv"><q>Команда профессионалов быстро поняла наши потребности и предложила креативные решения. Дизайн сайта получился современным и удобным для пользователей</q><footer class="mono"><img src="../img/t1.png" alt="KUPON.BY" loading="lazy"><span>РАЗРАБОТКА САЙТА</span></footer></blockquote>
-  <div class="qs">
-    <blockquote class="rv"><q>Понравилось, что они учитывали все наши пожелания. Процесс работы был прозрачным, а сроки соблюдены. Уверен, что с их помощью наш бизнес вырастет!</q><footer class="mono"><img src="../img/t2.png" alt="ARHEAD.IO" loading="lazy"><span>РАЗРАБОТКА САЙТА</span></footer></blockquote>
-    <blockquote class="rv" style="--d:.12s"><q>Их команда помогла нам разработать не только визуальную часть, но и продумать функционал сайта. Я был приятно удивлён их подходом к работе.</q><footer class="mono"><img src="../img/t3.png" alt="IT-ACADEMY" loading="lazy"><span>РАЗРАБОТКА САЙТА</span></footer></blockquote>
-  </div>
+  <div class="slider" id="slider" data-cursor="drag"><div class="sl-track" id="sl-track">
+    <blockquote class="slide"><q>Команда профессионалов быстро поняла наши потребности и предложила креативные решения. Дизайн сайта получился современным и удобным для пользователей</q><footer class="mono"><img src="../img/t1.png" alt="KUPON.BY" loading="lazy"><span>РАЗРАБОТКА САЙТА</span></footer></blockquote>
+    <blockquote class="slide"><q>Понравилось, что они учитывали все наши пожелания. Процесс работы был прозрачным, а сроки соблюдены. Уверен, что с их помощью наш бизнес вырастет!</q><footer class="mono"><img src="../img/t2.png" alt="ARHEAD.IO" loading="lazy"><span>РАЗРАБОТКА САЙТА</span></footer></blockquote>
+    <blockquote class="slide"><q>Их команда помогла нам разработать не только визуальную часть, но и продумать функционал сайта. Я был приятно удивлён их подходом к работе.</q><footer class="mono"><img src="../img/t3.png" alt="IT-ACADEMY" loading="lazy"><span>РАЗРАБОТКА САЙТА</span></footer></blockquote>
+  </div></div>
+  <div class="sl-ui mono"><span><b id="sl-n">01</b> / 03</span><i><u id="sl-b"></u></i><span class="sl-arrows"><button type="button" id="sl-p" aria-label="←">←</button><button type="button" id="sl-x" aria-label="→">→</button></span></div>
 </section>
 
 <!-- ============ INSTAGRAM ============ -->
@@ -158,7 +162,7 @@
 </section>
 
 <!-- ============ FORM ============ -->
-<section class="fb" id="feedback">
+<section class="fb panel" id="feedback" data-panel>
   <h2 class="fb-h rv"><span>обсудим</span> <span class="out">проект?</span></h2>
   <form id="form" class="rv" novalidate data-endpoint="https://formspree.io/f/xqpeaaoy">
     <label class="fld"><span class="lb mono">Введите ваше имя</span><input type="text" name="name" autocomplete="name" maxlength="80"><span class="msg">Введите имя</span></label>
@@ -186,7 +190,7 @@
 </main>
 
 <footer>
-  <div class="mq mq-foot" aria-hidden="true"><div class="mq-t"><span>MAXIMUM STUDIO</span><i>✦</i><span class="o">MAXIMUM STUDIO</span><i>✦</i><span>MAXIMUM STUDIO</span><i>✦</i><span class="o">MAXIMUM STUDIO</span><i>✦</i></div></div>
+  <div class="wm" aria-hidden="true">MAXIMUM</div><button type="button" class="totop" id="totop" aria-label="Наверх"><span class="mono">Наверх</span><svg><use href="#i-arr"/></svg></button>
   <div class="fl">
     <div class="fl-l mono"><span>ИП Антипенко Максимилиан Юрьевич</span><span>Республика Беларусь, г. Минск, пр-т Притыцкого, 39</span><span>УНП 193311599 · зарегистрирован 15.09.2019 · регистрирующий орган: Минский горисполком</span><span>© <span id="year">2026</span> Maximum Studio</span></div>
     <div class="fl-r mono"><a href="../privacy-policy/">Политика обработки персональных данных</a><a href="../privacy-policy/#cookies">Политика в отношении обработки cookie</a><button type="button" class="fl-btn" id="ck-open">Настройки cookie</button><a href="../">Основная версия сайта</a></div>
@@ -201,6 +205,7 @@
 
 <div class="cookie" id="cookie" role="region" aria-label="Cookies"><p><span>Мы используем только необходимые cookie. Аналитика включается лишь с вашего согласия.</span> <a href="../privacy-policy/#cookies">Политика cookie</a>.</p><div class="row"><button class="btn ghost" id="ck-no" type="button"><span>Отказаться</span></button><button class="btn" id="ck-yes" type="button"><span>Принять</span></button></div></div>
 
+<script src="../v2/js/gsap.min.js"></script><script src="../v2/js/ScrollTrigger.min.js"></script><script src="../v2/js/lenis.min.js"></script>
 <script src="../v2/js/v2.js"></script>
 </body>
 </html>

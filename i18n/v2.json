@@ -1,13 +1,58 @@
 {
-"v2_title":{"ru":"Maximum Studio — версия 2 (дизайн-прототип)","en":"Maximum Studio — version 2 (design prototype)"},
-"v2_loading":{"ru":"Загрузка","en":"Loading"},
-"v2_menu":{"ru":"Меню","en":"Menu"},
-"v2_close":{"ru":"Закрыть","en":"Close"},
-"v2_nap":{"ru":"Подход","en":"Approach"},
-"v2_loc":{"ru":"Минск, Беларусь","en":"Minsk, Belarus"},
-"v2_since":{"ru":"С 2019","en":"Since 2019"},
-"v2_scroll":{"ru":"Листайте","en":"Scroll"},
-"v2_work":{"ru":"Избранные работы","en":"Selected work"},
-"v2_beh":{"ru":"Все проекты на Behance","en":"All projects on Behance"},
-"v2_v1":{"ru":"Основная версия сайта","en":"Main version of the site"}
+"v2_title": {
+"ru": "Maximum Studio — версия 2 (дизайн-прототип)",
+"en": "Maximum Studio — version 2 (design prototype)"
+},
+"v2_loading": {
+"ru": "Загрузка",
+"en": "Loading"
+},
+"v2_menu": {
+"ru": "Меню",
+"en": "Menu"
+},
+"v2_close": {
+"ru": "Закрыть",
+"en": "Close"
+},
+"v2_nap": {
+"ru": "Подход",
+"en": "Approach"
+},
+"v2_loc": {
+"ru": "Минск, Беларусь",
+"en": "Minsk, Belarus"
+},
+"v2_since": {
+"ru": "С 2019",
+"en": "Since 2019"
+},
+"v2_scroll": {
+"ru": "Листайте",
+"en": "Scroll"
+},
+"v2_work": {
+"ru": "Избранные работы",
+"en": "Selected work"
+},
+"v2_beh": {
+"ru": "Все проекты на Behance",
+"en": "All projects on Behance"
+},
+"v2_v1": {
+"ru": "Основная версия сайта",
+"en": "Main version of the site"
+},
+"v2_more": {
+"ru": "Больше работ",
+"en": "More work"
+},
+"v2_drag": {
+"ru": "Листайте →",
+"en": "Keep scrolling →"
+},
+"v2_top": {
+"ru": "Наверх",
+"en": "Back to top"
+}
 }
