@@ -201,31 +201,44 @@ G.utils.toArray('.st b').forEach(function(b){G.fromTo(b,{yPercent:18},{yPercent:
 var rl=$('.ruler');if(rl)ST.create({trigger:rl,start:'top 90%',once:true,onEnter:function(){rl.classList.add('in')}});
 
 /* ---------- HERO ---------- */
-var hero=$('#hero'),h1=$('.hero-h'),heroPh=$('.hero-ph'),lns=$$('.ln-i',h1),chars=[];
+var hero=$('#hero'),h1=$('.hero-h'),fig=$('.hero-fig'),heroPh=$('#hero-ph'),bob=$('.hero-bob'),glows=$$('.hero-glow'),lns=$$('.ln-i',h1),lnBox=$$('.ln',h1),chars=[];
 h1.setAttribute('aria-label',h1.textContent.replace(/\s+/g,' ').trim());
 lns.forEach(function(l){chars=chars.concat(splitChars(l))});
-G.set(chars,{yPercent:118,rotate:7});h1.classList.add('split');G.set(heroPh,{opacity:0,scale:1.45,clipPath:'circle(0% at 50% 58%)'});
+G.set(chars,{yPercent:118,rotate:7});h1.classList.add('split');
+G.set(heroPh,{opacity:0,y:90,scale:1.12,transformPerspective:1300});G.set(glows,{opacity:0,scale:.35});
 G.set('#nav',{yPercent:-110});
 function heroIn(){
  var tl=G.timeline();
- tl.to(heroPh,{opacity:1,scale:1,clipPath:'circle(78% at 50% 58%)',duration:2.4,ease:'expo.out'},0)
-   .to(chars,{yPercent:0,rotate:0,duration:1.25,stagger:{each:.035,from:'start'}},.15)
+ tl.to(glows,{opacity:1,scale:1,duration:2.6,ease:'expo.out',stagger:.15},0)
+   .to(heroPh,{opacity:1,y:0,scale:1,duration:2.2,ease:'expo.out'},.1)
+   .to(chars,{yPercent:0,rotate:0,duration:1.25,stagger:{each:.035,from:'start'}},.25)
    .to('#nav',{yPercent:0,duration:1,ease:'power3.out',onComplete:function(){navLive=true}},.5)
    .add(function(){h1.classList.add('free');heroLive()},'>-.2');
 }
 function heroLive(){
- /* прокрутка: фото приближается, строки расходятся */
+ /* дыхание портрета */
+ G.to(bob,{y:-9,rotation:.25,duration:3.6,ease:'sine.inOut',yoyo:true,repeat:-1});
+ /* прокрутка: портрет приближается, строки расходятся */
  G.timeline({scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:.5}})
-  .to(heroPh,{scale:1.3,yPercent:14,ease:'none'},0)
+  .to(fig,{scale:1.22,yPercent:10,transformOrigin:'50% 100%',ease:'none'},0)
+  .to(glows[0],{scale:1.5,opacity:.35,ease:'none'},0)
   .to(lns[0],{xPercent:-22,ease:'none'},0).to(lns[1],{xPercent:22,ease:'none'},0)
   .to('.hero-top,.hero-bot',{opacity:0,y:-60,ease:'none'},0);
- /* курсор: параллакс слоёв и буквы-«магниты» */
- if(fine){var px=G.quickTo(heroPh,'x',{duration:1.2,ease:'power3'}),py=G.quickTo(heroPh,'y',{duration:1.2,ease:'power3'}),
-   hx=G.quickTo(h1,'x',{duration:1.2,ease:'power3'}),hy=G.quickTo(h1,'y',{duration:1.2,ease:'power3'});
-  var cs=chars.filter(function(c){return c.textContent.trim()}).map(function(c){return{el:c,y:G.quickTo(c,'y',{duration:.6,ease:'power3'}),s:G.quickTo(c,'scale',{duration:.6,ease:'power3'})}});
-  hero.addEventListener('pointermove',function(e){var nx=e.clientX/innerWidth-.5,ny=e.clientY/innerHeight-.5;px(nx*-40);py(ny*-26);hx(nx*18);hy(ny*10);
-   cs.forEach(function(c){var r=c.el.getBoundingClientRect(),d=Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2)),k=clamp(1-d/260,0,1);c.y(-k*26);c.s(1+k*.14)})});
-  hero.addEventListener('pointerleave',function(){px(0);py(0);hx(0);hy(0);cs.forEach(function(c){c.y(0);c.s(1)})})}
+ /* курсор двигает вырезанного героя: сдвиг, наклон, свет, противоход текста и свечения */
+ var D=1.1,px=G.quickTo(heroPh,'x',{duration:D,ease:'power3'}),py=G.quickTo(heroPh,'y',{duration:D,ease:'power3'}),
+  pry=G.quickTo(heroPh,'rotationY',{duration:D,ease:'power3'}),prx=G.quickTo(heroPh,'rotationX',{duration:D,ease:'power3'}),
+  g0x=G.quickTo(glows[0],'x',{duration:1.6,ease:'power3'}),g0y=G.quickTo(glows[0],'y',{duration:1.6,ease:'power3'}),
+  g1x=G.quickTo(glows[1],'x',{duration:2,ease:'power3'}),g1y=G.quickTo(glows[1],'y',{duration:2,ease:'power3'}),
+  l0=G.quickTo(lnBox[0],'x',{duration:1.4,ease:'power3'}),l1=G.quickTo(lnBox[1],'x',{duration:1.4,ease:'power3'}),
+  ly0=G.quickTo(lnBox[0],'y',{duration:1.4,ease:'power3'}),ly1=G.quickTo(lnBox[1],'y',{duration:1.4,ease:'power3'});
+ function aim(nx,ny){px(nx*90);py(ny*46);pry(nx*13);prx(-ny*8);g0x(-nx*130);g0y(-ny*90);g1x(nx*190);g1y(ny*70);l0(nx*-70);l1(nx*90);ly0(ny*-22);ly1(ny*26)}
+ if(fine){var cs=chars.filter(function(c){return c.textContent.trim()}).map(function(c){return{el:c,y:G.quickTo(c,'y',{duration:.6,ease:'power3'}),s:G.quickTo(c,'scale',{duration:.6,ease:'power3'})}});
+  hero.addEventListener('pointermove',function(e){var nx=e.clientX/innerWidth-.5,ny=e.clientY/innerHeight-.5;aim(nx,ny);
+   var r=heroPh.getBoundingClientRect();heroPh.style.setProperty('--lx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');heroPh.style.setProperty('--ly',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+   cs.forEach(function(c){var rr=c.el.getBoundingClientRect(),d=Math.hypot(e.clientX-(rr.left+rr.width/2),e.clientY-(rr.top+rr.height/2)),k=clamp(1-d/240,0,1);c.y(-k*20);c.s(1+k*.1)})});
+  hero.addEventListener('pointerleave',function(){aim(0,0);cs.forEach(function(c){c.y(0);c.s(1)})})}
+ else{ /* тач: герой мягко «ходит» сам */
+  G.ticker.add(function(t){if(scrollY>innerHeight)return;aim(Math.sin(t*.7)*.32,Math.cos(t*.55)*.22)})}
 }
 
 /* ---------- ОСНОВАТЕЛЬ: карточка выезжает и крутится ---------- */

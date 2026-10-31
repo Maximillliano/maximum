@@ -362,3 +362,27 @@ footer{position:relative}
  .slide{width:84vw}.totop{width:84px;height:84px}.wm{font-size:clamp(70px,30vw,200px)}}
 @media(min-width:701px) and (max-width:1023px){.hs-track{grid-template-columns:repeat(2,1fr)}.hs-track .pcard:nth-child(3n+2){margin-top:0}.hs-track .pcard:nth-child(2n){margin-top:clamp(32px,6vw,70px)}}
 @media(prefers-reduced-motion:reduce){.cur,.wipe,.side{display:none!important}}
+
+/* =====================  HERO 2.0: вырезанный портрет, свечение, слои  ===================== */
+.hero{isolation:isolate;background:radial-gradient(120% 80% at 50% 110%,#15121c 0%,var(--bg) 60%)}
+.hero-glow{position:absolute;z-index:0;border-radius:50%;pointer-events:none;will-change:transform}
+.hero-glow.g1{left:50%;top:46%;width:min(92vh,70vw);aspect-ratio:1;margin:calc(min(92vh,70vw)/-2) 0 0 calc(min(92vh,70vw)/-2);background:radial-gradient(closest-side,rgba(255,218,102,.62),rgba(255,196,60,.22) 48%,rgba(255,196,60,0) 74%);filter:blur(10px)}
+.hero-glow.g2{left:50%;top:78%;width:min(120vh,90vw);aspect-ratio:1;margin:calc(min(120vh,90vw)/-2) 0 0 calc(min(120vh,90vw)/-2);background:radial-gradient(closest-side,rgba(160,60,255,.34),rgba(120,40,200,.1) 55%,rgba(120,40,200,0) 75%);filter:blur(24px)}
+.hero-fig{position:absolute;inset:0;z-index:2;display:flex;justify-content:center;align-items:flex-end;pointer-events:none;transform:none;width:auto;aspect-ratio:auto;left:0;bottom:0}
+.hero-ph{position:relative;height:min(94vh,calc(100vw*1.25));aspect-ratio:864/1064;will-change:transform;transform-style:preserve-3d}
+.hero-bob{position:absolute;inset:0}
+.hero-ph img,.hero-ph .me{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;filter:none;mix-blend-mode:normal;-webkit-mask-image:none;mask-image:none;user-select:none}
+.hero-ph .me:not(.lit){filter:drop-shadow(0 0 38px rgba(255,218,102,.30)) drop-shadow(0 0 2px rgba(255,236,170,.55)) contrast(1.04) saturate(1.05)}
+/* «фонарик»: осветлённая копия видна только вокруг курсора */
+.hero-ph .me.lit{filter:brightness(1.9) saturate(1.15) contrast(1.05);mix-blend-mode:screen;opacity:.75;-webkit-mask-image:radial-gradient(circle 190px at var(--lx,50%) var(--ly,35%),#000 0,rgba(0,0,0,.55) 45%,transparent 100%);mask-image:radial-gradient(circle 190px at var(--lx,50%) var(--ly,35%),#000 0,rgba(0,0,0,.55) 45%,transparent 100%)}
+.hero-h{position:absolute;z-index:auto;left:var(--pad);right:var(--pad);top:calc(46% - .86em);margin:0;font-size:clamp(58px,16.4vw,340px)}
+.hero-h .ln{position:relative;z-index:1}
+.hero::after{z-index:3}
+.hero-top,.hero-bot{z-index:4}
+.hero-h .out{-webkit-text-stroke:2px rgba(243,239,232,.9)}
+@media(max-width:700px){.hero-h{top:calc(42% - .86em);font-size:clamp(46px,15.4vw,140px)}.hero-ph{height:min(72vh,calc(100vw*1.3))}.hero-ph .me.lit{display:none}}
+.hero-ph{height:min(82vh,calc(100vw*1.2))}
+.hero-h{line-height:.93;top:calc(44% - .93em)}
+.hero::after{height:22%}
+@media(max-width:700px){.hero-ph{height:min(68vh,calc(100vw*1.3))}.hero-h{top:calc(40% - .93em)}}
+@media(max-width:700px){.hero-ph{height:min(64vh,calc(100vw*1.3))}.hero-h{top:calc(33% - .93em)}.hero-p{position:relative;z-index:5;text-shadow:0 2px 12px #000}}
