@@ -386,3 +386,13 @@ footer{position:relative}
 .hero::after{height:22%}
 @media(max-width:700px){.hero-ph{height:min(68vh,calc(100vw*1.3))}.hero-h{top:calc(40% - .93em)}}
 @media(max-width:700px){.hero-ph{height:min(64vh,calc(100vw*1.3))}.hero-h{top:calc(33% - .93em)}.hero-p{position:relative;z-index:5;text-shadow:0 2px 12px #000}}
+
+/* плитки работ: крупная сетка, как раньше */
+.hs-track{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,32px);align-items:start}
+.hs-track .pcard:nth-child(3n+2){margin-top:clamp(40px,6vw,110px)}
+.hs-end{grid-column:1/-1;flex-direction:row;margin-top:clamp(32px,4vw,64px)}
+.js .pcard{opacity:1}
+.sv{background:#14121b;will-change:transform,filter}
+@media(max-width:1023px){.hs-track{grid-template-columns:repeat(2,1fr)}.hs-track .pcard:nth-child(3n+2){margin-top:0}.hs-track .pcard:nth-child(2n){margin-top:clamp(32px,6vw,70px)}}
+@media(max-width:700px){.hs-track{grid-template-columns:1fr}.hs-track .pcard:nth-child(n){margin-top:0}}
+.sv{min-height:min(50vh,440px)}@media(max-width:700px){.sv{min-height:0}}

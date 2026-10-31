@@ -251,25 +251,23 @@ if(card){G.set(card,{transformPerspective:1100});
    if(ST.isInViewport(card,.6)){ry((x-.5)*16);rx((.5-y)*14)}});
   card.addEventListener('pointerleave',function(){rx(0);ry(0)})}}
 
-/* ---------- ПРОЕКТЫ: закреплённая горизонтальная галерея (десктоп) ---------- */
-var work=$('#work'),hs=$('#hs'),trk=$('#hs-track'),pcs=$$('.pcard',trk),mm=G.matchMedia();
-mm.add('(min-width:1024px)',function(){
- work.classList.add('is-hs');
- var n=$('#hs-n'),b=$('#hs-b'),dist=function(){return Math.max(0,trk.scrollWidth-hs.clientWidth)};
- var tw=G.to(trk,{x:function(){return-dist()},ease:'none',scrollTrigger:{trigger:work,start:'top top',end:function(){return'+='+(dist()+innerHeight*.35)},pin:true,scrub:.7,invalidateOnRefresh:true,anticipatePin:1,
-  onUpdate:function(s){var p=s.progress;b.style.transform='scaleX('+p+')';n.textContent=('0'+clamp(Math.round(p*(pcs.length-1))+1,1,pcs.length)).slice(-2)}}});
- pcs.forEach(function(c){var im=$('img',c);
-  G.fromTo(im,{xPercent:-9,scale:1.28},{xPercent:9,scale:1.28,ease:'none',scrollTrigger:{trigger:c,containerAnimation:tw,start:'left right',end:'right left',scrub:true}});
-  G.fromTo(c,{scale:.86,opacity:.35,rotation:3},{scale:1,opacity:1,rotation:0,ease:'none',scrollTrigger:{trigger:c,containerAnimation:tw,start:'left 98%',end:'left 55%',scrub:true}})});
- return function(){work.classList.remove('is-hs');G.set([trk].concat(pcs),{clearProps:'all'})}});
-mm.add('(max-width:1023px)',function(){pcs.forEach(function(c){G.from(c,{y:70,opacity:0,duration:1.2,scrollTrigger:{trigger:c,start:'top 90%',once:true}})})});
+/* ---------- ПРОЕКТЫ: сетка крупных плиток ---------- */
+var work=$('#work'),pcs=$$('.pcard'),mm=G.matchMedia();
+pcs.forEach(function(c){var im=$('.pcard-im',c),img=$('img',c);
+ G.fromTo(c,{y:90,opacity:0},{y:0,opacity:1,duration:1.3,scrollTrigger:{trigger:c,start:'top 92%',once:true}});
+ G.fromTo(im,{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:1.5,ease:'expo.inOut',scrollTrigger:{trigger:c,start:'top 90%',once:true}});
+ G.fromTo(img,{yPercent:-6,scale:1.18},{yPercent:6,scale:1.18,ease:'none',scrollTrigger:{trigger:c,start:'top bottom',end:'bottom top',scrub:true}});
+ if(fine){G.set(c,{transformPerspective:1000});var rx=G.quickTo(c,'rotationX',{duration:.7,ease:'power3'}),ry=G.quickTo(c,'rotationY',{duration:.7,ease:'power3'});
+  c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');ry((x-.5)*10);rx((.5-y)*10)});
+  c.addEventListener('pointerleave',function(){rx(0);ry(0)})}});
+var he=$('.hs-end');if(he)G.from(he,{y:50,opacity:0,duration:1.2,scrollTrigger:{trigger:he,start:'top 94%',once:true}});
 
 /* ---------- УСЛУГИ: стопка карточек ---------- */
 var svs=$$('.sv');
 svs.forEach(function(s,i){s.style.setProperty('--i',i);var img=$('.sv-im img',s);
  G.fromTo(img,{yPercent:-9},{yPercent:9,ease:'none',scrollTrigger:{trigger:s,start:'top bottom',end:'bottom top',scrub:true}});
  G.from(s,{y:90,opacity:0,duration:1.2,scrollTrigger:{trigger:s,start:'top 92%',once:true}});
- if(svs[i+1])G.to(s,{scale:.93,opacity:.42,yPercent:-1.5,ease:'none',scrollTrigger:{trigger:svs[i+1],start:'top 82%',end:'top 22%',scrub:true}})});
+ if(svs[i+1])G.to(s,{scale:.94,filter:'brightness(.45)',ease:'none',scrollTrigger:{trigger:svs[i+1],start:'top 82%',end:'top 22%',scrub:true}})});
 
 /* ---------- ПОДХОД: шаги зажигаются ---------- */
 $$('.steps li').forEach(function(li){G.fromTo(li,{opacity:.18,x:-18},{opacity:1,x:0,ease:'none',scrollTrigger:{trigger:li,start:'top 88%',end:'top 58%',scrub:true}})});
