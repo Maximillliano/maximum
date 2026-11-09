@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Собирает вторую версию сайта (другой дизайн, тот же контент):
-   v2/template.html + тексты из index.html (RU) / i18n/en.json (EN) + i18n/v2.json -> v2/index.html, v2/en/index.html
+   v2/template.html + тексты из index.html (RU) / i18n/en.json (EN) + i18n/v2.json -> v2/index.html (только русская версия)
 Тексты правятся в index.html (RU), i18n/en.json и i18n/v2.json — затем:  python3 build-v2.py"""
 import re,json,html,pathlib
 R=pathlib.Path(__file__).parent
@@ -41,9 +41,9 @@ def build(lang):
     canon=base+'/'
     s=s.replace('{{LANG}}',lang).replace('{{ROOT}}',root).replace('{{POL}}',pol).replace('{{ROOT_SITE}}',site).replace('{{CANON}}',canon if lang=='ru' else canon+'en/')
     return s
-out=R/'v2';(out/'en').mkdir(parents=True,exist_ok=True)
-for lang,p in (('ru',out/'index.html'),('en',out/'en/index.html')):
+out=R/'v2';
+for lang,p in (('ru',out/'index.html'),):
     t=build(lang);p.write_text(t,encoding='utf-8')
     body=re.sub(r'<!--.*?-->|<script.*?</script>','',t,flags=re.S)
     if lang=='en' and re.search(r'[А-Яа-яЁё]',body): print('ВНИМАНИЕ: русский текст в EN:',set(re.findall(r'[А-Яа-яЁё][А-Яа-яЁё\s]*',body)))
-print('Готово: v2/index.html, v2/en/index.html')
+print('Готово: v2/index.html (только русская версия)')

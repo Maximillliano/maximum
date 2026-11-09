@@ -396,3 +396,11 @@ footer{position:relative}
 @media(max-width:1023px){.hs-track{grid-template-columns:repeat(2,1fr)}.hs-track .pcard:nth-child(3n+2){margin-top:0}.hs-track .pcard:nth-child(2n){margin-top:clamp(32px,6vw,70px)}}
 @media(max-width:700px){.hs-track{grid-template-columns:1fr}.hs-track .pcard:nth-child(n){margin-top:0}}
 .sv{min-height:min(50vh,440px)}@media(max-width:700px){.sv{min-height:0}}
+
+/* отзывы: подписи карточек не должны наследовать стиль подвала сайта */
+blockquote footer{background:none;padding:0;overflow:visible;position:static;display:flex;align-items:center;gap:14px}
+.slide footer img{height:30px;width:auto;max-width:150px;object-fit:contain;opacity:1}
+.reviews .slide:nth-child(1) footer img,.reviews .slide:nth-child(3) footer img{filter:invert(1) brightness(.15)}
+.reviews .slide:nth-child(2) footer img{filter:none}
+/* услуги: карточки без затемнения и без «проваливания» */
+.sv{filter:none!important;opacity:1!important}

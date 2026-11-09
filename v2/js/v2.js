@@ -262,12 +262,9 @@ pcs.forEach(function(c){var im=$('.pcard-im',c),img=$('img',c);
   c.addEventListener('pointerleave',function(){rx(0);ry(0)})}});
 var he=$('.hs-end');if(he)G.from(he,{y:50,opacity:0,duration:1.2,scrollTrigger:{trigger:he,start:'top 94%',once:true}});
 
-/* ---------- УСЛУГИ: стопка карточек ---------- */
-var svs=$$('.sv');
-svs.forEach(function(s,i){s.style.setProperty('--i',i);var img=$('.sv-im img',s);
- G.fromTo(img,{yPercent:-9},{yPercent:9,ease:'none',scrollTrigger:{trigger:s,start:'top bottom',end:'bottom top',scrub:true}});
- G.from(s,{y:90,opacity:0,duration:1.2,scrollTrigger:{trigger:s,start:'top 92%',once:true}});
- if(svs[i+1])G.to(s,{scale:.94,filter:'brightness(.45)',ease:'none',scrollTrigger:{trigger:svs[i+1],start:'top 82%',end:'top 22%',scrub:true}})});
+/* ---------- УСЛУГИ: стопка карточек (без затемнения, текст всегда читается) ---------- */
+$$('.sv').forEach(function(s,i){s.style.setProperty('--i',i);var img=$('.sv-im img',s);
+ G.fromTo(img,{yPercent:-9},{yPercent:9,ease:'none',scrollTrigger:{trigger:s,start:'top bottom',end:'bottom top',scrub:true}})});
 
 /* ---------- ПОДХОД: шаги зажигаются ---------- */
 $$('.steps li').forEach(function(li){G.fromTo(li,{opacity:.18,x:-18},{opacity:1,x:0,ease:'none',scrollTrigger:{trigger:li,start:'top 88%',end:'top 58%',scrub:true}})});
