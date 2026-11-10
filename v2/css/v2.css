@@ -572,3 +572,20 @@ html:not(.js) .bars-row b{transform:none}
 .btn:hover{color:#0B0A0F}
 .btn-lg:hover,.hero-cta .btn-lg:hover,.hs-end .btn-lg:hover{color:#6a1bd0}
 .nav-ic:hover{color:#0B0A0F}.nav-ic:hover .ic{fill:currentColor}
+
+/* ===== v7: форма + контакты рядом, плотнее услуги ===== */
+.fb-row{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(32px,6vw,110px);align-items:start}
+.fb-row #form{max-width:none}
+.fb .contacts{padding:0;background:transparent!important}
+.fb .contacts .sec-h{margin-bottom:10px}
+.fb .ct{grid-template-columns:1fr;column-gap:0}
+.fb .ct a{padding:18px 44px 18px 0}
+.fb .ct a b{font-size:clamp(16px,1.7vw,24px)}
+@media(max-width:900px){.fb-row{grid-template-columns:1fr}}
+@media(max-width:600px){.fb .ct a b{font-size:15px;text-transform:none}}
+.services{padding-bottom:0}
+.svl{padding-bottom:0}.svl .sv:last-child{margin-bottom:0}
+.cta-wide-wrap{padding-top:clamp(14px,1.8vw,26px)}
+.fb-row .sel-btn,.fb-row .sel-btn span{font-size:clamp(16px,1.6vw,22px)}
+.cta-wide-wrap{padding-top:10px;padding-bottom:0}
+.svl{margin-bottom:0}

@@ -300,8 +300,8 @@ mm.add('(min-width:768px)',function(){$$('[data-panel]').forEach(function(p){
  return function(){G.set('[data-panel]',{clearProps:'clipPath'})}});
 
 /* ---------- ПОДВАЛ: слово MAXIMUM собирается по буквам ---------- */
-var wm=$('.wm');if(wm){wm.setAttribute('aria-label','MAXIMUM');var wc=splitChars(wm);G.set(wc,{yPercent:110});
- ST.create({trigger:wm,start:'top 92%',once:true,onEnter:function(){G.to(wc,{yPercent:0,duration:1.4,stagger:.07})}})}
+var wm=$('.wm');if(wm){wm.setAttribute('aria-label','MAXIMUM');var wc=splitChars(wm);G.set(wc,{yPercent:115,rotation:6,transformOrigin:'0% 100%'});
+ ST.create({trigger:wm,start:'top 68%',once:true,onEnter:function(){G.to(wc,{yPercent:0,rotation:0,duration:1.2,stagger:.16,ease:'expo.out'})}})}
 
 /* ---------- индикатор секций ---------- */
 var secs=[[hero,'Maximum Studio'],[$('#about'),null],[work,null],[$('#founder'),null],[$('#services'),null],[$('#approach'),null],[$('#reviews'),null],[$('#instagram'),null],[$('#feedback'),T('Заявка','Request')],[$('#contacts'),null]],sn2=$('#side-n'),st2=$('#side-t'),sbar=$('#side-b');

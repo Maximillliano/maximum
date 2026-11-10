@@ -179,6 +179,7 @@
 <!-- ============ FORM ============ -->
 <section class="fb" id="feedback">
   <h2 class="fb-h rv"><span>[[f1]]</span> <span class="out">[[f2]]</span></h2>
+  <div class="fb-row">
   <form id="form" class="rv" novalidate data-endpoint="https://formspree.io/f/xqpeaaoy">
     <label class="fld"><span class="lb mono">[[fn]]</span><input type="text" name="name" autocomplete="name" maxlength="80"><span class="msg">[[e1]]</span></label>
     <div class="fld"><span class="lb mono" id="fs-l">[[fs]]</span>
@@ -190,10 +191,7 @@
     <button class="btn btn-lg btn-send" type="submit"><span>[[send]]</span><svg><use href="#i-arr"/></svg></button>
     <p class="form-err" id="ferr" role="alert">[[e5]]</p>
   </form>
-</section>
-
-<!-- ============ CONTACTS ============ -->
-<section class="contacts" id="contacts">
+  <aside class="contacts" id="contacts" aria-label="[[ctH]]">
   <div class="sec-h"><p class="eyebrow mono rv">(08) [[ctH]]</p><h2 class="big-h rv">[[ctH]]</h2></div>
   <div class="ct">
     <a class="rv" href="mailto:Maximilian.Antipenko@gmail.com"><span class="mono">Email</span><b>Maximilian.Antipenko@gmail.com</b><svg aria-hidden="true"><use href="#i-arr"/></svg></a>
@@ -201,7 +199,10 @@
     <a class="rv" style="--d:.16s" href="https://t.me/maximilian_designer" target="_blank" rel="noopener"><span class="mono">Telegram</span><b>@maximilian_designer</b><svg aria-hidden="true"><use href="#i-arr"/></svg></a>
     <a class="rv" style="--d:.24s" href="https://www.instagram.com/maximilian_designer" target="_blank" rel="noopener"><span class="mono">Instagram</span><b>@maximilian_designer</b><svg aria-hidden="true"><use href="#i-arr"/></svg></a>
   </div>
+  </aside>
+  </div>
 </section>
+
 </main>
 
 <footer>
