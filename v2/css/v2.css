@@ -488,7 +488,7 @@ html:not(.js) .bars-row b{transform:none}
 /* ===== v3: очки, фон hero, CTA, чёрные блоки ===== */
 .glasses{position:absolute;inset:0;pointer-events:none}
 .glasses svg.gl-tint,.glasses svg.gl-frame{position:absolute;inset:0;width:100%;height:100%}
-.gl-video{position:absolute;left:29.34%;top:33.41%;width:41.09%;height:12.92%;object-fit:cover;mix-blend-mode:screen;opacity:.92;-webkit-mask:url(../img/lens-mask.png) center/100% 100% no-repeat;mask:url(../img/lens-mask.png) center/100% 100% no-repeat}
+.gl-video{position:absolute;left:27.489%;top:35.07%;width:48.23%;height:12.753%;object-fit:cover;mix-blend-mode:screen;opacity:.92;-webkit-mask:url(../img/lens-mask.png) center/100% 100% no-repeat;mask:url(../img/lens-mask.png) center/100% 100% no-repeat}
 .hero-bgtxt{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;gap:.02em;overflow:hidden;pointer-events:none;font-family:var(--disp);font-weight:700;font-size:clamp(150px,27vw,420px);line-height:.86;text-transform:uppercase;color:rgba(243,239,232,.045);user-select:none;transform:translateY(-6%)}
 .hero-bgtxt .bgrow{display:flex;white-space:nowrap}
 .hero-bgtxt .mq-t{display:flex;flex:none;gap:.25em;padding-right:.25em;will-change:transform}
