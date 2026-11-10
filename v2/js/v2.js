@@ -297,7 +297,7 @@ var wm=$('.wm');if(wm){wm.setAttribute('aria-label','MAXIMUM');var wc=splitChars
  ST.create({trigger:wm,start:'top 92%',once:true,onEnter:function(){G.to(wc,{yPercent:0,duration:1.4,stagger:.07})}})}
 
 /* ---------- индикатор секций ---------- */
-var secs=[[hero,'Maximum Studio'],[work,null],[$('#about'),null],[$('#founder'),null],[$('#services'),null],[$('#approach'),null],[$('#reviews'),null],[$('#instagram'),null],[$('#feedback'),T('Заявка','Request')],[$('#contacts'),null]],sn2=$('#side-n'),st2=$('#side-t'),sbar=$('#side-b');
+var secs=[[hero,'Maximum Studio'],[$('#about'),null],[work,null],[$('#founder'),null],[$('#services'),null],[$('#approach'),null],[$('#reviews'),null],[$('#instagram'),null],[$('#feedback'),T('Заявка','Request')],[$('#contacts'),null]],sn2=$('#side-n'),st2=$('#side-t'),sbar=$('#side-b');
 secs.forEach(function(p,i){var el=p[0];if(!el)return;var eb=$('.eyebrow',el),name=p[1]||(eb?eb.textContent.replace(/^\(\d+\)\s*/,''):el.id);
  ST.create({trigger:el,start:'top 55%',end:'bottom 55%',onToggle:function(s){if(s.isActive){sn2.textContent=('0'+(i+1)).slice(-2);st2.textContent=name}}})});
 sn2.textContent='01';st2.textContent='Maximum Studio';

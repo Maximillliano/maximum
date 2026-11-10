@@ -511,3 +511,13 @@ html:not(.js) .bars-row b{transform:none}
 .ct a svg{position:absolute;right:0;top:50%;width:18px;height:18px;margin-top:-9px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .4s,color .3s}
 .ct a:hover{color:var(--y)}.ct a:hover svg{transform:rotate(45deg)}
 @media(max-width:600px){.ct{grid-template-columns:1fr 1fr;column-gap:16px}.ct a{padding-right:22px}.ct a b{font-size:13px}.ct a svg{width:14px;height:14px;margin-top:-7px}}
+
+/* ===== v4 ===== */
+.hero-bgtxt{top:0;bottom:0;justify-content:center;transform:none;font-size:clamp(240px,62vh,760px);line-height:.8}
+@media(min-width:1101px){.nav .links{position:absolute;left:50%;transform:translateX(-50%)}}
+@media(max-width:1750px){.nav-tel{display:none}}
+.nav .nav-cta{padding:12px 26px}
+.hero-cta .btn-lg{padding:clamp(15px,1.3vw,20px) clamp(32px,3.4vw,52px)}
+.hero-cta .btn-lg svg{width:22px;height:22px}
+@media(max-width:700px){.hero-cta .btn-lg{padding:18px 24px}}
+.about-2{padding-top:0}
