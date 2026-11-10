@@ -593,3 +593,4 @@ html:not(.js) .bars-row b{transform:none}
 .nav-ic:hover,.nav-ic:hover .ic{color:#fff}
 .cta-wide-wrap{padding:12px var(--pad,4vw) 0}
 .cta-wide-wrap .btn-lg{padding:clamp(24px,2.4vw,36px) clamp(36px,4vw,64px);font-size:clamp(16px,1.4vw,22px);gap:18px}.cta-wide-wrap .btn-lg svg{width:26px;height:26px}
+.cta-wide-wrap{display:flex;justify-content:center}
