@@ -55,7 +55,7 @@ html.nopre .pre{display:none!important}
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;overflow:hidden;isolation:isolate;padding:13px 24px;border:1px solid var(--line);border-radius:999px;font:700 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;transition:color .4s,border-color .4s,transform .3s var(--out)}
 .btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--y);transform:translateY(101%);transition:transform .5s var(--out);border-radius:inherit}
 .btn:hover{color:#fff;border-color:var(--y)}.btn:hover::before{transform:none}
-.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s var(--out)}.btn:hover svg{transform:rotate(45deg)}
+.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s var(--out)}
 .btn-lg{padding:20px 34px;background:var(--y);color:#fff;border-color:var(--y);font-size:13px}.btn-lg::before{background:var(--fg)}
 .btn.ghost{border-color:var(--line)}
 .ic{width:20px;height:20px;fill:currentColor}
@@ -166,7 +166,7 @@ html.nopre .pre{display:none!important}
 .sv p{color:var(--mut);margin-top:16px;max-width:54ch;font-size:clamp(15px,1.2vw,19px)}
 .sv-a{width:clamp(24px,3vw,48px);height:clamp(24px,3vw,48px);fill:none;stroke:var(--fg);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;margin-top:.6em;transition:transform .6s var(--out),stroke .3s}
 .sv-im{display:none}
-@media(hover:hover){.sv:hover h3{transform:translateX(24px);color:var(--y)}.sv:hover .sv-a{transform:rotate(45deg);stroke:var(--y)}}
+@media(hover:hover){.sv:hover h3{transform:translateX(24px);color:var(--y)}.sv:hover .sv-a{stroke:var(--y)}}
 .sv-float{position:fixed;left:0;top:0;width:clamp(220px,22vw,340px);aspect-ratio:3/4;z-index:60;pointer-events:none;border-radius:18px;overflow:hidden;opacity:0;transform:translate(-999px,-999px) scale(.8) rotate(-4deg);transition:opacity .3s,scale .3s;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
 .sv-float.show{opacity:1}.sv-float img{width:100%;height:100%;object-fit:cover}
 
@@ -230,7 +230,7 @@ blockquote footer{display:flex;align-items:center;gap:14px;margin-top:24px;color
 .ct a{display:grid;grid-template-columns:minmax(120px,.5fr) 1fr auto;align-items:center;gap:16px;padding:clamp(18px,2.4vw,38px) 0;border-bottom:1.5px solid #fff;transition:padding .5s var(--out),background .3s,color .3s}
 .ct a span{color:rgba(255,255,255,.62)}.ct a b{font:700 clamp(20px,3.4vw,58px)/1.05 var(--disp);text-transform:uppercase;overflow-wrap:anywhere;min-width:0}
 .ct a svg{width:clamp(22px,2.6vw,42px);height:clamp(22px,2.6vw,42px);fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s var(--out)}
-@media(hover:hover){.ct a:hover{background:#111;color:var(--y);padding-inline:20px}.ct a:hover span{color:rgba(180,76,255,.7)}.ct a:hover svg{stroke:var(--y);transform:rotate(45deg)}}
+@media(hover:hover){.ct a:hover{background:#111;color:var(--y);padding-inline:20px}.ct a:hover span{color:rgba(180,76,255,.7)}.ct a:hover svg{stroke:var(--y)}}
 
 /* ---------- подвал ---------- */
 footer{background:var(--bg);padding-top:clamp(20px,3vw,48px);overflow:hidden}
@@ -499,7 +499,7 @@ html:not(.js) .bars-row b{transform:none}
 .cta-wide .cw-bg{position:absolute;inset:0;background:#fff;transform:translateY(101%);transition:transform .6s var(--out,cubic-bezier(.2,.8,.2,1))}
 .cta-wide .cw-t,.cta-wide svg{position:relative;z-index:1;transition:color .45s}
 .cta-wide svg{width:.7em;height:.7em;fill:none;stroke:currentColor;stroke-width:2.4;flex:none;transition:transform .5s,color .45s}
-.cta-wide:hover .cw-bg{transform:none}.cta-wide:hover{color:#6a1bd0}.cta-wide:hover svg{transform:rotate(45deg)}
+.cta-wide:hover .cw-bg{transform:none}.cta-wide:hover{color:#6a1bd0}
 .fb,.contacts{background:#000!important;color:var(--fg)}
 .fb{padding-block:clamp(50px,7vw,100px)}
 .fb .btn-send{background:var(--y);color:#fff}
@@ -509,7 +509,7 @@ html:not(.js) .bars-row b{transform:none}
 .ct a .mono{font-size:11px;opacity:.55;letter-spacing:.12em;text-transform:uppercase}
 .ct a b{font-weight:500;font-family:var(--body);font-size:clamp(15px,1.8vw,24px);word-break:break-word}
 .ct a svg{position:absolute;right:0;top:50%;width:18px;height:18px;margin-top:-9px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .4s,color .3s}
-.ct a:hover{color:var(--y)}.ct a:hover svg{transform:rotate(45deg)}
+.ct a:hover{color:var(--y)}
 @media(max-width:600px){.ct{grid-template-columns:1fr 1fr;column-gap:16px}.ct a{padding-right:22px}.ct a b{font-size:13px}.ct a svg{width:14px;height:14px;margin-top:-7px}}
 
 /* ===== v4 ===== */
@@ -527,7 +527,7 @@ html:not(.js) .bars-row b{transform:none}
 .btn-send2 .bs-i{width:76px;height:76px;flex:none;display:grid;place-items:center;border-radius:50%;background:var(--y);box-shadow:0 0 30px rgba(180,76,255,.6);transition:transform .5s var(--out),background .4s}
 .btn-send2 svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:2.2;transition:transform .5s var(--out),stroke .4s}
 .btn-send2:hover{background:var(--fg);color:#0B0A0F;border-color:var(--fg)}
-.btn-send2:hover .bs-i{background:#0B0A0F;transform:scale(1.06)}.btn-send2:hover svg{transform:rotate(45deg)}
+.btn-send2:hover .bs-i{background:#0B0A0F;transform:scale(1.06)}
 .btn-send2:focus-visible{outline:2px solid var(--y);outline-offset:4px}
 .btn-send2:disabled{opacity:.6;cursor:wait}
 @media(max-width:600px){.btn-send2{max-width:none;padding-left:26px}.btn-send2 .bs-i{width:64px;height:64px}}
@@ -561,7 +561,7 @@ html:not(.js) .bars-row b{transform:none}
 .ct a::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(180,76,255,.16),rgba(180,76,255,0) 75%);opacity:0;transition:opacity .6s var(--out);pointer-events:none}
 .ct a b{transition:transform .6s var(--out),color .4s}.ct a .mono{transition:color .4s,opacity .4s,transform .6s var(--out)}
 .ct a svg{transition:transform .6s var(--out),color .4s}
-@media(hover:hover){.ct a:hover::before{transform:scaleX(1)}.ct a:hover::after{opacity:1}.ct a:hover b{transform:translateX(14px);color:#fff}.ct a:hover .mono{opacity:1;transform:translateX(14px)}.ct a:hover svg{transform:rotate(45deg) scale(1.15);color:var(--y)}}
+@media(hover:hover){.ct a:hover::before{transform:scaleX(1)}.ct a:hover::after{opacity:1}.ct a:hover b{transform:translateX(14px);color:#fff}.ct a:hover .mono{opacity:1;transform:translateX(14px)}.ct a:hover svg{color:var(--y)}}
 /* футер: ссылки в 2 колонки */
 .fl{grid-template-columns:.9fr 1fr 1.7fr}
 .fl-r{display:grid;grid-template-columns:auto auto;justify-content:start;gap:8px clamp(24px,3vw,56px)}
@@ -589,3 +589,7 @@ html:not(.js) .bars-row b{transform:none}
 .fb-row .sel-btn,.fb-row .sel-btn span{font-size:clamp(16px,1.6vw,22px)}
 .cta-wide-wrap{padding-top:10px;padding-bottom:0}
 .svl{margin-bottom:0}
+
+.nav-ic:hover,.nav-ic:hover .ic{color:#fff}
+.cta-wide-wrap{padding:12px var(--pad,4vw) 0}
+.cta-wide-wrap .btn-lg{padding:clamp(24px,2.4vw,36px) clamp(36px,4vw,64px);font-size:clamp(16px,1.4vw,22px);gap:18px}.cta-wide-wrap .btn-lg svg{width:26px;height:26px}

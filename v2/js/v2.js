@@ -195,8 +195,8 @@ var ap=$('#about-p');
 if(ap){var wr=[],txt=ap.textContent.trim().split(/\s+/);ap.setAttribute('aria-label',ap.textContent.trim());ap.textContent='';
  txt.forEach(function(w,i){var s=document.createElement('span');s.className='w';s.setAttribute('aria-hidden','true');s.textContent=w+(i<txt.length-1?' ':'');ap.appendChild(s);wr.push(s)});
  G.fromTo(wr,{opacity:.14},{opacity:1,ease:'none',stagger:.12,scrollTrigger:{trigger:ap,start:'top 82%',end:'bottom 48%',scrub:.4}})}
-$$('[data-count]').forEach(function(e){var n=+e.dataset.count,o={v:0};e.textContent='0+';
- ST.create({trigger:e,start:'top 85%',once:true,onEnter:function(){G.to(o,{v:n,duration:2.2,ease:'power4.out',onUpdate:function(){e.textContent=Math.round(o.v)+'+'}})}})});
+$$('[data-count]').forEach(function(e){var n=+e.dataset.count,o={v:0};var sx=e.dataset.nop?'':'+';e.textContent='0'+sx;
+ ST.create({trigger:e,start:'top 85%',once:true,onEnter:function(){G.to(o,{v:n,duration:2.2,ease:'power4.out',onUpdate:function(){e.textContent=Math.round(o.v)+sx}})}})});
 G.utils.toArray('.st b').forEach(function(b){G.fromTo(b,{yPercent:18},{yPercent:-10,ease:'none',scrollTrigger:{trigger:b,start:'top bottom',end:'bottom top',scrub:true}})});
 var bars=$('#bars');if(bars)ST.create({trigger:bars,start:'top 85%',once:true,onEnter:function(){bars.classList.add('in')}});
 
