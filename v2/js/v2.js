@@ -53,7 +53,7 @@ form.addEventListener('submit',function(e){e.preventDefault();ferr.classList.rem
  if(b1||b2||b3||b4){var f=$('.err input,.err .sel-btn',form);if(f)f.focus();return}
  if(d.get('website'))return;
  var payload={_subject:'Новая заявка с сайта Maximum Studio (v2)',name:name,phone:phone,service:d.get('service'),lang:lang,page:location.href,time:new Date().toISOString()};
- var btn=$('.btn-send2',form),ep=form.dataset.endpoint;btn.disabled=true;
+ var btn=$('.btn-send',form),ep=form.dataset.endpoint;btn.disabled=true;
  function done(){btn.disabled=false;form.reset();sv2.textContent=ph0;sv2.classList.add('ph');modalOpen();window.confetti&&window.confetti()}
  if(!ep){console.warn('[form] data-endpoint не задан — демо-режим',payload);setTimeout(done,400);return}
  fetch(ep,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
