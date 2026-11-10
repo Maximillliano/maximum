@@ -53,7 +53,7 @@ form.addEventListener('submit',function(e){e.preventDefault();ferr.classList.rem
  if(b1||b2||b3||b4){var f=$('.err input,.err .sel-btn',form);if(f)f.focus();return}
  if(d.get('website'))return;
  var payload={_subject:'Новая заявка с сайта Maximum Studio (v2)',name:name,phone:phone,service:d.get('service'),lang:lang,page:location.href,time:new Date().toISOString()};
- var btn=$('.btn-send',form),ep=form.dataset.endpoint;btn.disabled=true;
+ var btn=$('.btn-send2',form),ep=form.dataset.endpoint;btn.disabled=true;
  function done(){btn.disabled=false;form.reset();sv2.textContent=ph0;sv2.classList.add('ph');modalOpen();window.confetti&&window.confetti()}
  if(!ep){console.warn('[form] data-endpoint не задан — демо-режим',payload);setTimeout(done,400);return}
  fetch(ep,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
@@ -285,7 +285,14 @@ if(sl){var slides=$$('.slide',slt),idx=0,x=0,minX=0,sn=$('#sl-n'),sb=$('#sl-b'),
  sl.addEventListener('pointerup',up);sl.addEventListener('pointercancel',up);
  sl.addEventListener('dragstart',function(e){e.preventDefault()});
  sl.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(idx+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(idx-1)}});
- $('#sl-x').addEventListener('click',function(){go(idx+1)});$('#sl-p').addEventListener('click',function(){go(idx-1)});ui()}
+ $('#sl-x').addEventListener('click',function(){go(idx+1)});$('#sl-p').addEventListener('click',function(){go(idx-1)});ui();
+ /* автолистание: пауза при наведении/фокусе/касании и вне экрана */
+ if(!calm){var ap=null,hov=false,vis=false;
+  function nextSlide(){if(hov||down||document.hidden||!vis)return;(idx>=slides.length-1||x<=minX+2)?go(0,1.3):go(idx+1)}
+  ap=setInterval(nextSlide,4200);
+  sl.addEventListener('mouseenter',function(){hov=true});sl.addEventListener('mouseleave',function(){hov=false});
+  sl.addEventListener('focusin',function(){hov=true});sl.addEventListener('focusout',function(){hov=false});
+  if('IntersectionObserver' in window)new IntersectionObserver(function(en){vis=en[0].isIntersecting},{threshold:.4}).observe(sl);else vis=true}}
 
 /* ---------- ПАНЕЛИ: секция «вырастает» на весь экран ---------- */
 mm.add('(min-width:768px)',function(){$$('[data-panel]').forEach(function(p){

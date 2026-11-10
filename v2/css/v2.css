@@ -521,3 +521,31 @@ html:not(.js) .bars-row b{transform:none}
 .hero-cta .btn-lg svg{width:22px;height:22px}
 @media(max-width:700px){.hero-cta .btn-lg{padding:18px 24px}}
 .about-2{padding-top:0}
+
+/* ===== v5 ===== */
+.hero-bot{align-items:center;margin-bottom:clamp(36px,8vh,90px)}
+.hero-cta .btn-lg{padding:13px 28px;font-size:14px;gap:12px;background:rgba(255,255,255,.07);color:var(--fg);border:1px solid rgba(255,255,255,.3);box-shadow:none;animation:none;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.hero-cta .btn-lg::before{background:var(--fg)}
+.hero-cta .btn-lg:hover{color:#0B0A0F;border-color:var(--fg);box-shadow:none}
+.hero-cta .btn-lg svg{width:18px;height:18px}
+@media(max-width:700px){.hero-cta .btn-lg{padding:15px 24px;font-size:14px}.hero-bot{margin-bottom:28px}}
+.ig-side .ig-btn{padding:26px 42px;font-size:clamp(15px,1.3vw,19px);gap:14px;background:var(--y);color:#fff;border-color:var(--y);box-shadow:0 0 34px rgba(180,76,255,.5)}
+.ig-side .ig-btn::before{background:#fff}.ig-side .ig-btn:hover{color:#6a1bd0;box-shadow:0 0 50px rgba(180,76,255,.85)}
+.ig-side .ig-btn .ic{width:24px;height:24px}
+.btn-send2{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;max-width:560px;padding:12px 12px 12px 38px;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;background:transparent;color:var(--fg);font:600 clamp(24px,2.6vw,36px)/1 var(--disp);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:background .4s,border-color .4s,color .4s,box-shadow .4s}
+.btn-send2 .bs-i{width:76px;height:76px;flex:none;display:grid;place-items:center;border-radius:50%;background:var(--y);box-shadow:0 0 30px rgba(180,76,255,.6);transition:transform .5s var(--out),background .4s}
+.btn-send2 svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:2.2;transition:transform .5s var(--out),stroke .4s}
+.btn-send2:hover{background:var(--fg);color:#0B0A0F;border-color:var(--fg)}
+.btn-send2:hover .bs-i{background:#0B0A0F;transform:scale(1.06)}.btn-send2:hover svg{transform:rotate(45deg)}
+.btn-send2:focus-visible{outline:2px solid var(--y);outline-offset:4px}
+.btn-send2:disabled{opacity:.6;cursor:wait}
+@media(max-width:600px){.btn-send2{max-width:none;padding-left:26px}.btn-send2 .bs-i{width:64px;height:64px}}
+/* футер: без капса, меньше, в 3 колонки */
+.fl{display:grid;grid-template-columns:1.2fr 1.5fr auto;gap:28px clamp(32px,5vw,90px);align-items:start;font:400 13px/1.55 var(--body);letter-spacing:0;text-transform:none;color:var(--mut)}
+.fl-c{display:flex;flex-direction:column;gap:6px;max-width:none}.fl-c b{font-weight:500;color:var(--fg)}
+.fl-r{align-items:flex-start;gap:6px;font:400 13px/1.55 var(--body);letter-spacing:0;text-transform:none}
+.fl a,.fl-btn{font:inherit;letter-spacing:0;text-transform:none}
+@media(max-width:900px){.fl{grid-template-columns:1fr 1fr}.fl-r{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;gap:6px 22px}}
+@media(max-width:600px){.fl{grid-template-columns:1fr}}
+.fl{padding-bottom:72px}
+@media(max-width:600px){.ct a b{text-transform:none;font-size:12px;letter-spacing:0}}
