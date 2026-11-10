@@ -484,3 +484,30 @@ html:not(.js) .bars-row b{transform:none}
 .bars{padding-top:clamp(36px,4vw,64px);height:calc(clamp(240px,28vw,440px) + clamp(36px,4vw,64px))}
 .bars-row b.top em{left:auto;right:0;transform:none}
 @media(max-width:900px){.bars{height:290px}}
+
+/* ===== v3: очки, фон hero, CTA, чёрные блоки ===== */
+.glasses{position:absolute;inset:0;pointer-events:none}
+.glasses svg.gl-tint,.glasses svg.gl-frame{position:absolute;inset:0;width:100%;height:100%}
+.gl-video{position:absolute;left:29.86%;top:36.09%;width:41.32%;height:7.14%;object-fit:cover;clip-path:url(#lensclip);mix-blend-mode:screen;opacity:.95}
+.hero-bgtxt{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;gap:.02em;overflow:hidden;pointer-events:none;font-family:var(--disp);font-weight:700;font-size:clamp(150px,27vw,420px);line-height:.86;text-transform:uppercase;color:rgba(243,239,232,.045);user-select:none;transform:translateY(-6%)}
+.hero-bgtxt .bgrow{display:flex;white-space:nowrap}
+.hero-bgtxt .mq-t{display:flex;flex:none;gap:.25em;padding-right:.25em;will-change:transform}
+.hero-bgtxt .o{-webkit-text-stroke:2px rgba(243,239,232,.06);color:transparent}
+.js .hero-bgtxt{opacity:0;transition:opacity 2s .3s}.js.ready .hero-bgtxt{opacity:1}
+.cta-wide-wrap{padding:clamp(40px,6vw,90px) var(--pad,4vw)}
+.cta-wide{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;padding:clamp(34px,5.5vw,84px) clamp(24px,4vw,64px);border-radius:clamp(18px,2.4vw,36px);background:var(--y);color:#fff;overflow:hidden;font-family:var(--disp);text-transform:uppercase;font-size:clamp(44px,9vw,150px);line-height:.9;box-shadow:0 0 60px rgba(180,76,255,.45)}
+.cta-wide .cw-bg{position:absolute;inset:0;background:#fff;transform:translateY(101%);transition:transform .6s var(--out,cubic-bezier(.2,.8,.2,1))}
+.cta-wide .cw-t,.cta-wide svg{position:relative;z-index:1;transition:color .45s}
+.cta-wide svg{width:.7em;height:.7em;fill:none;stroke:currentColor;stroke-width:2.4;flex:none;transition:transform .5s,color .45s}
+.cta-wide:hover .cw-bg{transform:none}.cta-wide:hover{color:#6a1bd0}.cta-wide:hover svg{transform:rotate(45deg)}
+.fb,.contacts{background:#000!important;color:var(--fg)}
+.fb{padding-block:clamp(50px,7vw,100px)}
+.fb .btn-send{background:var(--y);color:#fff}
+.contacts{padding-block:clamp(40px,5vw,70px)}
+.ct{border-top:1px solid rgba(255,255,255,.18);display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,5vw,80px)}
+.ct a{display:flex;flex-direction:column;align-items:flex-start;gap:6px;position:relative;padding:20px 40px 20px 0;border-bottom:1px solid rgba(255,255,255,.18);color:var(--fg)}
+.ct a .mono{font-size:11px;opacity:.55;letter-spacing:.12em;text-transform:uppercase}
+.ct a b{font-weight:500;font-family:var(--body);font-size:clamp(15px,1.8vw,24px);word-break:break-word}
+.ct a svg{position:absolute;right:0;top:50%;width:18px;height:18px;margin-top:-9px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .4s,color .3s}
+.ct a:hover{color:var(--y)}.ct a:hover svg{transform:rotate(45deg)}
+@media(max-width:600px){.ct{grid-template-columns:1fr 1fr;column-gap:16px}.ct a{padding-right:22px}.ct a b{font-size:13px}.ct a svg{width:14px;height:14px;margin-top:-7px}}

@@ -137,7 +137,7 @@ function buildMarquees(){$$('.mq-t').forEach(function(t){
  var orig=$$(':scope > *',t),need=Math.max(innerWidth,screen.width||0)*1.1,n=0;
  while(t.scrollWidth<need&&n++<8)orig.forEach(function(e){t.appendChild(e.cloneNode(true))});
  var all=$$(':scope > *',t);all.forEach(function(e){e.setAttribute('aria-hidden','true')});all.forEach(function(e){t.appendChild(e.cloneNode(true))});
- tracks.push({el:t,half:0,x:0,rev:!!t.closest('.rev')||t.closest('.rib')&&false,base:t.closest('.mq-chip')?50:t.closest('.mq-big')?70:90})});
+ tracks.push({el:t,half:0,x:0,rev:!!t.closest('.rev')||t.closest('.rib')&&false,base:t.closest('.bgrow')?46:t.closest('.mq-chip')?50:t.closest('.mq-big')?70:90})});
  $$('.rib-t').forEach(function(t,i){tracks.push({el:t,half:0,x:0,rev:false,base:46})});
  tracks.forEach(function(k){k.half=k.el.scrollWidth/2});
  /* фото-ленты: у ленты-дубля противоположное направление */
@@ -206,7 +206,7 @@ h1.setAttribute('aria-label',h1.textContent.replace(/\s+/g,' ').trim());
 lns.forEach(function(l){chars=chars.concat(splitChars(l))});
 G.set(chars,{yPercent:118,rotate:7});h1.classList.add('split');
 G.set(heroPh,{opacity:0,y:90,scale:1.12,transformPerspective:1300});G.set(glows,{opacity:0,scale:.35});
-G.set('#nav',{yPercent:-110});
+G.set('#nav',{yPercent:-110});var glv=$('#gl-video');if(glv&&calm)glv.pause();
 function heroIn(){
  var tl=G.timeline();
  tl.to(glows,{opacity:1,scale:1,duration:2.6,ease:'expo.out',stagger:.15},0)
@@ -297,7 +297,7 @@ var wm=$('.wm');if(wm){wm.setAttribute('aria-label','MAXIMUM');var wc=splitChars
  ST.create({trigger:wm,start:'top 92%',once:true,onEnter:function(){G.to(wc,{yPercent:0,duration:1.4,stagger:.07})}})}
 
 /* ---------- индикатор секций ---------- */
-var secs=[[hero,'Maximum Studio'],[$('#about'),null],[$('#founder'),null],[work,null],[$('#services'),null],[$('#approach'),null],[$('#reviews'),null],[$('#instagram'),null],[$('#feedback'),T('Заявка','Request')],[$('#contacts'),null]],sn2=$('#side-n'),st2=$('#side-t'),sbar=$('#side-b');
+var secs=[[hero,'Maximum Studio'],[work,null],[$('#about'),null],[$('#founder'),null],[$('#services'),null],[$('#approach'),null],[$('#reviews'),null],[$('#instagram'),null],[$('#feedback'),T('Заявка','Request')],[$('#contacts'),null]],sn2=$('#side-n'),st2=$('#side-t'),sbar=$('#side-b');
 secs.forEach(function(p,i){var el=p[0];if(!el)return;var eb=$('.eyebrow',el),name=p[1]||(eb?eb.textContent.replace(/^\(\d+\)\s*/,''):el.id);
  ST.create({trigger:el,start:'top 55%',end:'bottom 55%',onToggle:function(s){if(s.isActive){sn2.textContent=('0'+(i+1)).slice(-2);st2.textContent=name}}})});
 sn2.textContent='01';st2.textContent='Maximum Studio';
