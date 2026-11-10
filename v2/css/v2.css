@@ -445,3 +445,42 @@ blockquote footer{background:none;padding:0;overflow:visible;position:static;dis
 .links a .rl,.links a .rl>span{font:500 clamp(14px,1.05vw,17px)/1.25 var(--body);color:var(--fg);letter-spacing:.09em;text-transform:uppercase}
 .links a:hover .rl>span{color:var(--y)}
 .links a>span:not(.rl){font:500 11px var(--mono);color:var(--y);letter-spacing:.04em}
+
+/* ===== график успехов: столбцы роста ===== */
+.proof{display:grid;grid-template-columns:minmax(260px,.8fr) 1.2fr;gap:clamp(24px,5vw,90px);align-items:end;margin-top:clamp(28px,3vw,48px)}
+.proof .sat{margin:0;max-width:none;color:var(--fg);font:500 clamp(22px,2.6vw,44px)/1.15 var(--body);letter-spacing:-.02em}
+.bars{position:relative;display:grid;grid-template-columns:1fr auto;gap:14px;height:clamp(240px,28vw,440px)}
+.bars-row{position:relative;display:flex;align-items:flex-end;gap:clamp(6px,1vw,16px);height:100%;border-bottom:1px solid var(--line);background:repeating-linear-gradient(0deg,transparent 0,transparent calc(25% - 1px),rgba(243,239,232,.1) calc(25% - 1px),rgba(243,239,232,.1) 25%)}
+.bars-row b{position:relative;flex:1;height:var(--h);border-radius:12px 12px 3px 3px;background:linear-gradient(180deg,rgba(180,76,255,.85),rgba(180,76,255,.12));border:1px solid rgba(214,170,255,.35);border-bottom:0;transform:scaleY(0);transform-origin:50% 100%;transition:transform 1.3s var(--out) calc(var(--i)*.09s),filter .3s,box-shadow .3s}
+.bars.in .bars-row b{transform:none}
+html:not(.js) .bars-row b{transform:none}
+.bars-row b:hover{filter:brightness(1.3);box-shadow:0 0 30px rgba(180,76,255,.6)}
+.bars-row b.top{background:linear-gradient(180deg,#d9a8ff,#b44cff 35%,#7b22e6);border-color:#e3c1ff;box-shadow:0 0 40px rgba(180,76,255,.85),0 0 100px rgba(180,76,255,.45);animation:topglow 2.6s ease-in-out 2.4s infinite}
+.bars-row b.top em{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translateX(-50%);font:700 clamp(26px,3.2vw,56px)/1 var(--disp);font-style:normal;color:#fff;white-space:nowrap;text-shadow:0 0 24px rgba(180,76,255,.9)}
+@keyframes topglow{0%,100%{box-shadow:0 0 30px rgba(180,76,255,.7),0 0 80px rgba(180,76,255,.3)}50%{box-shadow:0 0 56px rgba(180,76,255,1),0 0 130px rgba(180,76,255,.6)}}
+.bars-ax{display:flex;flex-direction:column;justify-content:space-between;color:var(--mut);height:100%;padding-bottom:0;text-align:right}
+@media(max-width:900px){.proof{grid-template-columns:1fr}.bars{height:240px}}
+/* ===== карточка нового проекта ===== */
+.fo-card{display:flex;color:var(--fg)}
+.fo-card-top{display:flex;justify-content:space-between;align-items:center}
+.newtag{display:inline-flex;align-items:center;gap:10px;color:#fff;background:var(--y);padding:8px 14px;border-radius:999px;box-shadow:var(--glow)}
+.newtag i{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.fo-card-top .arr{font-size:22px;line-height:1;transition:transform .5s var(--out),color .3s}.fo-card:hover .arr{transform:translate(4px,-4px);color:var(--y)}
+.fo-photo img{object-position:50% 0}
+.fo-card{border-color:rgba(180,76,255,.4);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 60px rgba(180,76,255,.22)}
+.fo-card-b h2{font-size:clamp(22px,2vw,34px);line-height:1.08}
+/* ===== hero: подпись в 3 строки ===== */
+.hero-p{max-width:none}.hero-p span{display:block}
+@media(max-width:700px){.hero-p span{display:inline}}
+/* ===== кнопка «Наверх»: минимализм, фикс справа внизу ===== */
+.totop{position:fixed;right:var(--pad);bottom:20px;top:auto;z-index:75;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;background:rgba(11,10,15,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:grid;place-items:center;gap:0;opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s .4s,background .3s,border-color .3s,box-shadow .3s}
+.totop.show{opacity:1;visibility:visible;transition:opacity .4s,background .3s,border-color .3s,box-shadow .3s}
+.totop span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.totop svg{width:16px;height:16px}
+.totop:hover{background:var(--y);border-color:var(--y);color:#fff;box-shadow:var(--glow)}
+.side{right:calc(var(--pad) + 62px)}
+@media(max-width:700px){.totop{bottom:16px;width:42px;height:42px}}
+.bars{padding-top:clamp(36px,4vw,64px);height:calc(clamp(240px,28vw,440px) + clamp(36px,4vw,64px))}
+.bars-row b.top em{left:auto;right:0;transform:none}
+@media(max-width:900px){.bars{height:290px}}

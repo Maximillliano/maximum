@@ -25,6 +25,7 @@
  <symbol id="i-arr" viewBox="0 0 34 33"><path d="M4 3l26 26M30 8v21H9"/></symbol>
 </svg>
 
+<button type="button" class="totop" id="totop" aria-label="[[v2_top]]"><span>[[v2_top]]</span><svg><use href="#i-arr"/></svg></button>
 <div class="cur" id="cur" aria-hidden="true"><i></i><span></span></div>
 <div class="wipe" id="wipe" aria-hidden="true"></div>
 <aside class="side mono" id="side" aria-hidden="true"><b id="side-n">01</b><span id="side-t"></span><i><u id="side-b"></u></i></aside>
@@ -58,7 +59,7 @@
     <span class="ln r"><span class="ln-i fill">[[h1b]]</span></span>
   </h1>
   <div class="hero-bot">
-    <p class="hero-p">[[hp]]</p>
+    <p class="hero-p"><span>Веб-студия Maximum предлагает профессиональные</span> <span>услуги по созданию сайтов, интернет-магазинов</span> <span>и мобильных приложений.</span></p>
     <div class="hero-cta"><a class="btn btn-lg" data-mag href="#feedback"><span>[[order2]]</span><svg><use href="#i-arr"/></svg></a><a class="scroll mono" href="#work" aria-label="[[v2_scroll]]"><i></i>[[v2_scroll]]</a></div>
   </div>
 </section>
@@ -74,18 +75,21 @@
     <div class="st rv" style="--d:.12s"><b data-count="20">20+</b><span class="mono">[[s2]]</span></div>
     <div class="st rv" style="--d:.24s"><b data-count="10">10+</b><span class="mono">[[s3]]</span></div>
   </div>
-  <p class="sat rv">[[sat]]</p>
-  <div class="ruler" aria-hidden="true"><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>40</span><span>30</span><span>20</span><span>10</span></div>
+  <div class="proof"><p class="sat rv">[[sat]]</p>
+    <div class="bars" id="bars" role="img" aria-label="Рост: более 90% довольных клиентов">
+      <div class="bars-row"><b style="--h:14%;--i:0"></b><b style="--h:22%;--i:1"></b><b style="--h:27%;--i:2"></b><b style="--h:38%;--i:3"></b><b style="--h:45%;--i:4"></b><b style="--h:53%;--i:5"></b><b style="--h:62%;--i:6"></b><b style="--h:71%;--i:7"></b><b style="--h:81%;--i:8"></b><b style="--h:92%;--i:9" class="top"><em>90%+</em></b></div>
+      <div class="bars-ax mono" aria-hidden="true"><span>100%</span><span>75</span><span>50</span><span>25</span><span>0</span></div>
+    </div></div>
 </section>
 
 <!-- ============ FOUNDER (collectible card) ============ -->
-<section class="founder" id="founder" aria-labelledby="founder-h">
-  <div class="fo-card" id="fo-card">
-    <div class="fo-card-top mono"><span>MAXIMUM STUDIO</span><span>№ 001</span></div>
-    <div class="fo-photo"><img src="{{ROOT}}img/founder.jpg" width="800" height="800" alt="[[foN]]" loading="lazy"></div>
-    <div class="fo-card-b"><p class="eyebrow mono">[[foE]]</p><h2 id="founder-h">[[foN]]</h2><p class="mono role">[[foR]]</p></div>
+<section class="founder" id="founder" aria-label="[[foE]]">
+  <a class="fo-card" id="fo-card" href="https://www.behance.net/gallery/245962553/Mobile-lawyer-app-Lawber" target="_blank" rel="noopener" data-cursor="view" aria-label="[[v2_newproj]]: [[p1t]]">
+    <div class="fo-card-top mono"><span class="newtag"><i></i>[[v2_newproj]]</span><span class="arr">↗</span></div>
+    <div class="fo-photo"><img src="{{ROOT}}img/p1.jpg" width="560" height="800" alt="[[p1t]]" loading="lazy"></div>
+    <div class="fo-card-b"><p class="eyebrow mono">[[p1g1]] · [[p1g2]]</p><h2 id="founder-h">[[p1t]]</h2></div>
     <i class="sheen" aria-hidden="true"></i>
-  </div>
+  </a>
   <div class="fo-txt">
     <p class="eyebrow mono rv">(02) [[foE]]</p>
     <article class="rv"><h3>[[foL1]]</h3><p>[[foP1]]</p></article>
@@ -191,7 +195,7 @@
 </main>
 
 <footer>
-  <div class="wm" aria-hidden="true">MAXIMUM</div><button type="button" class="totop" id="totop" aria-label="[[v2_top]]"><span class="mono">[[v2_top]]</span><svg><use href="#i-arr"/></svg></button>
+  <div class="wm" aria-hidden="true">MAXIMUM</div>
   <div class="fl">
     <div class="fl-l mono"><span>[[foot_owner]]</span><span>[[foot_addr]]</span><span>[[foot_reg]]</span><span>© <span id="year">2026</span> Maximum Studio</span></div>
     <div class="fl-r mono"><a href="{{POL}}">[[pp]]</a><a href="{{POL}}#cookies">[[cp]]</a><button type="button" class="fl-btn" id="ck-open">[[cs]]</button><a href="{{ROOT_SITE}}">[[v2_v1]]</a></div>

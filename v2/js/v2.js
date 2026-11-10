@@ -158,7 +158,7 @@ if(fine){html.classList.add('has-cur');var cur=$('#cur'),dot=$('i',cur),ring=$('
   if(d){ring.textContent=LAB[d.dataset.cursor]||'';cur.classList.add('lab');cur.classList.remove('hov')}
   else{cur.classList.remove('lab');ring.textContent='';cur.classList.toggle('hov',!!(e.target.closest&&e.target.closest('a,button,.sel li,label')))}});
  /* магнитные кнопки */
- $$('[data-mag],.nav .btn,.totop').forEach(function(b){var xt=G.quickTo(b,'x',{duration:.6,ease:'power3'}),yt=G.quickTo(b,'y',{duration:.6,ease:'power3'});
+ $$('[data-mag],.nav .btn').forEach(function(b){var xt=G.quickTo(b,'x',{duration:.6,ease:'power3'}),yt=G.quickTo(b,'y',{duration:.6,ease:'power3'});
   b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();xt((e.clientX-r.left-r.width/2)*.3);yt((e.clientY-r.top-r.height/2)*.4)});
   b.addEventListener('pointerleave',function(){xt(0);yt(0)})});
  /* ролл текста */
@@ -179,7 +179,7 @@ function goTo(target){if(busy)return;busy=true;var closing=menu.classList.contai
   .add(function(){G.set(wipe,{yPercent:100});busy=false})}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var h=a.getAttribute('href');if(h==='#'||h.length<2||h==='#cookie-settings')return;
  var el=$(h);if(!el)return;e.preventDefault();goTo(h==='#top'?0:el)});
-var tt=$('#totop');if(tt)tt.addEventListener('click',function(){lenis.scrollTo(0,{duration:2.2,easing:function(t){return 1-Math.pow(1-t,4)}})});
+var tt=$('#totop');if(tt)lenis.on('scroll',function(e){tt.classList.toggle('show',e.scroll>innerHeight*.8)});if(tt)tt.addEventListener('click',function(){lenis.scrollTo(0,{duration:2.2,easing:function(t){return 1-Math.pow(1-t,4)}})});
 
 /* ---------- заголовки по словам ---------- */
 var heads=$$('.big-h,.fb-h').filter(function(h){return!h.closest('.hs')});
@@ -198,7 +198,7 @@ if(ap){var wr=[],txt=ap.textContent.trim().split(/\s+/);ap.setAttribute('aria-la
 $$('[data-count]').forEach(function(e){var n=+e.dataset.count,o={v:0};e.textContent='0+';
  ST.create({trigger:e,start:'top 85%',once:true,onEnter:function(){G.to(o,{v:n,duration:2.2,ease:'power4.out',onUpdate:function(){e.textContent=Math.round(o.v)+'+'}})}})});
 G.utils.toArray('.st b').forEach(function(b){G.fromTo(b,{yPercent:18},{yPercent:-10,ease:'none',scrollTrigger:{trigger:b,start:'top bottom',end:'bottom top',scrub:true}})});
-var rl=$('.ruler');if(rl)ST.create({trigger:rl,start:'top 90%',once:true,onEnter:function(){rl.classList.add('in')}});
+var bars=$('#bars');if(bars)ST.create({trigger:bars,start:'top 85%',once:true,onEnter:function(){bars.classList.add('in')}});
 
 /* ---------- HERO ---------- */
 var hero=$('#hero'),h1=$('.hero-h'),fig=$('.hero-fig'),heroPh=$('#hero-ph'),bob=$('.hero-bob'),glows=$$('.hero-glow'),lns=$$('.ln-i',h1),lnBox=$$('.ln',h1),chars=[];
