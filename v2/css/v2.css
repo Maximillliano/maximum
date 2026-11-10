@@ -488,7 +488,7 @@ html:not(.js) .bars-row b{transform:none}
 /* ===== v3: очки, фон hero, CTA, чёрные блоки ===== */
 .glasses{position:absolute;inset:0;pointer-events:none}
 .glasses svg.gl-tint,.glasses svg.gl-frame{position:absolute;inset:0;width:100%;height:100%}
-.gl-video{position:absolute;left:29.86%;top:36.09%;width:41.32%;height:7.14%;object-fit:cover;clip-path:url(#lensclip);mix-blend-mode:screen;opacity:.95}
+.gl-video{position:absolute;left:26.85%;top:36.09%;width:47.22%;height:7.52%;object-fit:cover;clip-path:url(#lensclip);mix-blend-mode:screen;opacity:.95}
 .hero-bgtxt{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;gap:.02em;overflow:hidden;pointer-events:none;font-family:var(--disp);font-weight:700;font-size:clamp(150px,27vw,420px);line-height:.86;text-transform:uppercase;color:rgba(243,239,232,.045);user-select:none;transform:translateY(-6%)}
 .hero-bgtxt .bgrow{display:flex;white-space:nowrap}
 .hero-bgtxt .mq-t{display:flex;flex:none;gap:.25em;padding-right:.25em;will-change:transform}
