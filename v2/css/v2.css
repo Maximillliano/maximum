@@ -607,3 +607,6 @@ html:not(.js) .bars-row b{transform:none}
 .sv{grid-template-columns:1fr}.sv-n{padding:0 0 10px}.sv-m,.sv-im{grid-column:1}
 .wm{font-size:clamp(60px,22.5vw,200px)}
 }
+/* v9: фото в hero +20% */
+.hero-ph{height:min(113vh,calc(100vw*1.5));margin-bottom:-22vh}
+@media(max-width:700px){.hero-ph{height:min(84vh,calc(100vw*1.56));margin-bottom:-16vh}}
