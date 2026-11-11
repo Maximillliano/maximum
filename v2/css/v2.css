@@ -624,3 +624,5 @@ html:not(.js) .bars-row b{transform:none}
 .pcard-b h3{line-height:1.2}
 .cta-wide{line-height:1.08}
 .bigq q{line-height:1.2}
+/* v13: слово MAXIMUM в футере целиком помещается на любой ширине */
+.wm{font-size:clamp(60px,24.5vw,520px);line-height:.95;padding-left:0;padding-right:0}
