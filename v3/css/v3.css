@@ -35,3 +35,9 @@ footer,.foot{background:rgba(10,2,20,.45);-webkit-backdrop-filter:blur(18px);bac
 .stats .st::after{content:"✳";position:absolute;right:18px;top:12px;font-size:26px;color:#c9a2ff;opacity:.9}
 .stats .st:nth-child(2n)::after{color:#ff9a8a}
 .stats .st{position:relative}
+/* v3.1: фото +20%, белые цифры, отзывы без фона у логотипа */
+.hero-ph{height:min(113vh,calc(100vw*1.5));margin-bottom:-22vh}
+@media(max-width:700px){.hero-ph{height:min(84vh,calc(100vw*1.56));margin-bottom:-16vh}}
+.stats .st b{color:#fff;text-shadow:0 0 40px rgba(255,255,255,.28)}
+.reviews .slide footer,.reviews blockquote footer{background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.hero-cta .btn-lg{position:relative;z-index:5}
