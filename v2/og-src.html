@@ -1,0 +1,24 @@
+<!doctype html><meta charset="utf-8"><link rel="stylesheet" href="css/fonts.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;overflow:hidden;background:#0B0A0F;position:relative;font-family:'Manrope',sans-serif;color:#f3efe8}
+.g1{position:absolute;left:300px;top:20px;width:700px;height:700px;background:radial-gradient(closest-side,rgba(180,76,255,.55),transparent 70%)}
+.g2{position:absolute;left:-200px;top:300px;width:600px;height:500px;background:radial-gradient(closest-side,rgba(123,34,230,.35),transparent 70%)}
+.bg{position:absolute;left:0;right:0;top:40px;text-align:center;font:700 330px/.8 'Oswald';color:rgba(243,239,232,.04);letter-spacing:-.02em}
+.h{position:absolute;left:56px;width:1088px;display:flex;font:700 188px/1 'Oswald';text-transform:uppercase;letter-spacing:-.015em;white-space:nowrap}
+.h1{top:98px;color:transparent;-webkit-text-stroke:2px #f3efe8}
+.h2{top:288px;color:#b44cff;text-shadow:0 0 40px rgba(180,76,255,.7)}
+.me{position:absolute;left:50%;top:50px;height:760px;transform:translateX(-50%)}
+.fade{position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(transparent,#0B0A0F 85%)}
+.logo{position:absolute;left:56px;top:40px;font:700 30px/1 'Oswald';letter-spacing:.04em;z-index:5}
+.tag{position:absolute;left:56px;bottom:46px;z-index:5;font:500 24px/1.4 'Manrope';max-width:470px}
+.tag b{display:block;font:700 34px/1.1 'Oswald';text-transform:uppercase;color:#fff;margin-bottom:6px}
+.pill{position:absolute;right:56px;bottom:46px;z-index:5;background:#b44cff;color:#fff;font:700 22px/1 'Manrope';letter-spacing:.08em;text-transform:uppercase;padding:22px 36px;border-radius:99px;box-shadow:0 0 40px rgba(180,76,255,.6)}
+.url{position:absolute;right:56px;top:46px;z-index:5;font:500 18px 'JetBrains Mono';opacity:.6;letter-spacing:.08em}
+</style>
+<div class="g2"></div><div class="g1"></div><div class="bg">UX/UI</div>
+<div class="h h1">Дизайн и</div><div class="h h2">интерфейсы</div>
+<img class="me" src="img/me.webp"><div class="fade"></div>
+<div class="logo">MAXIMUM</div><div class="url">MAXIMILLLIANO.GITHUB.IO/MAXIMUM</div>
+<div class="tag"><b>Maximum Studio</b>@@TAG@@</div><div class="pill">@@CTA@@</div>
+<script>document.fonts.ready.then(()=>{document.querySelectorAll(".h").forEach((e,k)=>{e.innerHTML=[...e.textContent].map(c=>"<span>"+c+"</span>").join("");e.style.fontSize="190px";const sp=[...e.querySelectorAll("span")];let w=0;sp.forEach(x=>w+=x.getBoundingClientRect().width);if(w>1088){e.style.fontSize=190*1088/w+"px"}else{e.style.justifyContent="space-between"}});document.body.dataset.ok=1})</script>
