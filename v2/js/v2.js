@@ -92,7 +92,7 @@ window.confetti=function(){if(calm)return;var cv=document.createElement('canvas'
 
 /* ---------- Instagram-лента (data-feed → JSON; нет данных — остаются заглушки) ---------- */
 (function(){var g=$('#ig-grid');if(!g||!window.fetch)return;var url=g.dataset.feed,max=+g.dataset.max||3;if(!url)return;
- function src(u){if(typeof u!=='string')return'';if(/^https:\/\//.test(u))return u;return(/^[\w\-.\/%]+$/.test(u)&&u.indexOf('..')<0&&u.charAt(0)!=='/')?root+u:''}
+ function src(u){if(typeof u!=='string')return'';if(/^https:\/\//.test(u))return u;return(/^[\w\-.\/%]+$/.test(u)&&u.indexOf('..')<0&&u.charAt(0)!=='/')?url.replace(/data\/instagram\.json.*$/,'')+u:''}
  function norm(p){var s=p.sizes||{},img=p.thumbnailUrl||p.thumbnail_url||(s.medium&&s.medium.mediaUrl)||p.mediaUrl||p.media_url||p.image||'';
   var t=(p.mediaType||p.media_type||'').toUpperCase();return{link:p.permalink||p.link||'',img:img,cap:(p.prunedCaption||p.caption||'').replace(/\s+/g,' ').trim(),ts:p.timestamp||p.date||'',type:t}}
  fetch(url,{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
