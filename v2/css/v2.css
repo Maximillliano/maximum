@@ -615,3 +615,12 @@ html:not(.js) .bars-row b{transform:none}
 .menu-lang{display:inline-flex;gap:6px;margin-left:auto}.menu-lang a{font:500 13px var(--mono);letter-spacing:.12em;padding:10px 14px;border:1px solid var(--line);border-radius:999px;color:var(--mut)}.menu-lang a.on{color:#fff;border-color:var(--y)}
 /* v11: cookie — белый текст кнопок при наведении */
 .cookie .btn:hover,.cookie .btn:focus-visible{color:#fff}
+/* v12: больше межстрочный интервал в заголовках (Й и ё не слипаются со строкой выше) */
+.big-h,.fb-h{line-height:1.14}
+.work.is-hs .big-h{line-height:1.1}
+.hero-h{line-height:1.14;top:calc(44% - 1.14em)}
+.sv h3{line-height:1.1}
+.fo-card-b h2,.fo-txt h3,.mbox h3{line-height:1.18}
+.pcard-b h3{line-height:1.2}
+.cta-wide{line-height:1.08}
+.bigq q{line-height:1.2}
