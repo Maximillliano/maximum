@@ -85,7 +85,7 @@ t1–t3 логотипы PNG прозрачный фон 430×130 · stats-hover
 
 ## Версия 2 (другой дизайн, тот же контент)
 Главная (`/` RU и `/en/` EN) — тёмный редакторский дизайн: прелоадер 0→100 %, крупная типографика (Oswald / Manrope / JetBrains Mono), бегущие ленты, коллекционная карточка основателя, проявление текста при прокрутке.
-Тексты берутся из `i18n/ru-source.html`, `i18n/en.json` и `i18n/v2.json`, SEO-шапка — `i18n/seo-ru.html` и `seo-en.html`; разметка — `v2/template.html`. После правок: `python3 build-v2.py` (собирает `index.html`, `en/index.html`, `v3/index.html`), затем `python3 build-en.py` для политики EN.
+Тексты берутся из `i18n/ru-source.html`, `i18n/en.json` и `i18n/v2.json`, SEO-шапка — `i18n/seo-ru.html` и `seo-en.html`; разметка — `v2/template.html`. После правок: `python3 build-v2.py` (собирает `index.html`, `en/index.html`), затем `python3 build-en.py` для политики EN.
 Страницы закрыты от индексации (`noindex`), canonical ведёт на основную версию. Юридика (политика, cookie-баннер, согласие в форме, реквизиты) — те же, что в основной версии.
 
 Анимации v2: плавный скролл Lenis + GSAP/ScrollTrigger (файлы лежат в `v2/js/`, внешних запросов нет). Логика — `v2/js/v2.js`. Прелоадер: один раз за сессию, `?nopre` отключает.

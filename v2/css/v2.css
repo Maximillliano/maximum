@@ -610,3 +610,6 @@ html:not(.js) .bars-row b{transform:none}
 /* v9: фото в hero +20% */
 .hero-ph{height:min(113vh,calc(100vw*1.5));margin-bottom:-22vh}
 @media(max-width:700px){.hero-ph{height:min(84vh,calc(100vw*1.56));margin-bottom:-16vh}}
+
+/* v10: переключатель языка в мобильном меню */
+.menu-lang{display:inline-flex;gap:6px;margin-left:auto}.menu-lang a{font:500 13px var(--mono);letter-spacing:.12em;padding:10px 14px;border:1px solid var(--line);border-radius:999px;color:var(--mut)}.menu-lang a.on{color:#fff;border-color:var(--y)}
