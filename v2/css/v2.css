@@ -594,3 +594,16 @@ html:not(.js) .bars-row b{transform:none}
 .cta-wide-wrap{padding:12px var(--pad,4vw) 0}
 .cta-wide-wrap .btn-lg{padding:clamp(24px,2.4vw,36px) clamp(36px,4vw,64px);font-size:clamp(16px,1.4vw,22px);gap:18px}.cta-wide-wrap .btn-lg svg{width:26px;height:26px}
 .cta-wide-wrap{display:flex;justify-content:center}
+
+/* ===== v8: адаптив ===== */
+@media(min-width:1101px){.nav .links{position:static;transform:none;margin:0 auto 0 clamp(32px,3.6vw,84px)}}
+.hs-more{display:none}
+.big-h{line-height:1.04}.fb-h{line-height:1.04}.work.is-hs .big-h{line-height:1}
+@media(max-width:700px){
+.hero-fig{padding-bottom:104px}.hero-h{top:calc(23% - .93em)}
+.hs-track:not(.all) .pcard:nth-child(n+4){display:none}
+.hs-more{display:inline-flex}.hs-track.all~.hs-end .hs-more,.hs-end .hs-more[style*="none"]{display:none}
+.hs-end{flex-direction:column;align-items:stretch;gap:12px}.hs-end .btn-lg{width:100%;justify-content:center}
+.sv{grid-template-columns:1fr}.sv-n{padding:0 0 10px}.sv-m,.sv-im{grid-column:1}
+.wm{font-size:clamp(60px,22.5vw,200px)}
+}
