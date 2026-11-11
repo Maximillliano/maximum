@@ -186,16 +186,11 @@ if(fine){html.classList.add('has-cur');var cur=$('#cur'),dot=$('i',cur),ring=$('
   if(tn){if(tn.children.length===0&&tn.firstChild&&tn.firstChild.nodeType===3)wrap(tn.firstChild)}
   else Array.prototype.slice.call(a.childNodes).forEach(function(c){if(c.nodeType===3)wrap(c)})})}
 
-/* ---------- переходы по якорям: жёлтая шторка ---------- */
-var wipe=$('#wipe'),busy=false;
-G.set(wipe,{yPercent:100});
-function goTo(target){if(busy)return;busy=true;var closing=menu.classList.contains('open');
- G.timeline({defaults:{ease:'power3.inOut'}})
-  .set(wipe,{yPercent:100})
-  .to(wipe,{yPercent:0,duration:.6})
-  .add(function(){if(closing)menuToggle(false);lenis.scrollTo(target,{immediate:true,force:true});ST.update()})
-  .to(wipe,{yPercent:-100,duration:.65,delay:.08})
-  .add(function(){G.set(wipe,{yPercent:100});busy=false})}
+/* ---------- переходы по якорям: плавный скролл к элементу ---------- */
+function goTo(target){var closing=menu.classList.contains('open');if(closing){menuToggle(false);setTimeout(function(){goTo(target)},350);return}
+ var off=target===0?0:(typeof target==='number'?target:(target.getBoundingClientRect().top+scrollY));
+ var dist=Math.abs(off-scrollY),dur=Math.min(1.3,Math.max(.6,dist/4200));
+ lenis.scrollTo(target,{duration:dur,easing:function(t){return 1-Math.pow(1-t,4)},force:true})}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var h=a.getAttribute('href');if(h==='#'||h.length<2||h==='#cookie-settings')return;
  var el=$(h);if(!el)return;e.preventDefault();goTo(h==='#top'?0:el)});
 var tt=$('#totop');if(tt)lenis.on('scroll',function(e){tt.classList.toggle('show',e.scroll>innerHeight*.8)});if(tt)tt.addEventListener('click',function(){lenis.scrollTo(0,{duration:2.2,easing:function(t){return 1-Math.pow(1-t,4)}})});
@@ -336,13 +331,8 @@ function begin(){html.classList.add('ready');lenis.start();heroIn();afterFonts(f
 function buildMarqueesSizes(){tracks.forEach(function(k){k.half=k.el.scrollWidth/2})}
 function afterFonts(f){if(document.fonts&&document.fonts.ready)document.fonts.ready.then(f);else f()}
 var ready=new Promise(function(res){var done=0,go=function(){if(++done>=2)res()};afterFonts(go);var im=$('.hero-ph img');if(im&&!im.complete)im.addEventListener('load',go);else go();setTimeout(res,3500)});
-if(pre&&!skip){try{sessionStorage.setItem('v2pre','1')}catch(e){}
- var nEl=$('#pre-n'),bar=$('#pre-b'),o={p:0},t0=performance.now(),pc=$('.pre-n'),finished=false;
- G.to(o,{p:1,duration:2.1,ease:'power2.inOut',onUpdate:function(){var v=Math.round(o.p*100);nEl.textContent=v;bar.style.transform='scaleX('+o.p+')'},
-  onComplete:function(){ready.then(function(){
-   G.timeline().to(pc,{scale:1.06,duration:.3,ease:'power2.in'}).to('.pre-l,.pre-t',{opacity:0,duration:.25},0)
-    .add(function(){pre.classList.add('done');setTimeout(begin,420);setTimeout(function(){pre.remove()},1300)},'>')})}})}
-else{if(pre)pre.remove();G.delayedCall(.05,begin)}
+if(pre)pre.remove();G.delayedCall(.05,begin);
+
 addEventListener('load',function(){ST.refresh()});
 }else{
  /* без движка: простые якоря, а скролл — нативный */

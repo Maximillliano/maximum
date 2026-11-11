@@ -24,15 +24,6 @@ section{position:relative;padding:clamp(60px,8vw,130px) var(--pad)}
 .out{color:transparent;-webkit-text-stroke:1.5px var(--fg)}
 
 /* ---------- прелоадер ---------- */
-.pre{position:fixed;inset:0;z-index:200;background:var(--bg);display:none;transition:transform 1s var(--ease)}
-html.js .pre{display:flex;align-items:flex-end;justify-content:space-between;padding:var(--pad)}
-html.nopre .pre{display:none!important}
-.pre.done{transform:translateY(-100%)}
-.pre-in{display:flex;flex-direction:column;gap:8px;width:100%}
-.pre-l,.pre-t{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
-.pre-n{font:700 clamp(120px,32vw,560px)/.8 var(--disp);color:var(--fg);display:flex;align-items:flex-start;letter-spacing:-.02em}
-.pre-n u{text-decoration:none;font-size:.3em;color:var(--y);margin-left:.06em;margin-top:.04em}
-.pre-bar{position:absolute;left:0;right:0;top:0;height:3px}.pre-bar i{display:block;height:100%;background:var(--y);transform-origin:0 50%;transform:scaleX(0)}
 .prog{position:fixed;left:0;top:0;height:2px;width:100%;background:var(--y);transform-origin:0 50%;transform:scaleX(0);z-index:90}
 
 /* ---------- шапка ---------- */
@@ -269,7 +260,7 @@ footer{background:var(--bg);padding-top:clamp(20px,3vw,48px);overflow:hidden}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
  .js .rv,.js .hero-h .ln-i,.js .hero-top,.js .hero-bot,.js .hero-ph{opacity:1!important;transform:none!important}.js .pcard-im,.js .sv-im{clip-path:none!important}.js .pcard-im img{transform:none!important}
- .ruler span::before{transform:none!important}.pre{display:none!important}.mq-t,.rib-t{overflow-x:auto}}
+ .ruler span::before{transform:none!important}.mq-t,.rib-t{overflow-x:auto}}
 html:not(.js) .pre{display:none}
 
 .big-h .out{-webkit-text-stroke:1.5px var(--fg)}.big-h br{display:block}
@@ -290,7 +281,6 @@ html.has-cur .cur{display:block}
 .cur.out span,.cur.out i{opacity:0}
 html.has-cur [data-cursor]{cursor:none}
 /* шторка при переходах */
-.wipe{position:fixed;inset:0;z-index:250;background:var(--y);transform:translateY(100%);pointer-events:none;will-change:transform}
 /* индикатор секции */
 .side{position:fixed;right:var(--pad);bottom:22px;z-index:70;display:flex;align-items:center;gap:12px;color:#fff;mix-blend-mode:difference;pointer-events:none}
 .side b{font-weight:500}.side i{display:block;width:70px;height:1px;background:rgba(255,255,255,.35);overflow:hidden}.side u{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:0 50%}
@@ -630,3 +620,15 @@ html:not(.js) .bars-row b{transform:none}
 /* v14: подсказка ошибки телефона может быть длинной */
 .fld .msg{right:0;white-space:normal;line-height:1.35}
 .fld{transition:margin-bottom .3s}.fld.err{margin-bottom:26px}
+/* v15: заголовок hero не залезает на подпись и меню на невысоких экранах */
+@media(min-width:701px){.hero-h{font-size:min(16.2vw,calc((100vh - 280px)/2.28));top:calc(50% - 1.14em)}}
+/* v15: единая система скруглений — карточки/панели 24px, вложенные картинки 16px, выпадающие списки 14px */
+:root{--rc:24px;--ri:16px;--rs:14px}
+.fo-card,.pcard,.sv,.ig-card,.slide,.mbox,.cookie,.qs blockquote,.cta-wide{border-radius:var(--rc)}
+.fo-photo,.sv-im,.sv-float,.pcard-im{border-radius:var(--ri)}
+.pcard-im{overflow:hidden}
+.sel ul,.lang ul{border-radius:var(--rs)}
+@media(max-width:700px){:root{--rc:20px;--ri:14px;--rs:12px}}
+/* hero: небольшой зазор между заголовком и нижним блоком, подпись сверху всегда над фоном */
+@media(min-width:701px){.hero-h{font-size:min(16.2vw,calc((100vh - 330px)/2.28))}}
+.hero-top span{position:relative;z-index:5;text-shadow:0 1px 10px #0B0A0F}
