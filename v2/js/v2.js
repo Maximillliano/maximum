@@ -47,9 +47,26 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){langClose()
 /* ---------- форма (та же логика и тот же адрес приёма, что в основной версии) ---------- */
 var form=$('#form'),ferr=$('#ferr');
 function bad(el,on){var f=el.closest('.fld');if(f)f.classList.toggle('err',on);return on}
+
+/* валидация телефона: допустимые символы, длина по формату страны, понятная подсказка */
+function phoneCheck(v){v=(v||'').trim();var ex=T('Пример: +375 29 123-45-67','Example: +375 29 123-45-67');
+ if(!v)return T('Введите номер телефона. ','Enter your phone number. ')+ex;
+ if(/[^\d\s()+\-]/.test(v))return T('Только цифры, пробелы, скобки, дефис и «+». ','Digits, spaces, brackets, hyphen and “+” only. ')+ex;
+ if(/\+/.test(v.slice(1)))return T('Знак «+» ставится только в начале. ','“+” only at the start. ')+ex;
+ var d=v.replace(/\D/g,''),n=d.length,need,fmt;
+ if(d.indexOf('375')===0){need=12;fmt=T('Беларусь: +375 XX XXX-XX-XX (12 цифр)','Belarus: +375 XX XXX-XX-XX (12 digits)')}
+ else if(/^80\d/.test(d)&&v.charAt(0)!=='+'){need=11;fmt=T('Беларусь: 8 0XX XXX-XX-XX (11 цифр) или +375 XX XXX-XX-XX','Belarus: 8 0XX XXX-XX-XX (11 digits) or +375 XX XXX-XX-XX')}
+ else if(/^[78]/.test(d)){need=11;fmt=T('Россия/Казахстан: +7 XXX XXX-XX-XX (11 цифр)','Russia/Kazakhstan: +7 XXX XXX-XX-XX (11 digits)')}
+ if(need){if(n<need)return T('Не хватает цифр: введено '+n+' из '+need+'. ','Too short: '+n+' of '+need+' digits. ')+fmt;if(n>need)return T('Лишние цифры: введено '+n+', нужно '+need+'. ','Too long: '+n+' digits, need '+need+'. ')+fmt;return ''}
+ if(n<10)return T('Слишком короткий номер ('+n+' цифр). Укажите с кодом страны. ','Number is too short ('+n+' digits). Include the country code. ')+ex;
+ if(n>15)return T('Слишком длинный номер ('+n+' цифр, максимум 15). ','Number is too long ('+n+' digits, max 15). ')+ex;
+ return ''}
+function phoneShow(){var f=form.phone,m=phoneCheck(f.value),fl=f.closest('.fld'),msg=$('.msg',fl);if(msg){if(!msg.dataset.def)msg.dataset.def=msg.textContent;msg.textContent=m||msg.dataset.def}f.setAttribute('aria-invalid',m?'true':'false');fl.classList.toggle('err',!!m);return !!m}
+form.phone.addEventListener('input',function(){var i=this,c=i.value.replace(/[^\d\s()+\-]/g,'');if(c!==i.value){var pos=i.selectionStart-(i.value.length-c.length);i.value=c;try{i.setSelectionRange(pos,pos)}catch(e){}var fl=i.closest('.fld'),mg=$('.msg',fl);if(mg){if(!mg.dataset.def)mg.dataset.def=mg.textContent;mg.textContent=T('Только цифры, пробелы, скобки, дефис и «+». Пример: +375 29 123-45-67','Digits, spaces, brackets, hyphen and “+” only. Example: +375 29 123-45-67')}fl.classList.add('err');return}if(i.closest('.fld').classList.contains('err'))phoneShow()});
+form.phone.addEventListener('blur',function(){if(this.value.trim())phoneShow()});
 form.addEventListener('submit',function(e){e.preventDefault();ferr.classList.remove('show');
  var d=new FormData(form),name=(d.get('name')||'').trim(),phone=(d.get('phone')||'').trim(),
-  b1=bad(form.name,name.length<2),b2=bad(sel,!d.get('service')),b3=bad(form.phone,!/^\+?[\d\s()\-]{7,}$/.test(phone)||phone.replace(/\D/g,'').length<7),b4=bad(form.agree,!form.agree.checked);
+  b1=bad(form.name,name.length<2),b2=bad(sel,!d.get('service')),b3=phoneShow(),b4=bad(form.agree,!form.agree.checked);
  if(b1||b2||b3||b4){var f=$('.err input,.err .sel-btn',form);if(f)f.focus();return}
  if(d.get('website'))return;
  var payload={_subject:'Новая заявка с сайта Maximum Studio',name:name,phone:phone,service:d.get('service'),lang:lang,page:location.href,time:new Date().toISOString()};
@@ -59,7 +76,7 @@ form.addEventListener('submit',function(e){e.preventDefault();ferr.classList.rem
  fetch(ep,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
   .then(function(r){if(!r.ok)throw new Error(r.status);done()})
   .catch(function(err){console.error('[form]',err);btn.disabled=false;ferr.classList.add('show')})});
-$$('input',form).forEach(function(i){i.addEventListener('input',function(){bad(i,false)})});
+$$('input',form).forEach(function(i){if(i.name!=='phone')i.addEventListener('input',function(){bad(i,false)})});
 
 /* ---------- cookies: как в основной версии. Выбор хранится 12 месяцев; аналитика грузится только после «Принять» ---------- */
 var ck=$('#cookie'),CK_TTL=365*864e5,anLoaded=false;
