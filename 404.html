@@ -4,7 +4,7 @@
 <script>/* 404 отдаётся на любой глубине пути, поэтому базу считаем сами: username.github.io/repo/ → /repo/, иначе корень */
 var B='/',s=location.pathname.split('/')[1];if(/github\.io$/.test(location.hostname)&&s&&!/\.html?$/.test(s))B='/'+s+'/';
 document.write('<base href="'+B+'">')</script>
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="img/favicon-48.png" type="image/png" sizes="48x48"><link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="stylesheet" href="v2/css/fonts.css"><link rel="stylesheet" href="v2/css/v2.css"><link rel="stylesheet" href="v2/css/page.css">
 </head>
 <body>

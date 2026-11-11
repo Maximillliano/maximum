@@ -52,7 +52,7 @@ form.addEventListener('submit',function(e){e.preventDefault();ferr.classList.rem
   b1=bad(form.name,name.length<2),b2=bad(sel,!d.get('service')),b3=bad(form.phone,!/^\+?[\d\s()\-]{7,}$/.test(phone)||phone.replace(/\D/g,'').length<7),b4=bad(form.agree,!form.agree.checked);
  if(b1||b2||b3||b4){var f=$('.err input,.err .sel-btn',form);if(f)f.focus();return}
  if(d.get('website'))return;
- var payload={_subject:'Новая заявка с сайта Maximum Studio (v2)',name:name,phone:phone,service:d.get('service'),lang:lang,page:location.href,time:new Date().toISOString()};
+ var payload={_subject:'Новая заявка с сайта Maximum Studio',name:name,phone:phone,service:d.get('service'),lang:lang,page:location.href,time:new Date().toISOString()};
  var btn=$('.btn-send',form),ep=form.dataset.endpoint;btn.disabled=true;
  function done(){btn.disabled=false;form.reset();sv2.textContent=ph0;sv2.classList.add('ph');modalOpen();window.confetti&&window.confetti()}
  if(!ep){console.warn('[form] data-endpoint не задан — демо-режим',payload);setTimeout(done,400);return}
@@ -78,6 +78,7 @@ if(!ck0)setTimeout(function(){ckShow(true)},calm?1200:4200);
 if(location.hash==='#cookie-settings')ckShow(true);
 $('#ck-yes').addEventListener('click',function(){ckSet('accepted')});$('#ck-no').addEventListener('click',function(){ckSet('refused')});
 var cko=$('#ck-open');if(cko)cko.addEventListener('click',function(){ckShow(true);$('#ck-yes').focus()});
+if(location.hash==='#cookie-settings')setTimeout(function(){ckShow(true)},600);
 
 
 /* ---------- мелочи ---------- */
