@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 — Страница не найдена | Maximum Studio</title><meta name="robots" content="noindex">
-<style>html,body{height:100%;margin:0;background:#000;color:#fff;font-family:Raleway,Arial,sans-serif}body{display:grid;place-items:center;text-align:center;padding:24px;background:radial-gradient(60vw 60vw at 15% 0,#2a1f6b55,transparent)}
-h1{font-size:clamp(80px,22vw,240px);font-weight:500;margin:0;line-height:1;letter-spacing:-.05em}p{font-size:20px;margin:12px 0 32px}
-a{display:inline-block;background:#ffda66;color:#000;text-decoration:none;border-radius:30px;padding:10px 28px;font-size:20px}a:hover{background:#fff}</style></head>
-<body><div><h1>404</h1><p id="t">Такой страницы нет. Вернитесь на главную.</p><a id="h" href="/">На главную</a></div>
-<script>/* если сайт открыт как username.github.io/repo/ — ведём в папку репозитория */
-var s=location.pathname.split('/')[1];if(/github\.io$/.test(location.hostname)&&s&&!/\.html?$/.test(s)&&s!==''){document.getElementById('h').href='/'+s+'/'}
-if((navigator.language||'').slice(0,2)!=='ru'){document.documentElement.lang='en';document.getElementById('t').textContent='This page does not exist. Go back to the homepage.';document.getElementById('h').textContent='Home'}</script></body></html>
+<title>404 — Страница не найдена | Maximum Studio</title><meta name="robots" content="noindex"><meta name="theme-color" content="#0B0A0F">
+<script>/* 404 отдаётся на любой глубине пути, поэтому базу считаем сами: username.github.io/repo/ → /repo/, иначе корень */
+var B='/',s=location.pathname.split('/')[1];if(/github\.io$/.test(location.hostname)&&s&&!/\.html?$/.test(s))B='/'+s+'/';
+document.write('<base href="'+B+'">')</script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="v2/css/fonts.css"><link rel="stylesheet" href="v2/css/v2.css"><link rel="stylesheet" href="v2/css/page.css">
+</head>
+<body>
+<header class="nav"><a class="logo" href="./" aria-label="Maximum Studio">MAXIMUM<sup>®</sup></a><div class="nav-r"><a class="btn nav-cta" href="./"><span id="b1">На главную</span></a></div></header>
+<main class="nf"><h1 class="nf-n" aria-label="404">4<i>0</i>4</h1><p class="nf-t" id="t">Такой страницы нет. Вернитесь на главную.</p><a class="btn btn-lg" href="./"><span id="b2">На главную</span></a></main>
+<footer><div class="fl"><div class="fl-c"><b id="o">ИП Антипенко Максимилиан Юрьевич</b><span id="u">УНП 193311599</span></div><div class="fl-c"><span>© Maximum Studio</span></div></div></footer>
+<script>if((navigator.language||'').slice(0,2)!=='ru'){document.documentElement.lang='en';document.getElementById('t').textContent='This page does not exist. Go back to the homepage.';document.getElementById('b1').textContent=document.getElementById('b2').textContent='Home';document.getElementById('o').textContent='Sole proprietor Maximilian Antipenko';document.getElementById('u').textContent='UNP 193311599'}</script>
+</body></html>
