@@ -8,7 +8,7 @@
 import re,sys,pathlib
 if len(sys.argv)!=2 or not sys.argv[1].startswith('http'):sys.exit(__doc__)
 new=sys.argv[1].rstrip('/');root=pathlib.Path(__file__).parent
-files=['index.html','en/index.html','privacy-policy/index.html','en/privacy-policy/index.html','robots.txt','sitemap.xml','llms.txt','i18n/policy-en.html']
+files=['index.html','en/index.html','i18n/seo-ru.html','i18n/seo-en.html','i18n/ru-source.html','privacy-policy/index.html','en/privacy-policy/index.html','robots.txt','sitemap.xml','llms.txt','i18n/policy-en.html']
 mark=root/'.last-domain'
 if mark.exists():old=mark.read_text().strip()
 else:

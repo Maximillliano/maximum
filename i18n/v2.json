@@ -58,5 +58,29 @@
 "v2_newproj": {
 "ru": "Новый проект",
 "en": "New project"
+},
+"v2_hp1": {
+"ru": "Веб-студия Maximum предлагает профессиональные",
+"en": "Maximum web studio offers professional"
+},
+"v2_hp2": {
+"ru": "услуги по созданию сайтов, интернет-магазинов",
+"en": "services for building websites, online stores"
+},
+"v2_hp3": {
+"ru": "и мобильных приложений.",
+"en": "and mobile apps."
+},
+"v2_apps": {
+"ru": "Мобильных приложений",
+"en": "Mobile apps"
+},
+"v2_showmore": {
+"ru": "Показать больше",
+"en": "Show more"
+},
+"v2_barsl": {
+"ru": "Рост: более 90% довольных клиентов",
+"en": "Growth: over 90% of clients are satisfied"
 }
 }

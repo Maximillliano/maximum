@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """Генерирует английскую версию сайта из русской:
-   index.html  + i18n/en.json          -> en/index.html
    privacy-policy/index.html + i18n/policy-en.html -> en/privacy-policy/index.html
 Русские страницы — источник. Правите русский текст или i18n/en.json — запускайте:  python3 build-en.py
 Затем (если меняли домен):  python3 set-domain.py https://ваш-адрес"""
 import re,json,html,pathlib
 R=pathlib.Path(__file__).parent
 EN=json.loads((R/'i18n/en.json').read_text(encoding='utf-8'))
-ru=(R/'index.html').read_text(encoding='utf-8')
+ru=(R/'i18n/ru-source.html').read_text(encoding='utf-8')
 base=re.search(r'rel="canonical" href="([^"]+?)/?"',ru).group(1).rstrip('/')
 esc=lambda s:html.escape(s,quote=False)
 DT=re.compile(r'(<(\w+)\b[^>]*\bdata-i="([^"]+)"[^>]*>)(.*?)(</\2>)',re.S)
@@ -52,7 +51,6 @@ def ld(m):
     return t
 s=re.sub(r'<script type="application/ld\+json">.*?</script>',ld,s,flags=re.S)
 (R/'en').mkdir(exist_ok=True);(R/'en/privacy-policy').mkdir(exist_ok=True)
-(R/'en/index.html').write_text(s,encoding='utf-8')
 # ---------------- политика ----------------
 p=(R/'privacy-policy/index.html').read_text(encoding='utf-8')
 body=(R/'i18n/policy-en.html').read_text(encoding='utf-8').replace('https://maximum.by',base)
@@ -61,6 +59,6 @@ p=p[:a]+body+p[b:]
 p=page_meta(p,base+'/en/privacy-policy/',EN['pol_title'],EN['pol_desc'],EN['pol_title'],EN['pol_desc'])
 for x,y in [('href="../v2/','href="../../v2/'),('href="../css/','href="../../css/'),('href="../img/','href="../../img/'),('<a class="lang-link" href="../en/privacy-policy/" hreflang="en" lang="en">EN</a>','<a class="lang-link" href="../../privacy-policy/" hreflang="ru" lang="ru">RU</a>'),('>Заказать<','>Order<'),('<b>ИП Антипенко Максимилиан Юрьевич</b>','<b>'+EN['foot_owner']+'</b>'),('← На главную',EN['foot_back']),('>Настройки cookie<','>Cookie settings<'),('УНП 193311599','UNP 193311599'),('ИП Антипенко Максимилиан Юрьевич',EN['foot_owner']),('aria-label="Maximum Studio"','aria-label="Maximum Studio"')]: p=p.replace(x,y)
 (R/'en/privacy-policy/index.html').write_text(p,encoding='utf-8')
-left=[f for f in('en/index.html','en/privacy-policy/index.html') if re.search(r'[А-Яа-яЁё]',re.sub(r'<!--.*?-->','',(R/f).read_text(encoding='utf-8'),flags=re.S))]
-print('Готово: en/index.html, en/privacy-policy/index.html; база адреса:',base)
+left=[f for f in('en/privacy-policy/index.html',) if re.search(r'[А-Яа-яЁё]',re.sub(r'<!--.*?-->','',(R/f).read_text(encoding='utf-8'),flags=re.S))]
+print('Готово: en/privacy-policy/index.html; база адреса:',base)
 if left: print('ВНИМАНИЕ: остался русский текст в',left)
