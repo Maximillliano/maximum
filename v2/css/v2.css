@@ -632,3 +632,15 @@ html:not(.js) .bars-row b{transform:none}
 /* hero: небольшой зазор между заголовком и нижним блоком, подпись сверху всегда над фоном */
 @media(min-width:701px){.hero-h{font-size:min(16.2vw,calc((100vh - 330px)/2.28))}}
 .hero-top span{position:relative;z-index:5;text-shadow:0 1px 10px #0B0A0F}
+/* v16: мобильная версия — фото крупнее и выше, компактные кнопки, «показать больше» с обводкой, KPI в одну строку */
+@media(max-width:700px){
+.hero-ph{height:min(76vh,calc(100vw*1.62));margin-bottom:0}
+.hero-h{top:calc(24% - .93em)}
+.hero-cta .btn-lg,.hs-end .btn-lg,.cta-wide-wrap .btn-lg,.fb .btn-send{padding:15px 22px;font-size:14px;gap:12px;min-height:0}
+.hero-cta .btn-lg svg,.hs-end .btn-lg svg,.cta-wide-wrap .btn-lg svg,.fb .btn-send svg{width:18px;height:18px}
+.cta-wide-wrap{display:block}.cta-wide-wrap .btn-lg{width:100%}
+.kpis b{font-size:clamp(24px,7.4vw,40px);white-space:nowrap}
+}
+.btn.hs-more,.btn-lg.hs-more{background:transparent;border:1.5px solid #fff;color:#fff;box-shadow:none}
+.btn.hs-more::before{display:none}
+.btn.hs-more:hover{background:rgba(255,255,255,.1);color:#fff;border-color:#fff;box-shadow:none}
