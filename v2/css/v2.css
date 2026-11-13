@@ -644,3 +644,5 @@ html:not(.js) .bars-row b{transform:none}
 .btn.hs-more,.btn-lg.hs-more{background:transparent;border:1.5px solid #fff;color:#fff;box-shadow:none}
 .btn.hs-more::before{display:none}
 .btn.hs-more:hover{background:rgba(255,255,255,.1);color:#fff;border-color:#fff;box-shadow:none}
+/* v17: десктоп — кнопка «Заказать» внизу справа поднята, не касается подписи «01 Maximum Studio» */
+@media(min-width:1024px){.hero-bot{padding-bottom:30px}.hero-h{font-size:min(16.2vw,calc((100vh - 372px)/2.28))}}
