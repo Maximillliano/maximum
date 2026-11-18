@@ -646,3 +646,9 @@ html:not(.js) .bars-row b{transform:none}
 .btn.hs-more:hover{background:rgba(255,255,255,.1);color:#fff;border-color:#fff;box-shadow:none}
 /* v17: десктоп — кнопка «Заказать» внизу справа поднята, не касается подписи «01 Maximum Studio» */
 @media(min-width:1024px){.hero-bot{padding-bottom:30px}.hero-h{font-size:min(16.2vw,calc((100vh - 372px)/2.28))}}
+/* v18: все плашки отзывов одного цвета (тёмные), без фиолетового */
+.slide,.slide:nth-child(1),.slide:nth-child(2),.slide:nth-child(3){background:#111;border-color:#111;color:var(--fg)}
+.slide footer,.slide:nth-child(n) footer{color:rgba(243,239,232,.6)}
+.slide footer img,.reviews .slide:nth-child(n) footer img{filter:none}
+/* кнопка Instagram — в общем размере кнопок */
+@media(max-width:700px){.ig-side .ig-btn{width:100%;justify-content:center;padding:15px 22px;font-size:14px;gap:12px;min-height:0}.ig-side .ig-btn .ic{width:18px;height:18px}.ig-side .ig-btn span{overflow:hidden;text-overflow:ellipsis}}
