@@ -652,3 +652,8 @@ html:not(.js) .bars-row b{transform:none}
 .slide footer img,.reviews .slide:nth-child(n) footer img{filter:none}
 /* кнопка Instagram — в общем размере кнопок */
 @media(max-width:700px){.ig-side .ig-btn{width:100%;justify-content:center;padding:15px 22px;font-size:14px;gap:12px;min-height:0}.ig-side .ig-btn .ic{width:18px;height:18px}.ig-side .ig-btn span{overflow:hidden;text-overflow:ellipsis}}
+/* v19: карточки проектов 4:5 (качественные изображения), на десктопе сначала 6, остальные по кнопке «Показать больше» */
+.pcard,.hs-track .pcard{aspect-ratio:4/5}
+.hs-track:not(.all) .pcard:nth-child(n+7){display:none}
+.hs-more{display:inline-flex}.hs-track.all~.hs-end .hs-more{display:none}
+@media(max-width:700px){.hs-track:not(.all) .pcard:nth-child(n+4){display:none}}

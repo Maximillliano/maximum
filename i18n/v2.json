@@ -82,5 +82,89 @@
 "v2_barsl": {
 "ru": "Рост: более 90% довольных клиентов",
 "en": "Growth: over 90% of clients are satisfied"
+},
+"pv1t": {
+"ru": "MegaVPN — VPN-приложение",
+"en": "MegaVPN — VPN app"
+},
+"pv1g1": {
+"ru": "Mobile",
+"en": "Mobile"
+},
+"pv1g2": {
+"ru": "UX/UI",
+"en": "UX/UI"
+},
+"n1t": {
+"ru": "IT-Academy — сайт",
+"en": "IT-Academy — website"
+},
+"n1g1": {
+"ru": "Сайт",
+"en": "Website"
+},
+"n1g2": {
+"ru": "UX/UI",
+"en": "UX/UI"
+},
+"n2t": {
+"ru": "Платформа Эра — IT-платформа",
+"en": "Era Platform — IT platform"
+},
+"n2g1": {
+"ru": "Платформа",
+"en": "Platform"
+},
+"n2g2": {
+"ru": "UX/UI",
+"en": "UX/UI"
+},
+"n3t": {
+"ru": "Гриннет — корпоративный сайт",
+"en": "Grinnet — corporate website"
+},
+"n3g1": {
+"ru": "Сайт",
+"en": "Website"
+},
+"n3g2": {
+"ru": "UX/UI",
+"en": "UX/UI"
+},
+"n4t": {
+"ru": "Pro Vocal — сайт",
+"en": "Pro Vocal — website"
+},
+"n4g1": {
+"ru": "Сайт",
+"en": "Website"
+},
+"n4g2": {
+"ru": "Дизайн",
+"en": "Design"
+},
+"n5t": {
+"ru": "Ключевые компетенции — сайт кадрового агентства",
+"en": "Key Competencies — recruiting agency website"
+},
+"n5g1": {
+"ru": "Сайт",
+"en": "Website"
+},
+"n5g2": {
+"ru": "Рекрутинг",
+"en": "Recruiting"
+},
+"n6t": {
+"ru": "Лендинг для A4",
+"en": "Landing page for A4"
+},
+"n6g1": {
+"ru": "Лендинг",
+"en": "Landing"
+},
+"n6g2": {
+"ru": "UI",
+"en": "UI"
 }
 }
