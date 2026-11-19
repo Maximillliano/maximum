@@ -15,7 +15,7 @@ set-domain.py  build-en.py  — вспомогательные скрипты (P
 **Правила работы:** меняете русский текст в `index.html` → при необходимости правите перевод в `i18n/en.json` → `python3 build-en.py`. Если сменился адрес сайта → `python3 set-domain.py https://адрес`.
 
 ## 1. Картинки — положить в /img (экспорт из Figma, имена в нижнем регистре)
-hero.jpg, web-1.jpg, web-2.jpg, mobile.jpg, support.jpg, crm-1.jpg, crm-2.jpg, p1–p6.jpg, t1–t3.png (логотипы клиентов, прозрачный PNG),
+hero.jpg, web-1.jpg, web-2.jpg, mobile.jpg, support.jpg, crm-1.jpg, crm-2.jpg, p1.jpg (Lawber), pr-*.webp (обложки проектов 1000×1250), rib-*.webp (лента, 560×700), t1–t3.png (логотипы клиентов, прозрачный PNG),
 b1–b3.jpg, stats-hover.png (250×310), **founder.jpg** (портрет 4:5, ≥800×1000; если файла нет — блок руководителя показывается без фото).
 Уже готовы: favicon.ico, favicon-32/48.png, apple-touch-icon.png, icon-192/512.png, og-ru-1118.jpg (замените на свою обложку 1200×630 при желании).
 
