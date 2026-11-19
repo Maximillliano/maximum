@@ -657,3 +657,5 @@ html:not(.js) .bars-row b{transform:none}
 .hs-track:not(.all) .pcard:nth-child(n+7){display:none}
 .hs-more{display:inline-flex}.hs-track.all~.hs-end .hs-more{display:none}
 @media(max-width:700px){.hs-track:not(.all) .pcard:nth-child(n+4){display:none}}
+/* v20: mobile — кнопка Instagram на всю ширину */
+@media(max-width:700px){.ig-side{align-items:stretch;width:100%}.ig-side .ig-btn{width:100%;box-sizing:border-box}}
